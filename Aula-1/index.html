@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title><span class="lecture_placeholder"></title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+  <link rel="stylesheet" href="css/mine.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <div id="header-template">
+    <a href="https://unisal.br/">
+      <img src="img/logo_unisal.png" alt="Logo">
+    </a>
+    <h1>Aula &nbsp; <span id="aula_num_placeholder"></span> &nbsp; - &nbsp; <span class="lecture_placeholder"></span>
+      &nbsp; - &nbsp; <span class="lecture_subject_placeholder"></span></h1>
+  </div>
+
+  <!-- Rodapé -->
+  <div id="footer-template">
+    UNISAL - São José, Campinas - &nbsp; <span id="year-placeholder"></span>
+  </div>
+
+  <!-- Slides -->
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <a href="https://unisal.br/">
+          <img src="img/logo_unisal.png" alt="logo unisal"
+            style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+        </a>
+        <h2><span class="lecture_placeholder"></h2>
+        <h3><span class="lecture_subject_placeholder"></span></h3>
+        <p>
+          <small>Prof. Me. Gustavo Ferreira Palma</small>
+        </p>
+      </section>
+
+      <section>
+        <section>
+          <h2>Quem Sou eu?</h2>
+          <h4>Formação Acadêmica</h4>
+          <ul>
+            <li>Técnico em Informática - Etec Waldyr Duron Júnior</li>
+            <li>Tecnólogo em Análise e Desenvolvimento de Sistemas - FATEC Ourinhos</li>
+            <li>Especialista Em Eletrônica Embarcada - UNISAL</li>
+            <li>Mestre em Inteligência Computacional Aplicada - UTFPR</li>
+          </ul>
+        </section>
+
+        <section>
+          <h4>Experiência Profissional</h4>
+          <ul>
+            <li>Analista de Tecnologia - Chiptronic Eletrônica do Brasil (2011-2019)</li>
+            <li>Professor de Graduação - Eduvale Avaré (2017-2019)</li>
+            <li>Analista de Desenvolvimento - Stoneridge Brasil (2019-2020)</li>
+            <li>Consultor Tecnológico - Instituto de Pesquisas Eldorado (2020)</li>
+            <li>Professor de Graduação e Pós-Graduação - UNISAL (2023)</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <h1>Quem São Vocês?</h1>
+      </section>
+
+      <section>
+        <h2>O que Vamos Estudar?</h2>
+
+        <ul>
+          <li>Estrutura de Dados utilizando linguagem C</li>
+          <ul>
+            <li>Tipos Primitivos de dados</li>
+            <li>Gerenciamento de memória</li>
+            <li>Vetores e Matrizes</li>
+            <li>Ponteiros</li>
+            <li>Tipos Abstratos de dados</li>
+            <li>Funções</li>
+            <li>Arquivos</li>
+            <li>Algoritmos de ordenação</li>
+            <li>Algoritmos de busca</li>
+            <li>Filas</li>
+            <li>Pilhas</li>
+            <li>Listas</li>
+            <li>Entre outros...</li>
+          </ul>
+        </ul>
+      </section>
+
+      <!-- <section>
+        <h2>Bibliografia Básica</h2>
+        <ul>
+          <li>Conci, Aura. Computação Gráfica: Teoria e Prática - Geração De Imagens - Volume 1. Contribuição de Cristina Nader Vasconcelos e Eduardo Azevedo, Alta Books, 2021.</li>
+          <li>Barelli, Felipe. Introdução à visão computacional: uma abordagem prática com Python e OpenCV. Casa do Código, 2018.</li>
+        </ul>
+      </section> -->s
+
+      <section>
+        <section>
+          <h2>Métodos de Avaliação</h2>
+          <ul>
+            <li>Majoritariamente avaliações práticas;</li>
+            <li>Se/Quando Necessário, Avaliação escrita;</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Combinados de Ouro</h2>
+          <ul>
+            <li>Nosso Curso é PRESENCIAL, então para ter presença é preciso estar PRESENTE;</li>
+            <li>Abono de Faltas, somente com atestado e casos previstos;</li>
+            <li>Nossa Sala de Aula é um ambiente seguro, fiquem a vontade para perguntar, tirar dúvidas, fazer
+              experimentos, é um prazer ajudar e contribuir para o crescimento de cada um de vocês;</li>
+            <li>Evitem Conversas Paralelas, por mais que pareça que temos muito tempo, nosso tempo em sala de aula é
+              curto, aproveitem;</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Combinados de Ouro</h2>
+          <ul>
+            <li>Se tivermos alguma atividade manuscrita, caprichem na caligrafia, não sou farmacêutico, se eu não
+              conseguir ler, não tem nota;</li>
+            <li>Lembrem-se em toda e qualquer atividade que desenvolvermos, eu sei que o Chat-GPT sabe como resolver,
+              nesse momento quero saber de vocês, não tenham medo de errar, de testar, de experimentar, perguntem se
+              necessário, desenvolvam suas capacidades.</li>
+            <li>Guardem as conversas para momentos extra-classe, todos aqui são amigos, mas durante as aulas, o
+              importante é ouvir, perguntar e
+              interagir, com o professor.</li>
+          </ul>
+        </section>
+      </section>
+
+      <section>
+        <h1>Dúvidas?</h1>
+      </section>
+
+      <section>
+        <h1>Porque Linguagem C?</h1>
+      </section>
+
+      <section>
+        <h2>Porque Linguagem C?</h2>
+        <ul>
+          <li>Muitos podem pensar que a Linguagem de programação C, é uma Tecnologia obsoleta, muito difícil e
+            extremamente ultrapassada, contudo isso não é verdade</li>
+
+          <li>A Linguagem de programação C, é considerada uma linguagem clássica, afinal faz 50 anos que ela foi criada.
+            Contudo, isso não significa que ela não é atualizada</li>
+
+          <li>A última versão da linguagem C, a C23 foi lançada em 2024, o que faz dela uma linguagem atual e amplamente
+            utilizada em diferentes ambientes indo desde a criação de sistemas operacionais até o desenvolvimento de
+            sistemas embarcados e aplicações de alto desempenho</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Porque Linguagem C?</h2>
+        <ul>
+          <li>A linguagem C foi pensada para ter um nível baixo de abstração, mantendo-a próximo ao hardware;</li>
+
+          <li>Essas duas características principais, a tornam a melhor escolha para o ensino de técnicas de programação
+            e demonstração de conceitos</li>
+
+          <li>Durante as aulas vocês podem usar qualquer ambiente de desenvolvimento e qualquer compilador C, nós vamos
+            nos ater as bases e a copreensão dos principais recursos</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Processo de Compilação</h2>
+        <div class="mermaid" style="width: 100%;">
+          flowchart LR
+          A["Código-fonte (.c)"]
+          --> B["Compilação<br />(Pré-processamento + Compilação + Linkedição)"]
+          --> C["Executável"]
+          --> D["Execução"]
+        </div>
+      </section>
+
+      <section>
+        <h1>Tipos Primitivos de dados</h1>
+        <ul>
+          <li>Os tipos primitivos são os tipos de dados fundamentais fornecidos pela linguagem C. Eles representam
+            valores
+            básicos, como números inteiros, números de ponto flutuante e caracteres, servindo como base para a
+            construção
+            de estruturas de dados mais complexas.</li>
+
+          <li>
+            Cada tipo possui características próprias, como tamanho em memória, faixa de valores e precisão, fatores
+            que
+            influenciam diretamente o desempenho e o consumo de memória de um programa. A escolha do tipo adequado é uma
+            decisão importante durante o desenvolvimento, pois permite representar os dados de forma eficiente e segura.
+          </li>
+
+          <li>
+            Na linguagem C, os tamanhos dos tipos podem variar de acordo com a arquitetura do computador e o compilador
+            utilizado. Entretanto, atualmente, em sistemas de 64 bits, existe um conjunto de tamanhos que se tornou
+            amplamente adotado e que será utilizado como referência ao longo desta disciplina.
+          </li>
+        </ul>
+
+      </section>
+
+      <section>
+        <h2>Tipos Primitivos de dados</h2>
+        <table>
+          <tr>
+            <th>Tipo</th>
+            <th>Tamanho típico</th>
+            <th>Faixa de valores</th>
+            <th>Observações</th>
+          <tr>
+            <tbody>
+              <tr>
+                <td>char</td>
+                <td>1 byte</td>
+                <td>-128 a 127</td>
+                <td style="font-size: 20pt;">0 a 255 para 'unsigned char'</td>
+              </tr>
+              <tr>
+                <td>short</td>
+                <td>2 bytes</td>
+                <td>-32.768 a 32.767</td>
+                <td style="font-size: 20pt;">0 a 65.535 para unsigned short</td>
+              </tr>
+              <tr>
+                <td>int</td>
+                <td>4 bytes</td>
+                <td>-2.147.483.648 a 2.147.483.647</td>
+                <td style="font-size: 20pt;">0 a 4.294.967.295 para unsigned int</td>
+              </tr>
+              <tr>
+                <td>long</td>
+                <td>8 bytes</td>
+                <td>±9,22 × 10¹⁸</td>
+                <td style="font-size: 20pt;">0 a 18.446.744.073.709.551.615 para unsigned long </td>
+              </tr>
+              <tr>
+                <td>long long</td>
+                <td>8 bytes</td>
+                <td>±9,22 × 10¹⁸</td>
+                <td style="font-size: 20pt;">0 a 18.446.744.073.709.551.615 para unsigned long long</td>
+              </tr>
+              <tr>
+                <td>float</td>
+                <td>4 bytes</td>
+                <td>±3,4 × 10³⁸</td>
+                <td style="font-size: 15pt;">menor valor positivo:1,175 × 10⁻³⁸<br>
+                  maior valor finito: 3,403 × 10³⁸<br>
+                  precisão aproximada: 6–7 dígitos</td>
+              </tr>
+              <tr>
+                <td>double</td>
+                <td>8 bytes</td>
+                <td>±1,7 × 10³⁰⁸</td>
+                <td style="font-size: 15pt;">menor valor positivo:2,225 × 10⁻³⁰⁸<br>
+                  maior valor finito: 1,798 × 10³⁰⁸<br>
+                  precisão aproximada: 15–16 dígitos</td>
+              </tr>
+              <tr>
+                <td>long double</td>
+                <td>16 bytes</td>
+                <td>até ±1,1 × 10⁴⁹³²</td>
+                <td style="font-size: 15pt;">menor valor positivo:≈ 3,362 × 10⁻⁴⁹³²<br>
+                  maior valor finito: ≈ 1,190 × 10⁴⁹³²<br>
+                  precisão aproximada: 18–21 dígitos</td>
+              </tr>
+              <tr>
+                <td>_Bool (bool)</td>
+                <td>1 byte</td>
+                <td>`false` ou `true`</td>
+                <td>
+                  <center>---</center>
+                </td>
+              </tr>
+            </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2>Tipos Primitivos de Dados</h2>
+        <ul>
+          <li>Cálculo para Valores Sinalizados</li>
+          $$
+          \text{Faixa}_{\text{signed}} =
+          -2^{\,N-1}
+          \;\; \text{até} \;\;
+          2^{\,N-1}-1
+          $$
+        </ul>
+        <ul>
+          <li>
+            Cálculo para Valores não sinalizados
+          </li>
+          $$
+          \text{Faixa}_{\text{unsigned}} =
+          0
+          \;\; \text{até} \;\;
+          2^{N}-1
+          $$
+        </ul>
+      </section>
+
+      <section>
+        <h2>Tipos Primitivos de Dados</h2>
+        <ul>
+          <li>Cálculo para Valores Sinalizados - Exemplo 8 bits</li>
+          $$
+          \begin{aligned}
+          \text{signed:} \quad &-2^{7} \;\; \text{até} \;\; 2^{7}-1 \\
+          &-128 \;\; \text{até} \;\; 127
+          \end{aligned}
+          $$
+        </ul>
+        <ul>
+          <li>
+            Cálculo para Valores não sinalizados - Exemplo 8 bits
+          </li>
+          $$
+          \begin{aligned}
+          \text{unsigned:} \quad &0 \;\; \text{até} \;\; 2^{8}-1 \\
+          &0 \;\; \text{até} \;\; 255
+          \end{aligned}
+          $$
+        </ul>
+      </section>
+
+      <section>
+        <h2>Tipos primitivos de dados e o C99</h2>
+        <ul>
+          <li>Embora a linguagem C possua tipos como char, short, int e long, o tamanho desses tipos pode variar de
+            acordo com a arquitetura e o compilador utilizado. Para resolver esse problema, o padrão C99 introduziu o
+            cabeçalho stdint.h, que define tipos inteiros com tamanhos fixos e portáveis.</li>
+          <li>
+            Esses tipos são criados utilizando a palavra-chave typedef, que permite definir um novo nome (apelido) para
+            um tipo já existente. Dessa forma, um programador pode utilizar tipos como uint8_t ou int32_t sabendo
+            exatamente quantos bits eles ocupam, independentemente da plataforma em que o código será compilado.
+          </li>
+          <li>
+            Essa padronização tornou o desenvolvimento de bibliotecas, sistemas operacionais, sistemas embarcados e
+            protocolos de comunicação muito mais seguro e portável.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Tipos primitivos de dados e o C99</h2>
+        <table>
+          <tr>
+            <th>Tipo</th>
+            <th>Tamanho</th>
+            <th>Faixa de Valores</th>
+          </tr>
+
+          <tbody>
+            <tr>
+              <td><code>int8_t</code></td>
+              <td>8 bits</td>
+              <td>-128 a 127</td>
+            </tr>
+            <tr>
+              <td><code>uint8_t</code></td>
+              <td>8 bits</td>
+              <td>0 a 255</td>
+            </tr>
+            <tr>
+              <td><code>int16_t</code></td>
+              <td>16 bits</td>
+              <td>-32.768 a 32.767</td>
+            </tr>
+            <tr>
+              <td><code>uint16_t</code></td>
+              <td>16 bits</td>
+              <td>0 a 65.535</td>
+            </tr>
+            <tr>
+              <td><code>int32_t</code></td>
+              <td>32 bits</td>
+              <td>-2.147.483.648 a 2.147.483.647</td>
+            </tr>
+            <tr>
+              <td><code>uint32_t</code></td>
+              <td>32 bits</td>
+              <td>0 a 4.294.967.295</td>
+            </tr>
+            <tr>
+              <td><code>int64_t</code></td>
+              <td>64 bits</td>
+              <td> -9.223.372.036.854.775.808 a 9.223.372.036.854.775.807 </td>
+            </tr>
+            <tr>
+              <td><code>uint64_t</code></td>
+              <td>64 bits</td>
+              <td>0 a 18.446.744.073.709.551.615</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h1>Então, Como criar novos tipos de dados, portáveis ou mais amigáveis?</h1>
+      </section>
+
+      <section>
+        <h2>Então, Como criar novos tipos de dados, portáveis ou mais amigáveis?</h2>
+        <ul>
+          <li>A resposta é simples, não criamos. Nós apenas criamos apelidos (alias) para tipos existentes, o que
+            facilita o entendimento de outros desenvolvedores.</li>
+          <li>A avaliação dos apelidos (alias), é feita durante a etapa de pré processamento:</li>
+        </ul>
+        <pre>
+          <code data-line-numbers>
+//...
+typedef unsigned char uint8_t;
+typedef signed int int32_t;
+//...
+          </code>
+        </pre>
+      </section>
+
+
+      <section>
+        <h2>Então, Como criar novos tipos de dados, portáveis ou mais amigáveis?</h2>
+        <ul>
+          <li>A resposta é simples, não criamos. Nós apenas criamos apelidos (alias) para tipos existentes, o que
+            facilita o entendimento de outros desenvolvedores.</li>
+          <li>A avaliação dos apelidos (alias), é feita durante a etapa de Compilação do código:</li>
+        </ul>
+        <pre>
+          <code data-line-numbers>
+//...
+typedef unsigned char uint8_t;
+typedef signed int int32_t;
+//...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Então, Como criar novos tipos de dados, portáveis ou mais amigáveis?</h2>
+
+        <ul>
+          <li>Ainda tratando de dados que tornam o código mais amigável, podemos citar as macros</li>
+          <li>As macros, são meios de de melhorar a legibilidade, e em alguns casos podemos melhorar até o desempenho de
+            um software;</li>
+          <li>As macros nos ajudam a evitar uma prática muito comum no desenvolvimento de softwares, os chamados
+            'números mágicos' ou mesmo 'valores mágicos'.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers>
+            //...
+            socket = conectar("192.168.1.10", 8080);
+            //...
+          </code>
+        </pre>
+
+        <pre>
+          <code data-line-numbers>
+            #define ENDERECO_IP "192.168.1.10"
+            #define PORTA 8080
+            //...
+            socket = conectar(ENDERECO_IP,PORTA);
+            //...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h1>OBRIGADO!</h1>
+        <p>Podem me encontrar aqui:</p>
+        <ul>
+          <li>gustavo.palma@unisal.edu.br</li>
+          <li>www.gustavopalma.com.br</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="../../../dist/reveal.js"></script>
+
+
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/zoom/zoom.js"></script>
+  <script>
+    const iframe = document.getElementById('terminal');
+    if (iframe != null) {
+      iframe.onload = () => {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        const style = doc.createElement('style');
+        style.innerHTML = `
+      .xterm {
+        font-size: 20px !important;
+        line-height: 1.2 !important;
+      }
+    `;
+        doc.head.appendChild(style);
+      };
+    }
+  </script>
+  <script>
+    Reveal.on('ready', event => {
+      const headerTemplate = document.getElementById('header-template');
+      const footerTemplate = document.getElementById('footer-template');
+
+      document.querySelectorAll('.slide-background').forEach(backgroundDiv => {
+        if (headerTemplate) {
+          backgroundDiv.appendChild(headerTemplate.cloneNode(true));
+        }
+        if (footerTemplate) {
+          backgroundDiv.appendChild(footerTemplate.cloneNode(true));
+        }
+      });
+
+      const nomeDisciplina = "Estrutura de Dados";
+      const assuntoAula = "Estrutura de Dados - Aula Inicial"
+      const aulaNum = '1';
+      const currentDate = new Date();
+
+      // Get the full four-digit year
+      const currentYear = " " + currentDate.getFullYear(); // e.g., 2026
+
+      // Find the HTML element by its ID and set its text content to the current year
+      document.getElementById('year-placeholder').textContent = "\  " + currentYear;
+      var elems = document.getElementsByClassName('lecture_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = nomeDisciplina;
+      }
+      document.title = nomeDisciplina;
+      document.getElementById('aula_num_placeholder').textContent = aulaNum
+      elems = document.getElementsByClassName('lecture_subject_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = assuntoAula;
+      }
+      createWorldMarketShare();
+      createMarketShare();
+    });
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      center: true,
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      controls: true,
+      controlsBackArrows: 'faded',
+      progress: true,
+      plugins: [RevealHighlight, RevealZoom],
+    });
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>

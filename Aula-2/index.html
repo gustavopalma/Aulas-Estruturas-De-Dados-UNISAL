@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title><span class="lecture_placeholder"></title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+  <link rel="stylesheet" href="css/mine.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <div id="header-template">
+    <a href="https://unisal.br/">
+      <img src="img/logo_unisal.png" alt="Logo">
+    </a>
+    <h1>Aula &nbsp; <span id="aula_num_placeholder"></span> &nbsp; - &nbsp; <span class="lecture_placeholder"></span>
+      &nbsp; - &nbsp; <span class="lecture_subject_placeholder"></span></h1>
+  </div>
+
+  <!-- Rodapé -->
+  <div id="footer-template">
+    UNISAL - São José, Campinas - &nbsp; <span id="year-placeholder"></span>
+  </div>
+
+  <!-- Slides -->
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <a href="https://unisal.br/">
+          <img src="img/logo_unisal.png" alt="logo unisal"
+            style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+        </a>
+        <h2><span class="lecture_placeholder"></h2>
+        <h3><span class="lecture_subject_placeholder"></span></h3>
+        <p>
+          <small>Prof. Me. Gustavo Ferreira Palma</small>
+        </p>
+      </section>
+      <section>
+        <h2>Pauta</h2>
+
+        <ul>
+          <li>Vetores</li>
+          <li>Matrizes</li>
+          <li>Strings</li>
+          <li>Funções</li>
+        </ul>
+      </section>
+
+      <!-- <section>
+        <h2>Bibliografia Básica</h2>
+        <ul>
+          <li>Conci, Aura. Computação Gráfica: Teoria e Prática - Geração De Imagens - Volume 1. Contribuição de Cristina Nader Vasconcelos e Eduardo Azevedo, Alta Books, 2021.</li>
+          <li>Barelli, Felipe. Introdução à visão computacional: uma abordagem prática com Python e OpenCV. Casa do Código, 2018.</li>
+        </ul>
+      </section> -->
+
+      <section>
+        <h1>Vetores</h1>
+      </section>
+
+      <section>
+        <h2>Vetores - Conceito</h2>
+        <ul>
+          <li>Quando tratamos sobre vetores, independentemente da Linguagem de programação escolhida, estamos falando de
+            uma estrutura de dados composta por uma sequência de elementos (valores) do mesmo tipo, <b> armazenados de
+              forma contínua na memória</b>. Representando, conceitualmente, uma linha ou uma coluna;</li>
+
+          <li>Cada Elemento de um vetor, é associado a um <b>índice numérico</b>. E através desses índices podemos
+            realizar operações de leitura e escrita.</li>
+        </ul>
+
+        <img src="img/vetor_memoria.svg" style="width: 40%;">
+      </section>
+
+      <section>
+        <h2>Vetores - Declaração</h2>
+        <ul>
+          <li>A declaração de um vetor informa ao compilador o tipo de seus elementos, o nome da variável e a quantidade
+            de posições que serão reservadas na memória.</li>
+        </ul>
+
+        <p><i>"tipo nome_do_vetor[tamanho];"</i></p>
+
+        <pre>
+          <code data-line-numbers>
+            //...
+            int notas[5]; 
+            float temperaturas[30]; 
+            char nome[50];
+            //...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Vetores - Inicialização</h2>
+        <ul>
+          <li>Um vetor pode ser inicializado no momento de sua declaração.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers="3|6|10|13">
+//Inicialização completa:
+int valores[5] = {10, 20, 30, 40, 50};
+
+//Inicialização parcial:
+int numeros[5] = {1, 2};
+//Nesse caso, as posições restantes serão inicializadas com zero.
+
+//Também é possível permitir que o compilador determine automaticamente o tamanho do vetor.
+int numeros[] = {5, 10, 15, 20};
+
+//Ou ainda inicializar todos os elementos com um valor conhecido
+int numeros[5] = {0};
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Vetores - Acesso às posições</h2>
+        <ul>
+          <li>Cada posição de um vetor é identificada por um índice.</li>
+          <li>Na linguagem C, os índices sempre começam em zero.</li>
+        </ul>
+
+        <pre>
+          <code data-line-numbers="3|5|7|9">
+//escrita
+scanf("%d", &valores[0]); 
+//escrita
+valores[2] = 100;
+//leitura
+printf("%d", valores[0]); 
+//leitura
+printf("%d", valores[3]); 
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Vetores - Acesso às posições</h2>
+        <ul>
+          <li>Ao trabalharmos com vetores, laços de repetição são muito úteis.</li>
+        </ul>
+
+        <pre>
+          <code data-line-numbers="3|4|5-10|12-14">
+//....
+#define MAX_VALORES 5
+int valores[MAX_VALORES] = {0};
+for (int i = 0; i &lt; MAX_VALORES, i++){
+  if (i == 0)
+    valores[i] = i + 40 + 1;
+  else
+    valores[i] = i + 40;
+}
+
+for (int i = 0; i &lt; MAX_VALORES; i++){
+  printf("%c", valores[i]);
+}
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h1>Matrizes</h1>
+      </section>
+
+      <section>
+        <h2>Matrizes - Conceito</h2>
+        <ul>
+          <li>As Matrizes, de forma similar aos Vetores, são estruturas de dados, neste caso bidimensionais, formadas
+            por elementos do mesmo tipo, organizados em linhas e colunas. Seus elementos também <b>são armazenados de
+              forma contínua na memória;</b></li>
+          <li>
+            No caso das matrizes, cada elemento é identificado por <b>dois índices: o primeiro representa a linha e o
+              segundo representa a coluna</b>.
+          </li>
+
+          <li>As matrizes são amplamente utilizadas para representar tabelas, planilhas, imagens digitais, tabuleiros,
+            mapas e diversas outras estruturas bidimensionais.</li>
+
+          <li>Também existem Matrizes, tridimensionais, que incluem um terceiro índice, que representa a profundidade da
+            matriz</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Matrizes - Conceito</h2>
+        <img src="img/matriz_memoria.svg" width="70%">
+      </section>
+
+      <section>
+        <h2>Matrizes - Declaração</h2>
+        <ul>
+          <li>A declaração de uma matriz informa ao compilador o tipo de seus elementos, o nome da variável e suas
+            dimensões.</li>
+        </ul>
+
+        <p><i>tipo nome_da_matriz[linhas][colunas];</i></p>
+        <pre>
+            <code>
+//...
+int matriz[3][4];
+float notas[10][5];
+char tabuleiro[8][8];
+//...
+            </code>
+          </pre>
+      </section>
+
+      <section>
+        <h2>Matrizes - Declaração</h2>
+        <ul>
+          <li>A declaração de uma matriz tridimensional segue a mesma estrutura, apenas adicionando mais um índice à sua
+            declaração</li>
+        </ul>
+
+        <p><i>tipo nome_da_matriz[linhas][colunas][camadas];</i></p>
+        <pre>
+          <code>
+//...
+//declaração de una matriz para representar uma imagem digital no padrão RGB
+uint8_t imagem[1920][1080][3];
+/*
+Sendo:
+1920 = largura
+1080 = altura
+3 = Camadas, 0-Red, 1-Green, 2-Blue
+*/
+//...
+        </code>
+      </pre>
+      </section>
+
+      <section>
+        <h2>Matrizes - Declaração</h2>
+        <ul>
+          <li>Uma matriz pode ser inicializada durante sua declaração utilizando listas de inicialização.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers="3-7|10-14|17-21">
+//Inicialização completa:
+int matriz[2][3] =
+{
+    {1, 2, 3},
+    {4, 5, 6}
+};
+
+//Também é possível omitir a primeira dimensão.
+int matriz[][3] =
+{
+    {10, 20, 30},
+    {40, 50, 60}
+};
+
+//Caso a inicialização seja parcial, os elementos restantes serão preenchidos com zero.
+int matriz[2][3] =
+{
+    {1, 2},
+    {3}
+};
+        </code>
+      </pre>
+      </section>
+
+      <section>
+        <h2>Matrizes - Índices</h2>
+        <ul>
+          <li>Cada elemento da matriz é identificado por dois índices:</li>
+          <ul>
+            <li>o primeiro indica a linha;</li>
+            <li>o segundo indica a coluna.</li>
+          </ul>
+          <li>Na linguagem C, ambos começam em zero.</li>
+          <li>O acesso aos elementos é realizado utilizando dois índices.</li>
+        </ul>
+        <pre>
+            <code data-line-numbers="3|4|6">
+//Gravação
+matriz[1][1] = 100;
+scanf("%d", &matriz[0][2]);
+//Leitura
+printf("%d", matriz[0][2]);
+            </code>
+          </pre>
+      </section>
+
+      <section>
+        <h2>Matrizes - Índices</h2>
+        <ul>
+          <li>Como uma matriz possui duas dimensões, normalmente utiliza-se um laço de repetição para percorrer as
+            linhas e outro para percorrer as colunas:</li>
+          <pre>
+  <code data-line-numbers="2-3|5-17|19-26">
+#define MAX_LINHA 3
+#define MAX_COLUNA 3
+//...
+for (int i = 0; i &lt; MAX_LINHA; i++)
+{
+    for (int j = 0; j &lt; MAX_COLUNA; j++)
+    {
+      if (i == 0 && j == 0) {
+        matriz[i][j] = i + j + 40 + 1;
+      }else if (i == 0){
+        matriz[i][j] = i + j + 40;
+      } else {
+        matriz[i][j] = i + j + 40 + 1;
+      }
+    }
+}
+
+for (int i = 0; i &lt; MAX_LINHA; i++)
+{
+    for (int j = 0; j &lt; MAX_COLUNA; j++)
+    {
+      printf("%c ", matriz[i][j]);
+    }
+    printf("\n");
+}
+  </code>
+</pre>
+      </section>
+
+      <section>
+        <h1>Strings</h1>
+      </section>
+
+      <section>
+        <h2>Strings - Conceito</h2>
+        <ul>
+          <li>Na linguagem C, uma string é um vetor de caracteres utilizado para armazenar textos. Diferentemente de
+            outras linguagens de programação, não existe um tipo específico chamado string; uma string é simplesmente um
+            vetor do tipo char.</li>
+          <li>Toda string deve terminar com um caractere especial chamado caractere nulo ('\0'), que indica ao programa
+            onde o texto termina.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Strings - Declaração</h2>
+        <ul>
+          <li>Uma string é declarada da mesma forma que um vetor de caracteres.</li>
+        </ul>
+        <p><i>char nome[tamanho];</i></p>
+        <pre>
+          <code data-line-numbers>
+//...
+char nome[50]; 
+char cidade[30]; 
+char mensagem[100];
+//...
+          </code>
+        </pre>
+      </section>
+      <section>
+        <h2>Strings - Declaração</h2>
+        <ul>
+          <li>E podem ser incializados da mesma forma que um vetor</li>
+        </ul>
+        <pre>
+          <code data-line-numbers>
+//Uma string pode ser inicializada no momento da declaração.
+char nome[] = "Gustavo";
+
+//Também é possível inicializá-la utilizando um vetor de caracteres.
+char nome[] = {'G', 'u', 's', 't', 'a', 'v', 'o', '\0'};
+//Ambas as formas produzem exatamente o mesmo resultado.
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Strings - Manipulação</h2>
+        <ul>
+          <li>
+            Sendo as Strings, vetores de caracteres, na linguagem C, sua manipulação, não pode ser feita da mesma forma
+            que manipulamos os tipos primitivos</li>
+          <li>A manipulação de Strings é feita através de funções, mais especificamente as funções da biblioteca
+            "string.h"</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Funções</h1>
+      </section>
+
+      <section>
+        <h2>Funções - Conceito</h2>
+        <ul>
+          <li>Uma função é um bloco de código responsável por executar uma tarefa específica. Seu principal objetivo é
+            organizar o programa em pequenas partes reutilizáveis, tornando o código mais legível, modular e fácil de
+            manter.</li>
+
+          <li>Ao dividir um problema em funções menores, cada função passa a ter uma única responsabilidade, facilitando
+            tant o desenvolvimento quanto a manutenção do software.</li>
+
+          <li>O uso de funções é divido em duas etapas principais: Declaração (prototipagem da função) e a
+            Implementação</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Funções - Conceito</h2>
+        <ul>
+          <li>Na Linguagem C, a função deve ser declarada (prototipada), antes da função main, do contrário teremos um
+            erro de compilação.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers="4|7-9|13-15">
+            //....
+            //prototipagem da função
+            int soma(int a, int b);
+
+            //função main
+            int main() {
+              //...
+              return 0;
+            }
+
+            //Implementação da função
+            int soma(int a, int b) {
+              return a + b;
+            }
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Funções - Conceito</h2>
+        <ul>
+          <li>Também é possível declarar e implementar a função antes da função main.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers="4-6|9-12">
+            //....
+            //Implementação da função
+            int soma(int a, int b) {
+              return a + b;
+            }
+
+            //função main
+            int main() {
+              //...
+              return 0;
+            }
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Funções - Parâmetros</h2>
+        <ul>
+          <li>Os parâmetros representam as informações que uma função recebe para realizar seu processamento.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers>
+int multiplicar(int a, int b)
+{
+  return a * b;
+}
+          </code>
+        </pre>
+
+        <ul>
+          <li>Nesse exemplo, a e b são parâmetros da função.</li>
+
+          <li>Quando a função é chamada:</li>
+        </ul>
+        <pre>
+          <code data-line-numbers>
+int resultado = multiplicar(5, 8);
+          </code>
+        </pre>
+        <ul>
+
+          <li>os valores 5 e 8 são copiados para os parâmetros a e b.</li>
+
+          <li>Na linguagem C, os parâmetros são passados por valor, ou seja, alterações realizadas dentro da função não
+            modificam as variáveis originais.</li>
+        </ul>
+      </section>
+
+
+      <section>
+        <h2>Funções - Retorno</h2>
+        <ul>
+          <li>Uma função pode retornar um valor para quem a chamou.</li>
+          <li>O retorno é realizado utilizando a instrução "return".</li>
+        </ul>
+        <pre>
+        <code data-line-numbers>
+float calcularMedia(float n1, float n2)
+{
+    return (n1 + n2) / 2.0;
+}
+        </code>
+      </pre>
+
+        <ul>
+          <li>Também existem funções que não retornam nenhum valor. Nesse caso, utiliza-se o tipo void.</li>
+        </ul>
+
+        <pre>
+        <code>
+void limparTela(void)
+{
+    printf("\033[2J");
+}
+        </code>
+      </pre>
+      </section>
+
+      <section>
+        <h1>Manipulando Strings com funções</h1>
+      </section>
+
+      <section>
+        <h2>Manipulando Strings com funções</h2>
+        <ul>
+          <li>A biblioteca string.h disponibiliza diversas funções para manipulação de strings, como cópia, comparação,
+            concatenação e cálculo do comprimento de um texto.</li>
+
+          <li>Embora existam funções clássicas, como strcpy(), strcmp() e strcat(), nesta disciplina utilizaremos
+            preferencialmente suas versões limitadas (N), que ajudam a evitar erros relacionados ao acesso indevido à
+            memória.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Manipulando Strings com funções - Comparando Strings</h2>
+        <ul>
+          <li>A função strncmp() compara até uma quantidade máxima de caracteres entre duas strings.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers>
+              int strncmp(const char *s1, const char *s2, size_t n);
+          </code>
+        </pre>
+        <ul>
+          <li>Onde:</li>
+          <ul>
+            <li><code>s1</code> é a primeira string a ser comparada.</li>
+            <li><code>s2</code> é a segunda string a ser comparada.</li>
+            <li><code>n</code> é a quantidade máxima de caracteres considerados na comparação.</li>
+            <li>Retorna <code>0</code> quando as strings são iguais.</li>
+            <li>Retorna um valor menor que <code>0</code> quando <code>s1</code> é menor que <code>s2</code>.</li>
+            <li>Retorna um valor maior que <code>0</code> quando <code>s1</code> é maior que <code>s2</code>.</li>
+          </ul>
+        </ul>
+      </section>
+      <section>
+        <h2>Manipulando Strings com funções - Comparando Strings</h2>
+        <ul>
+          <li>Exemplo completo</li>
+        </ul>
+        <pre>
+          <code data-line-numbers>
+#include &lt;stdio.h&gt; 
+#include &lt;string.h&gt;
+int main() { 
+  char usuario[] = "admin"; 
+  if (strncmp(usuario, "admin", sizeof(usuario)) == 0) { 
+    printf("Usuário válido.\n"); 
+  } else { 
+    printf("Usuário inválido.\n"); 
+  } 
+  return 0; 
+}
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Manipulando Strings com funções - Copiando Strings</h2>
+        <ul>
+          <li>A função strncpy() copia uma quantidade máxima de caracteres para outra string.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers>
+              char *strncpy(char *destino, const char *origem, size_t n);
+          </code>
+        </pre>
+        <ul>
+          <li>Onde:</li>
+          <ul>
+            <li><code>destino</code> é a string que receberá a cópia.</li>
+            <li><code>origem</code> é a string que será copiada.</li>
+            <li><code>n</code> é o número máximo de caracteres que poderão ser copiados.</li>
+            <li>Retorna um ponteiro para a string de destino.</li>
+            <li>Quando a string de origem possui tamanho igual ou superior a <code>n</code>, o caractere
+              <code>'\0'</code> pode não ser copiado, sendo necessária sua inclusão manual.
+            </li>
+          </ul>
+        </ul>
+      </section>
+      <section>
+        <h2>Manipulando Strings com funções - Comparando Strings</h2>
+        <ul>
+          <li>Exemplo completo</li>
+        </ul>
+        <pre>
+          <code data-line-numbers>
+#include &lt;stdio.h&gt; 
+#include &lt;string.h&gt;
+int main() { 
+  char origem[] = "Estrutura de Dados"; 
+  char destino[30]; 
+  strncpy(destino, origem, sizeof(destino)); 
+  destino[sizeof(destino) - 1] = '\0'; 
+  printf("%s\n", destino); 
+  return 0; 
+}
+          </code>
+        </pre>
+      </section>
+      <section>
+        <h2>Manipulando Strings com funções - Concatenando Strings</h2>
+        <ul>
+          <li>A função strncat() adiciona uma string ao final de outra, respeitando um limite máximo de caracteres.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers>
+              char *strncat(char *destino, const char *origem, size_t n);
+          </code>
+        </pre>
+        <ul>
+          <li>Onde:</li>
+          <ul>
+            <li><code>destino</code> é a string que receberá a concatenação.</li>
+            <li><code>origem</code> é a string que será adicionada ao final da string de destino.</li>
+            <li><code>n</code> é o número máximo de caracteres que poderão ser concatenados.</li>
+            <li>Retorna um ponteiro para a string de destino.</li>
+            <li>É responsabilidade do programador garantir espaço suficiente no vetor de destino para armazenar a
+              concatenação e o caractere <code>'\0'</code>.</li>
+          </ul>
+        </ul>
+      </section>
+      <section>
+        <h2>Manipulando Strings com funções - Comparando Strings</h2>
+        <ul>
+          <li>Exemplo completo</li>
+        </ul>
+        <pre>
+          <code data-line-numbers>
+#include &lt;stdio.h&gt; 
+#include &lt;string.h&gt;
+int main() { 
+  char mensagem[30] = "Olá "; 
+  strncat( mensagem, "Mundo!", sizeof(mensagem) - strlen(mensagem) - 1 ); 
+  printf("%s\n", mensagem); 
+  return 0; 
+}
+          </code>
+        </pre>
+      </section>
+
+      <section>
+         <h2>Manipulando Strings com funções</h2>
+          <p>Para referências e exemplos completos acesse <a href="https://en.cppreference.com/c/header/string"> A referência oficial da biblioteca string.h</a></p>
+      </section>
+
+      <section>
+        <h1>OBRIGADO!</h1>
+        <p>Podem me encontrar aqui:</p>
+        <ul>
+          <li>gustavo.palma@unisal.edu.br</li>
+          <li>www.gustavopalma.com.br</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="../../../dist/reveal.js"></script>
+
+
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/zoom/zoom.js"></script>
+  <script>
+    const iframe = document.getElementById('terminal');
+    if (iframe != null) {
+      iframe.onload = () => {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        const style = doc.createElement('style');
+        style.innerHTML = `
+      .xterm {
+        font-size: 20px !important;
+        line-height: 1.2 !important;
+      }
+    `;
+        doc.head.appendChild(style);
+      };
+    }
+  </script>
+  <script>
+    Reveal.on('ready', event => {
+      const headerTemplate = document.getElementById('header-template');
+      const footerTemplate = document.getElementById('footer-template');
+
+      document.querySelectorAll('.slide-background').forEach(backgroundDiv => {
+        if (headerTemplate) {
+          backgroundDiv.appendChild(headerTemplate.cloneNode(true));
+        }
+        if (footerTemplate) {
+          backgroundDiv.appendChild(footerTemplate.cloneNode(true));
+        }
+      });
+
+      const nomeDisciplina = "Estrutura de Dados";
+      const assuntoAula = "Estrutura de Dados - Vetores, Matrizes, Strings e Funções"
+      const aulaNum = '2';
+      const currentDate = new Date();
+
+      // Get the full four-digit year
+      const currentYear = " " + currentDate.getFullYear(); // e.g., 2026
+
+      // Find the HTML element by its ID and set its text content to the current year
+      document.getElementById('year-placeholder').textContent = "\  " + currentYear;
+      var elems = document.getElementsByClassName('lecture_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = nomeDisciplina;
+      }
+      document.title = nomeDisciplina;
+      document.getElementById('aula_num_placeholder').textContent = aulaNum
+      elems = document.getElementsByClassName('lecture_subject_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = assuntoAula;
+      }
+      createWorldMarketShare();
+      createMarketShare();
+    });
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      center: true,
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      controls: true,
+      controlsBackArrows: 'faded',
+      progress: true,
+      plugins: [RevealHighlight, RevealZoom],
+    });
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>

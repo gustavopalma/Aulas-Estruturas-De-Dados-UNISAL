@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <style>
+      .title { font: 700 38px Arial, sans-serif; }
+      .label { font: 700 28px Arial, sans-serif; }
+      .value { font: 500 42px Arial, sans-serif; fill: #1f2937; }
+      .small { font: 700 26px Arial, sans-serif; }
+      .address { font: 700 28px Arial, sans-serif; fill: #2563eb; }
+      .note { font: 700 24px Arial, sans-serif; }
+      .cell { stroke: #1f2937; stroke-width: 3; rx: 14; ry: 14; }
+      .arrow { stroke: #2563eb; stroke-width: 4; fill: none; }
+      .green { fill: #15803d; }
+      .purple { fill: #6b21a8; }
+      .blue { fill: #2563eb; }
+    </style>
+
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#2563eb"/>
+    </marker>
+
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#15803d"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="#ffffff"/>
+
+  <text x="55" y="120" class="title purple">Índice:</text>
+
+  <text x="340" y="120" class="title purple" text-anchor="middle">0</text>
+  <text x="570" y="120" class="title purple" text-anchor="middle">1</text>
+  <text x="800" y="120" class="title purple" text-anchor="middle">2</text>
+  <text x="1030" y="120" class="title purple" text-anchor="middle">3</text>
+  <text x="1260" y="120" class="title purple" text-anchor="middle">4</text>
+
+  <text x="60" y="280" class="label green">Vetor</text>
+  <text x="60" y="325" class="label green">valores:</text>
+
+  <rect x="225" y="170" width="230" height="190" class="cell" fill="#d9f5df"/>
+  <rect x="455" y="170" width="230" height="190" class="cell" fill="#fff1b8"/>
+  <rect x="685" y="170" width="230" height="190" class="cell" fill="#dcecff"/>
+  <rect x="915" y="170" width="230" height="190" class="cell" fill="#ffe0c7"/>
+  <rect x="1145" y="170" width="230" height="190" class="cell" fill="#eadcf7"/>
+
+  <text x="340" y="285" class="value" text-anchor="middle">10</text>
+  <text x="570" y="285" class="value" text-anchor="middle">20</text>
+  <text x="800" y="285" class="value" text-anchor="middle">30</text>
+  <text x="1030" y="285" class="value" text-anchor="middle">40</text>
+  <text x="1260" y="285" class="value" text-anchor="middle">50</text>
+
+  <text x="55" y="500" class="label blue">Endereço</text>
+  <text x="55" y="545" class="label blue">de memória:</text>
+
+  <line x1="340" y1="470" x2="340" y2="385" class="arrow" marker-end="url(#arrowBlue)"/>
+  <line x1="570" y1="470" x2="570" y2="385" class="arrow" marker-end="url(#arrowBlue)"/>
+  <line x1="800" y1="470" x2="800" y2="385" class="arrow" marker-end="url(#arrowBlue)"/>
+  <line x1="1030" y1="470" x2="1030" y2="385" class="arrow" marker-end="url(#arrowBlue)"/>
+  <line x1="1260" y1="470" x2="1260" y2="385" class="arrow" marker-end="url(#arrowBlue)"/>
+
+  <text x="340" y="530" class="address" text-anchor="middle">0x1000</text>
+  <text x="570" y="530" class="address" text-anchor="middle">0x1004</text>
+  <text x="800" y="530" class="address" text-anchor="middle">0x1008</text>
+  <text x="1030" y="530" class="address" text-anchor="middle">0x100C</text>
+  <text x="1260" y="530" class="address" text-anchor="middle">0x1010</text>
+
+  <line x1="1385" y1="265" x2="1490" y2="265" stroke="#15803d" stroke-width="4"
+        stroke-dasharray="7 7" marker-end="url(#arrowGreen)"/>
+  <text x="1510" y="235" class="note green">Cada posição</text>
+  <text x="1510" y="270" class="note green">armazena um</text>
+  <text x="1510" y="305" class="note green">valor do vetor</text>
+
+  <line x1="1495" y1="500" x2="1390" y2="500" stroke="#2563eb" stroke-width="4"
+        stroke-dasharray="7 7" marker-end="url(#arrowBlue)"/>
+  <text x="1510" y="470" class="note blue">Cada int ocupa</text>
+  <text x="1510" y="505" class="note blue">4 bytes de</text>
+  <text x="1510" y="540" class="note blue">memória</text>
+
+  <path d="M340 615 V650 Q340 665 355 665 H785
+           Q800 665 800 680
+           Q800 665 815 665 H1245
+           Q1260 665 1260 650 V615"
+        fill="none" stroke="#2563eb" stroke-width="4"/>
+
+  <text x="800" y="735" class="small blue" text-anchor="middle">
+    Bloco de memória reservado para o vetor
+  </text>
+</svg>

@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+  <defs>
+    <style>
+      .title { font: 700 38px Arial, sans-serif; fill: #6b21a8; }
+      .label { font: 700 28px Arial, sans-serif; }
+      .value { font: 700 38px Arial, sans-serif; fill: #1f2937; }
+      .type { font: 500 24px Arial, sans-serif; fill: #374151; }
+      .small { font: 500 21px Arial, sans-serif; fill: #374151; }
+      .note { font: 700 23px Arial, sans-serif; }
+      .number { font: 700 28px Arial, sans-serif; fill: #2563eb; }
+      .cell { stroke: #1f2937; stroke-width: 3; rx: 14; ry: 14; }
+      .green { fill: #15803d; }
+      .blue { fill: #2563eb; }
+      .orange { fill: #c2410c; }
+      .purple { fill: #6b21a8; }
+    </style>
+
+    <marker id="arrowBlue" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#2563eb"/>
+    </marker>
+
+    <marker id="arrowGreen" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0,0 L12,6 L0,12 z" fill="#15803d"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="#ffffff"/>
+
+  <text x="60" y="90" class="title">Representação de um enum na memória</text>
+
+  <text x="60" y="155" class="label green">Declaração:</text>
+  <text x="245" y="155" class="type">typedef enum { B, I, N, G, O } ColunaBingo;</text>
+
+  <!-- Valores simbólicos -->
+  <text x="60" y="235" class="label purple">Valores definidos pelo enum:</text>
+
+  <rect x="290" y="190" width="170" height="120" class="cell" fill="#d9f5df"/>
+  <rect x="460" y="190" width="170" height="120" class="cell" fill="#fff1b8"/>
+  <rect x="630" y="190" width="170" height="120" class="cell" fill="#dcecff"/>
+  <rect x="800" y="190" width="170" height="120" class="cell" fill="#ffe0c7"/>
+  <rect x="970" y="190" width="170" height="120" class="cell" fill="#eadcf7"/>
+
+  <text x="375" y="245" class="value" text-anchor="middle">B</text>
+  <text x="545" y="245" class="value" text-anchor="middle">I</text>
+  <text x="715" y="245" class="value" text-anchor="middle">N</text>
+  <text x="885" y="245" class="value" text-anchor="middle">G</text>
+  <text x="1055" y="245" class="value" text-anchor="middle">O</text>
+
+  <text x="375" y="285" class="number" text-anchor="middle">0</text>
+  <text x="545" y="285" class="number" text-anchor="middle">1</text>
+  <text x="715" y="285" class="number" text-anchor="middle">2</text>
+  <text x="885" y="285" class="number" text-anchor="middle">3</text>
+  <text x="1055" y="285" class="number" text-anchor="middle">4</text>
+
+  <!-- Variável enum -->
+  <text x="60" y="405" class="label green">Variável:</text>
+  <text x="220" y="405" class="type">ColunaBingo coluna = N;</text>
+
+  <text x="60" y="520" class="label blue">Memória:</text>
+  <text x="60" y="560" class="small">endereço base 0x1000</text>
+
+  <rect x="360" y="450" width="520" height="180" class="cell" fill="#dcecff"/>
+
+  <text x="620" y="515" class="value" text-anchor="middle">N</text>
+  <text x="620" y="565" class="number" text-anchor="middle">valor armazenado: 2</text>
+  <text x="620" y="605" class="type" text-anchor="middle">tamanho típico: 4 bytes</text>
+
+  <line x1="250" y1="545" x2="345" y2="545"
+        stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)"/>
+
+  <!-- Nota importante -->
+  <line x1="900" y1="540" x2="1060" y2="540"
+        stroke="#15803d" stroke-width="4" stroke-dasharray="7 7"
+        marker-end="url(#arrowGreen)"/>
+
+  <text x="1080" y="505" class="note green">A variável armazena</text>
+  <text x="1080" y="540" class="note green">somente um valor</text>
+  <text x="1080" y="575" class="note green">inteiro por vez</text>
+
+  <!-- Chave inferior -->
+  <path d="M360 700 V735 Q360 750 375 750 H605
+           Q620 750 620 765
+           Q620 750 635 750 H865
+           Q880 750 880 735 V700"
+        fill="none" stroke="#2563eb" stroke-width="4"/>
+
+  <text x="620" y="815" class="label blue" text-anchor="middle">
+    O enum melhora a legibilidade, mas é representado numericamente
+  </text>
+
+  <text x="620" y="855" class="small" text-anchor="middle">
+    O tamanho exato depende da implementação, embora 4 bytes seja o caso mais comum.
+  </text>
+</svg>

@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title><span class="lecture_placeholder"></title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+  <link rel="stylesheet" href="css/mine.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <div id="header-template">
+    <a href="https://unisal.br/">
+      <img src="img/logo_unisal.png" alt="Logo">
+    </a>
+    <h1>Aula &nbsp; <span id="aula_num_placeholder"></span> &nbsp; - &nbsp; <span class="lecture_placeholder"></span>
+      &nbsp; - &nbsp; <span class="lecture_subject_placeholder"></span></h1>
+  </div>
+
+  <!-- Rodapé -->
+  <div id="footer-template">
+    UNISAL - São José, Campinas - &nbsp; <span id="year-placeholder"></span>
+  </div>
+
+  <!-- Slides -->
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <a href="https://unisal.br/">
+          <img src="img/logo_unisal.png" alt="logo unisal"
+            style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+        </a>
+        <h2><span class="lecture_placeholder"></h2>
+        <h3><span class="lecture_subject_placeholder"></span></h3>
+        <p>
+          <small>Prof. Me. Gustavo Ferreira Palma</small>
+        </p>
+      </section>
+      <section>
+        <h2>Pauta</h2>
+
+        <ul>
+          <li>Estruturas</li>
+          <li>Enumeradores</li>
+        </ul>
+      </section>
+
+      <!-- <section>
+        <h2>Bibliografia Básica</h2>
+        <ul>
+          <li>Conci, Aura. Computação Gráfica: Teoria e Prática - Geração De Imagens - Volume 1. Contribuição de Cristina Nader Vasconcelos e Eduardo Azevedo, Alta Books, 2021.</li>
+          <li>Barelli, Felipe. Introdução à visão computacional: uma abordagem prática com Python e OpenCV. Casa do Código, 2018.</li>
+        </ul>
+      </section> -->
+
+      <section>
+        <h1>Estruturas</h1>
+      </section>
+
+      <section>
+        <h2>Estruturas - Conceito</h2>
+        <ul>
+          <li>Uma estrutura (struct) é um tipo de dado definido pelo programador que permite agrupar informações de
+            diferentes tipos em uma única variável.</li>
+
+          <li>Enquanto vetores e matrizes armazenam apenas elementos do mesmo tipo, uma estrutura pode conter números
+            inteiros, números reais, caracteres, vetores e até mesmo outras estruturas.</li>
+
+          <li>As estruturas são utilizadas para representar entidades do mundo real, como alunos, funcionários,
+            produtos,
+            contas bancárias e veículos.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Estruturas - Declaração</h2>
+        <ul>
+          <li>Uma estrutura é declarada utilizando a palavra-chave 'struct'.</li>
+        </ul>
+
+        <pre>
+          <code data-line-numbers>
+//...
+struct NomeDaEstrutura { 
+  tipo campo1;
+  tipo campo2;
+  //... 
+};
+
+          </code>
+        </pre>
+        <ul>
+          <li>Também é comum utilizar a palavra reservada 'typedef' para facilitar sua utilização.</li>
+        </ul>
+        <pre>
+          <code>
+typedef struct {
+  char nome[50];
+  int idade;
+  float nota;
+} Aluno;
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Estruturas - Declaração</h2>
+        <ul>
+          <li>A principal diferença da declaração da estrutura sem o 'typedef' é que quando fomos utiliza-la no código é
+            necessário digitar novamente a palavra reservada 'struct'</li>
+        </ul>
+
+        <pre>
+          <code data-line-numbers>
+
+int main() {
+  struct NomeDaEstrutura nomeDaVariavel;
+}
+
+          </code>
+        </pre>
+        <ul>
+          <li>E quado utilizamos a palavra reservada 'typedef', podemos omitir a 'Struct na declaração das variáveis'.
+          </li>
+        </ul>
+        <pre>
+          <code>
+int main() {
+  Aluno aluno;
+}
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Estruturas - Declaração</h2>
+        <img src="img/struct_aluno_memoria.svg" width="70%">
+      </section>
+
+      <section>
+        <h2>Estrutura - Inicialização</h2>
+        <ul>
+          <li>Uma estrutura pode ser inicializada no momento de sua declaração.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers="">
+Aluno aluno = { 
+  "Maria",
+  20,
+  9.5
+};
+          </code>
+        </pre>
+        <ul>
+          <li>Também é possível atribuir valores individualmente.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers="">
+Aluno aluno; 
+strncpy(aluno.nome, "Maria", sizeof(aluno.nome)); 
+aluno.idade = 20; 
+scanf("%.2f", aluno.nota);
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Estruturas - Acesso Aos Elementos</h2>
+        <ul>
+          <li>Os campos de uma estrutura são acessados utilizando o operador ponto (.).</li>
+        </ul>
+
+        <pre>
+          <code data-line-numbers="">
+printf("%s\n", aluno.nome);
+printf("%d\n", aluno.idade);
+printf("%.1f\n", aluno.nota);
+//Também é possível alterar seus valores.
+aluno.nota = 10.0f;
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Estruturas - Vetores de Estruturas</h2>
+        <ul>
+          <li>Assim como qualquer outro tipo, estruturas podem ser armazenadas em vetores.</li>
+        </ul>
+
+        <pre>
+          <code data-line-numbers="">
+//...
+Aluno turma[40];
+//...
+          </code>
+        </pre>
+
+        <ul>
+          <li>Cada posição do vetor representa um aluno diferente.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers="">
+//...
+turma[0].idade = 18;
+//...
+          </code>
+        </pre>
+        <ul>
+          <li>Esse recurso é amplamente utilizado em sistemas de cadastro.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Enumeradores</h1>
+      </section>
+
+      <section>
+        <h2>Enumeradores - Conceito</h2>
+        <ul>
+          <li>Um enumerador (enum) define um conjunto de constantes inteiras nomeadas.</li>
+
+          <li>Seu principal objetivo é tornar o código mais legível, eliminando valores numéricos sem significado
+            (Magic Numbers) e restringindo um conjunto de valores possíveis para uma variável.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Enumeradores - Conceito</h2>
+        <img src="img/enum_memoria.svg" width="70%">
+      </section>
+
+      <section>
+        <h2>Enumeradores - Declaração</h2>
+        <ul>
+          <li>Uma enumeração é declarada utilizando a palavra-chave 'enum'.</li>
+        </ul>
+
+        <pre>
+            <code>
+//...
+enum NomeDaEnum
+{
+    VALOR1,
+    VALOR2,
+    VALOR3
+};
+//...
+            </code>
+          </pre>
+        <ul>
+          <li>Também é comum utilizar typedef.</li>
+        </ul>
+
+        <pre>
+            <code>
+typedef enum { 
+  DESLIGADO, 
+  LIGADO 
+} Estado;
+            </code>
+          </pre>
+      </section>
+
+      <section>
+        <h2>Enumeradores - Inicialização</h2>
+        <ul>
+          <li>Uma variável do tipo enum pode ser inicializada utilizando qualquer um dos valores definidos.</li>
+          <li>Caso nenhum valor seja informado, o primeiro elemento recebe o valor 0, e os seguintes são incrementados
+            automaticamente.</li>
+        </ul>
+
+        <pre>
+          <code data-line-numbers="">
+//...
+DESLIGADO = 0 
+LIGADO = 1
+//...
+        </code>
+      </pre>
+
+        <ul>
+          <li>Também é possível atribuir valores explicitamente.</li>
+        </ul>
+
+        <pre>
+        <code data-line-numbers="">
+typedef enum { 
+  B = 1,
+  I = 16,
+  N = 31,
+  G = 46,
+  O = 61 
+} ColunaBingo;
+        </code>
+      </pre>
+
+      </section>
+
+      <section>
+        <h2>Enumeradores - Aplicação</h2>
+        <ul>
+          <li>Os valores da enumeração podem ser utilizados normalmente em expressões condicionais.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers="">
+Estado led = LIGADO;
+
+if (led == LIGADO)
+{
+    printf("LED ligado.\n");
+}
+
+//Ou em estruturas de decisão.
+
+switch(coluna)
+{
+    case B:
+        printf("Coluna B");
+        break;
+
+    case I:
+        printf("Coluna I");
+        break;
+}
+        </code>
+      </pre>
+      </section>
+
+      <section>
+        <h2>Enumeradores - Vantagens</h2>
+        <ul>
+          <li>Elimina Magic Numbers.</li>
+          <li>Aumenta a legibilidade do código.</li>
+          <li>Facilita a manutenção.</li>
+          <li>Reduz erros de programação.</li>
+          <li>Representa conjuntos finitos de valores.</li>
+          <li>As enumerações são frequentemente utilizadas para representar estados, dias da semana, meses, tipos de
+            mensagens, protocolos de comunicação, menus e constantes simbólicas.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>OBRIGADO!</h1>
+        <p>Podem me encontrar aqui:</p>
+        <ul>
+          <li>gustavo.palma@unisal.edu.br</li>
+          <li>www.gustavopalma.com.br</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="../../../dist/reveal.js"></script>
+
+
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/zoom/zoom.js"></script>
+  <script>
+    const iframe = document.getElementById('terminal');
+    if (iframe != null) {
+      iframe.onload = () => {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        const style = doc.createElement('style');
+        style.innerHTML = `
+      .xterm {
+        font-size: 20px !important;
+        line-height: 1.2 !important;
+      }
+    `;
+        doc.head.appendChild(style);
+      };
+    }
+  </script>
+  <script>
+    Reveal.on('ready', event => {
+      const headerTemplate = document.getElementById('header-template');
+      const footerTemplate = document.getElementById('footer-template');
+
+      document.querySelectorAll('.slide-background').forEach(backgroundDiv => {
+        if (headerTemplate) {
+          backgroundDiv.appendChild(headerTemplate.cloneNode(true));
+        }
+        if (footerTemplate) {
+          backgroundDiv.appendChild(footerTemplate.cloneNode(true));
+        }
+      });
+
+      const nomeDisciplina = "Estrutura de Dados";
+      const assuntoAula = "Estrutura de Dados - Estruturas e Enumeradores"
+      const aulaNum = '3';
+      const currentDate = new Date();
+
+      // Get the full four-digit year
+      const currentYear = " " + currentDate.getFullYear(); // e.g., 2026
+
+      // Find the HTML element by its ID and set its text content to the current year
+      document.getElementById('year-placeholder').textContent = "\  " + currentYear;
+      var elems = document.getElementsByClassName('lecture_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = nomeDisciplina;
+      }
+      document.title = nomeDisciplina;
+      document.getElementById('aula_num_placeholder').textContent = aulaNum
+      elems = document.getElementsByClassName('lecture_subject_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = assuntoAula;
+      }
+      createWorldMarketShare();
+      createMarketShare();
+    });
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      center: true,
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      controls: true,
+      controlsBackArrows: 'faded',
+      progress: true,
+      plugins: [RevealHighlight, RevealZoom],
+    });
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1600"
+   height="1000"
+   viewBox="0 0 1600 1000"
+   version="1.1"
+   id="svg47"
+   sodipodi:docname="memoria_ram_ponteiros.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview47"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.816"
+     inkscape:cx="800.2451"
+     inkscape:cy="500"
+     inkscape:window-width="2560"
+     inkscape:window-height="1024"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg47" />
+  <defs
+     id="defs3">
+    <style
+       id="style1">
+      .title { font: 700 40px Arial, sans-serif; fill: #6b21a8; }
+      .subtitle { font: 500 24px Arial, sans-serif; fill: #374151; }
+      .label { font: 700 28px Arial, sans-serif; }
+      .addr { font: 700 24px Consolas, monospace; fill: #2563eb; }
+      .value { font: 700 30px Consolas, monospace; fill: #1f2937; }
+      .small { font: 500 21px Arial, sans-serif; fill: #374151; }
+      .note { font: 700 23px Arial, sans-serif; }
+      .cell { stroke: #1f2937; stroke-width: 3; rx: 12; ry: 12; }
+      .green { fill: #15803d; }
+      .blue { fill: #2563eb; }
+      .orange { fill: #c2410c; }
+      .purple { fill: #6b21a8; }
+    </style>
+    <marker
+       id="arrowBlue"
+       markerWidth="14"
+       markerHeight="14"
+       refX="11"
+       refY="7"
+       orient="auto">
+      <path
+         d="M0,0 L14,7 L0,14 z"
+         fill="#2563eb"
+         id="path1" />
+    </marker>
+    <marker
+       id="arrowOrange"
+       markerWidth="14"
+       markerHeight="14"
+       refX="11"
+       refY="7"
+       orient="auto">
+      <path
+         d="M0,0 L14,7 L0,14 z"
+         fill="#c2410c"
+         id="path2" />
+    </marker>
+    <marker
+       id="arrowGreen"
+       markerWidth="14"
+       markerHeight="14"
+       refX="11"
+       refY="7"
+       orient="auto">
+      <path
+         d="M0,0 L14,7 L0,14 z"
+         fill="#15803d"
+         id="path3" />
+    </marker>
+  </defs>
+  <rect
+     width="1600"
+     height="1000"
+     fill="#ffffff"
+     id="rect3" />
+  <text
+     x="60"
+     y="80"
+     class="title"
+     id="text3">Memória RAM, endereços e ponteiros</text>
+  <text
+     x="60"
+     y="125"
+     class="subtitle"
+     id="text4">Cada posição da memória possui um endereço e armazena um valor.</text>
+  <text
+     x="210"
+     y="190"
+     class="label blue"
+     id="text5">Endereço</text>
+  <text
+     x="510"
+     y="190"
+     class="label purple"
+     id="text6">Conteúdo armazenado</text>
+  <text
+     x="1019.4608"
+     y="166.71568"
+     class="label green"
+     id="text7"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:28px;line-height:normal;font-family:Arial, sans-serif">Interpretação no programa</text>
+  <rect
+     x="180"
+     y="220"
+     width="250"
+     height="85"
+     class="cell"
+     fill="#f3f4f6"
+     id="rect7" />
+  <rect
+     x="430"
+     y="220"
+     width="340"
+     height="85"
+     class="cell"
+     fill="#f3f4f6"
+     id="rect8" />
+  <rect
+     x="180"
+     y="305"
+     width="250"
+     height="85"
+     class="cell"
+     fill="#fff1b8"
+     id="rect9" />
+  <rect
+     x="430"
+     y="305"
+     width="340"
+     height="85"
+     class="cell"
+     fill="#fff1b8"
+     id="rect10" />
+  <rect
+     x="180"
+     y="390"
+     width="250"
+     height="85"
+     class="cell"
+     fill="#d9f5df"
+     id="rect11" />
+  <rect
+     x="430"
+     y="390"
+     width="340"
+     height="85"
+     class="cell"
+     fill="#d9f5df"
+     id="rect12" />
+  <rect
+     x="180"
+     y="475"
+     width="250"
+     height="85"
+     class="cell"
+     fill="#dcecff"
+     id="rect13" />
+  <rect
+     x="430"
+     y="475"
+     width="340"
+     height="85"
+     class="cell"
+     fill="#dcecff"
+     id="rect14" />
+  <rect
+     x="180"
+     y="560"
+     width="250"
+     height="85"
+     class="cell"
+     fill="#ffe0c7"
+     id="rect15" />
+  <rect
+     x="430"
+     y="560"
+     width="340"
+     height="85"
+     class="cell"
+     fill="#ffe0c7"
+     id="rect16" />
+  <rect
+     x="180"
+     y="645"
+     width="250"
+     height="85"
+     class="cell"
+     fill="#eadcf7"
+     id="rect17" />
+  <rect
+     x="430"
+     y="645"
+     width="340"
+     height="85"
+     class="cell"
+     fill="#eadcf7"
+     id="rect18" />
+  <rect
+     x="180"
+     y="730"
+     width="250"
+     height="85"
+     class="cell"
+     fill="#f3f4f6"
+     id="rect19" />
+  <rect
+     x="430"
+     y="730"
+     width="340"
+     height="85"
+     class="cell"
+     fill="#f3f4f6"
+     id="rect20" />
+  <text
+     x="305"
+     y="273"
+     class="addr"
+     text-anchor="middle"
+     id="text20">0x1000</text>
+  <text
+     x="305"
+     y="358"
+     class="addr"
+     text-anchor="middle"
+     id="text21">0x1004</text>
+  <text
+     x="305"
+     y="443"
+     class="addr"
+     text-anchor="middle"
+     id="text22">0x1008</text>
+  <text
+     x="305"
+     y="528"
+     class="addr"
+     text-anchor="middle"
+     id="text23">0x100C</text>
+  <text
+     x="305"
+     y="613"
+     class="addr"
+     text-anchor="middle"
+     id="text24">0x1010</text>
+  <text
+     x="305"
+     y="698"
+     class="addr"
+     text-anchor="middle"
+     id="text25">0x1014</text>
+  <text
+     x="305"
+     y="783"
+     class="addr"
+     text-anchor="middle"
+     id="text26">0x1018</text>
+  <text
+     x="600"
+     y="273"
+     class="value"
+     text-anchor="middle"
+     id="text27">12</text>
+  <text
+     x="600"
+     y="358"
+     class="value"
+     text-anchor="middle"
+     id="text28">25</text>
+  <text
+     x="600"
+     y="443"
+     class="value"
+     text-anchor="middle"
+     id="text29">42</text>
+  <text
+     x="600"
+     y="528"
+     class="value"
+     text-anchor="middle"
+     id="text30">0x1008</text>
+  <text
+     x="600"
+     y="613"
+     class="value"
+     text-anchor="middle"
+     id="text31">7.5</text>
+  <text
+     x="600"
+     y="698"
+     class="value"
+     text-anchor="middle"
+     id="text32">'A'</text>
+  <text
+     x="600"
+     y="783"
+     class="value"
+     text-anchor="middle"
+     id="text33">0</text>
+  <text
+     x="1035.4608"
+     y="246.71568"
+     class="note"
+     id="text34"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:23px;line-height:normal;font-family:Arial, sans-serif">int a = 12;</text>
+  <text
+     x="1035.4608"
+     y="331.7157"
+     class="note"
+     id="text35"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:23px;line-height:normal;font-family:Arial, sans-serif">int b = 25;</text>
+  <text
+     x="1035.4608"
+     y="416.7157"
+     class="note green"
+     id="text36"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:23px;line-height:normal;font-family:Arial, sans-serif">int idade = 42;</text>
+  <text
+     x="1035.4608"
+     y="501.7157"
+     class="note blue"
+     id="text37"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:23px;line-height:normal;font-family:Arial, sans-serif">int *ponteiro = &amp;idade;</text>
+  <text
+     x="1035.4608"
+     y="586.7157"
+     class="note"
+     id="text38"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:23px;line-height:normal;font-family:Arial, sans-serif">float nota = 7.5f;</text>
+  <text
+     x="1035.4608"
+     y="671.7157"
+     class="note"
+     id="text39"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:23px;line-height:normal;font-family:Arial, sans-serif">char letra = 'A';</text>
+  <text
+     x="1035.4608"
+     y="756.7157"
+     class="note"
+     id="text40"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:23px;line-height:normal;font-family:Arial, sans-serif">int contador = 0;</text>
+  <path
+     d="M770 518 C875 518, 850 430, 785 430"
+     fill="none"
+     stroke="#c2410c"
+     stroke-width="5"
+     marker-end="url(#arrowOrange)"
+     id="path40" />
+  <text
+     x="790.19611"
+     y="354.90195"
+     class="note orange"
+     id="text41"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:23px;line-height:normal;font-family:Arial, sans-serif">O ponteiro armazena</text>
+  <text
+     x="790.19611"
+     y="384.90195"
+     class="note orange"
+     id="text42"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:23px;line-height:normal;font-family:Arial, sans-serif">o endereço 0x1008</text>
+  <line
+     x1="1210"
+     y1="410"
+     x2="1375"
+     y2="410"
+     stroke="#15803d"
+     stroke-width="4"
+     stroke-dasharray="7 7"
+     marker-end="url(#arrowGreen)"
+     id="line42" />
+  <text
+     x="1390"
+     y="385"
+     class="note green"
+     id="text43">Variável comum:</text>
+  <text
+     x="1390"
+     y="420"
+     class="small"
+     id="text44">armazena um valor</text>
+  <line
+     x1="1294.5588"
+     y1="495"
+     x2="1380.9773"
+     y2="495"
+     stroke="#2563eb"
+     stroke-width="2.89482"
+     stroke-dasharray="7, 7"
+     marker-end="url(#arrowBlue)"
+     id="line44" />
+  <text
+     x="1390"
+     y="470"
+     class="note blue"
+     id="text45">Ponteiro:</text>
+  <text
+     x="1498.3552"
+     y="468.52222"
+     class="small"
+     id="text46"
+     transform="scale(0.92776677,1.0778571)"
+     style="font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;font-size:21px;line-height:normal;font-family:Arial, sans-serif;stroke-width:0.927767">armazena um endereço</text>
+  <path
+     d="M180 870 V905 Q180 920 195 920 H760 Q775 920 775 935 Q775 920 790 920 H1355 Q1370 920 1370 905 V870"
+     fill="none"
+     stroke="#2563eb"
+     stroke-width="4"
+     id="path46" />
+  <text
+     x="775"
+     y="970"
+     class="label blue"
+     text-anchor="middle"
+     id="text47">A RAM é uma grande sequência de posições identificadas por endereços</text>
+</svg>

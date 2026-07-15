@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="950" viewBox="0 0 1600 950">
+<defs>
+<style>
+.title{font:700 40px Arial,sans-serif;fill:#6b21a8}
+.subtitle{font:500 23px Arial,sans-serif;fill:#374151}
+.section{font:700 30px Arial,sans-serif}
+.label{font:700 27px Arial,sans-serif}
+.code{font:700 24px Consolas,monospace;fill:#1f2937}
+.addr{font:700 22px Consolas,monospace;fill:#2563eb}
+.value{font:700 29px Consolas,monospace;fill:#1f2937}
+.small{font:500 20px Arial,sans-serif;fill:#374151}
+.note{font:700 22px Arial,sans-serif}
+.cell{stroke:#1f2937;stroke-width:3;rx:14;ry:14}
+.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+<marker id="ao" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#c2410c"/></marker>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ar" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#b91c1c"/></marker>
+</defs>
+<rect width="1600" height="950" fill="#fff"/>
+<text x="60" y="75" class="title">Ponteiro NULL</text>
+
+<text x="60" y="120" class="subtitle">NULL indica explicitamente que o ponteiro não aponta para um objeto válido.</text>
+<rect x="170" y="165" width="1260" height="95" class="cell" fill="#f3f4f6"/>
+<text x="800" y="223" class="code" text-anchor="middle">int *p = NULL;</text>
+<rect x="180" y="370" width="430" height="210" class="cell" fill="#eadcf7"/>
+<text x="395" y="435" class="label" text-anchor="middle">ponteiro p</text>
+<text x="395" y="495" class="value blue" text-anchor="middle">NULL</text>
+<text x="395" y="540" class="small" text-anchor="middle">nenhum endereço válido</text>
+<rect x="940" y="370" width="430" height="210" class="cell" fill="#f3f4f6"/>
+<text x="1155" y="455" class="label" text-anchor="middle">Heap</text>
+<text x="1155" y="510" class="small" text-anchor="middle">nenhum bloco associado</text>
+<line x1="610" y1="475" x2="920" y2="475" stroke="#2563eb" stroke-width="5" stroke-dasharray="10 10"/>
+<text x="765" y="440" class="note blue" text-anchor="middle">não aponta para a Heap</text>
+<rect x="300" y="690" width="1000" height="125" class="cell" fill="#d9f5df"/>
+<text x="800" y="740" class="code" text-anchor="middle">if (p != NULL) { /* uso seguro */ }</text>
+<text x="800" y="785" class="note green" text-anchor="middle">A verificação evita desreferenciar um ponteiro inválido.</text>
+
+</svg>

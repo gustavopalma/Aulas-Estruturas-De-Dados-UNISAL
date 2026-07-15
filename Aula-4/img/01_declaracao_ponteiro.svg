@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="950" viewBox="0 0 1600 950">
+<defs>
+<style>
+.title{font:700 40px Arial,sans-serif;fill:#6b21a8}
+.subtitle{font:500 23px Arial,sans-serif;fill:#374151}
+.section{font:700 30px Arial,sans-serif}
+.label{font:700 27px Arial,sans-serif}
+.code{font:700 24px Consolas,monospace;fill:#1f2937}
+.addr{font:700 22px Consolas,monospace;fill:#2563eb}
+.value{font:700 29px Consolas,monospace;fill:#1f2937}
+.small{font:500 20px Arial,sans-serif;fill:#374151}
+.note{font:700 22px Arial,sans-serif}
+.cell{stroke:#1f2937;stroke-width:3;rx:14;ry:14}
+.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+<marker id="ao" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#c2410c"/></marker>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ar" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#b91c1c"/></marker>
+</defs>
+<rect width="1600" height="950" fill="#fff"/>
+<text x="60" y="75" class="title">Declaração de um ponteiro</text>
+
+<text x="60" y="120" class="subtitle">A declaração cria a variável ponteiro, mas ainda não reserva um bloco na Heap.</text>
+<rect x="110" y="170" width="1380" height="95" class="cell" fill="#f3f4f6"/>
+<text x="800" y="228" class="code" text-anchor="middle">int *p;</text>
+<text x="250" y="340" class="section purple">Stack</text>
+<rect x="160" y="385" width="470" height="210" class="cell" fill="#eadcf7"/>
+<text x="395" y="455" class="label" text-anchor="middle">ponteiro p</text>
+<text x="395" y="510" class="value" text-anchor="middle">valor indeterminado</text>
+<text x="395" y="555" class="small" text-anchor="middle">não aponta para um endereço válido</text>
+<text x="970" y="340" class="section green">Heap</text>
+<rect x="840" y="385" width="540" height="210" class="cell" fill="#f3f4f6"/>
+<text x="1110" y="485" class="label" text-anchor="middle">nenhum bloco foi alocado</text>
+<line x1="630" y1="490" x2="820" y2="490" stroke="#b91c1c" stroke-width="5" stroke-dasharray="10 10"/>
+<text x="725" y="455" class="note red" text-anchor="middle">sem destino válido</text>
+<rect x="280" y="690" width="1040" height="105" class="cell" fill="#fff1b8"/>
+<text x="800" y="735" class="note orange" text-anchor="middle">Declarar um ponteiro não inicializado pode ser perigoso.</text>
+<text x="800" y="775" class="code" text-anchor="middle">int *p = NULL;</text>
+
+</svg>

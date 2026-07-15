@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="950" viewBox="0 0 1600 950">
+<defs>
+<style>
+.title{font:700 40px Arial,sans-serif;fill:#6b21a8}
+.subtitle{font:500 23px Arial,sans-serif;fill:#374151}
+.section{font:700 30px Arial,sans-serif}
+.label{font:700 27px Arial,sans-serif}
+.code{font:700 24px Consolas,monospace;fill:#1f2937}
+.addr{font:700 22px Consolas,monospace;fill:#2563eb}
+.value{font:700 29px Consolas,monospace;fill:#1f2937}
+.small{font:500 20px Arial,sans-serif;fill:#374151}
+.note{font:700 22px Arial,sans-serif}
+.cell{stroke:#1f2937;stroke-width:3;rx:14;ry:14}
+.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+<marker id="ao" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#c2410c"/></marker>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ar" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#b91c1c"/></marker>
+</defs>
+<rect width="1600" height="950" fill="#fff"/>
+<text x="60" y="75" class="title">Ponteiro pendente (dangling pointer)</text>
+
+<text x="60" y="120" class="subtitle">Após free, o ponteiro ainda pode conter o endereço antigo, mas o bloco já não pertence ao programa.</text>
+<rect x="120" y="180" width="1360" height="95" class="cell" fill="#f3f4f6"/>
+<text x="800" y="238" class="code" text-anchor="middle">free(p);  // p ainda contém 0x2000</text>
+<rect x="130" y="385" width="390" height="200" class="cell" fill="#eadcf7"/>
+<text x="325" y="450" class="label" text-anchor="middle">p</text>
+<text x="325" y="510" class="value red" text-anchor="middle">0x2000</text>
+<rect x="850" y="385" width="500" height="200" class="cell" fill="#f3f4f6" stroke-dasharray="10 8"/>
+<text x="1100" y="450" class="label" text-anchor="middle">memória liberada</text>
+<text x="1100" y="510" class="small" text-anchor="middle">pode ter sido reutilizada</text>
+<path d="M520 485 C650 485 720 485 830 485" fill="none" stroke="#b91c1c" stroke-width="5" stroke-dasharray="10 8" marker-end="url(#ar)"/>
+<text x="680" y="445" class="note red" text-anchor="middle">dangling pointer</text>
+<rect x="300" y="700" width="1000" height="120" class="cell" fill="#ffe0c7"/>
+<text x="800" y="748" class="note orange" text-anchor="middle">Desreferenciar p nesse estado causa comportamento indefinido.</text>
+<text x="800" y="790" class="code" text-anchor="middle">p = NULL;</text>
+
+</svg>

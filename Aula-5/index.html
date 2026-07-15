@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title><span class="lecture_placeholder"></title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+  <link rel="stylesheet" href="css/mine.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <div id="header-template">
+    <a href="https://unisal.br/">
+      <img src="img/logo_unisal.png" alt="Logo">
+    </a>
+    <h1>Aula &nbsp; <span id="aula_num_placeholder"></span> &nbsp; - &nbsp; <span class="lecture_placeholder"></span>
+      &nbsp; - &nbsp; <span class="lecture_subject_placeholder"></span></h1>
+  </div>
+
+  <!-- Rodapé -->
+  <div id="footer-template">
+    UNISAL - São José, Campinas - &nbsp; <span id="year-placeholder"></span>
+  </div>
+
+  <!-- Slides -->
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <a href="https://unisal.br/">
+          <img src="img/logo_unisal.png" alt="logo unisal"
+            style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+        </a>
+        <h2><span class="lecture_placeholder"></h2>
+        <h3><span class="lecture_subject_placeholder"></span></h3>
+        <p>
+          <small>Prof. Me. Gustavo Ferreira Palma</small>
+        </p>
+      </section>
+      <section>
+        <h2>Pauta</h2>
+
+        <ul>
+          <li>Persistência de Dados Com Arquivos:</li>
+          <ul>
+            <li>Trabalhando com arquivos de texto</li>
+            <li>Trabalhando com arquivos binários</li>
+          </ul>
+        </ul>
+      </section>
+
+      <!-- <section>
+        <h2>Bibliografia Básica</h2>
+        <ul>
+          <li>Conci, Aura. Computação Gráfica: Teoria e Prática - Geração De Imagens - Volume 1. Contribuição de Cristina Nader Vasconcelos e Eduardo Azevedo, Alta Books, 2021.</li>
+          <li>Barelli, Felipe. Introdução à visão computacional: uma abordagem prática com Python e OpenCV. Casa do Código, 2018.</li>
+        </ul>
+      </section> -->
+
+      <section>
+        <h1>Persistência de Dados Com Arquivos</h1>
+      </section>
+
+      <section>
+        <h2>Persistência de Dados Com Arquivos</h2>
+        <ul>
+          <li> Arquivos são uma das formas de persistência de dados mais simples existentes</li>
+          <li> Arquivos São suportados pela maioria das Linguagens de Programação</li>
+          <li> Para Ler um arquivo, basta saber como ele foi escrito</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Persistência de Dados Com Arquivos - Arquivos de Texto</h2>
+
+        <p>Um dos modelos mais simples de persistência de dados é o arquivo de modo texto </p>
+        <div class="imageRow">
+          <div class="imgContainer" style="width:45%">
+            <h5>Vantagens</h5>
+            <ul>
+              <li> Arquivos simples </li>
+              <li> Humanamente Legíveis </li>
+              <li> Podem ser editados com qualquer editor de texto </li>
+            </ul>
+          </div>
+          <div class="imgContainer" style="width:45%">
+            <h5>Desvantagens</h5>
+            <ul>
+              <li> Informações não confiáveis </li>
+              <li> Não Recomendáveis para uso em produção </li>
+              <li> Não podem ser usados para lidar com informações sensíveis </li>
+              <li> Mais dificeis de tratar, quando a edição e manutenção dos dados </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Persistência de Dados Com Arquivos - Arquivos de Texto</h2>
+        <ul>
+          <li>Escrenvendo Arquivos de Texto</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="1-6|9|14|16-19|21-23|26|28">
+
+typedef struct _pessoa {
+    char nome[100];
+    int idade;
+    char endereço[100];
+} pessoa;
+
+int main() {
+  pessoa p;
+  FILE *arquivo;
+  //...
+  fgets(p.endereco, sizeof(p.endereco), stdin);
+  //...
+  // abre o arquivo em modo escrita ("w" = write)
+  arquivo = fopen("dados.txt", "w");
+
+  if (NULL == arquivo) {
+    printf("Erro ao abrir o arquivo!\n");
+    return 1;
+  }
+    
+  fprintf(arquivo, "Nome: %s\n",p.nome);
+  fprintf(arquivo, "Idade: %d\n", p.idade);
+  fprintf(arquivo, "Endereço: %s\n", p.endereco);
+
+  // força a escrita dos dados
+  fflush(arquivo);
+  // fecha o arquivo, evita erros de concorrência
+  fclose(arquivo);
+  return 0;
+}          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Persistência de Dados Com Arquivos - Arquivos de Texto</h2>
+        <ul>
+          <li>Tipos de Abertura do Arquivo</li>
+          <ul>
+            <li> "w" - Arquivo no modo escrita, apaga o conteúdo anterior do arquivo, se existir </li>
+            <li> "a" - Arquivo no modo escrita, adiciona mais dados ao final do arquivo </li>
+            <li> "r" - Abre o arquivo no modo somente leitura </li>
+          </ul>
+          <li>com exceção do modo "r", todos os outros criam o arquivo, caso ele não exista </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Persistência de Dados Com Arquivos - Arquivos de Texto</h2>
+        <ul>
+          <li>Resultado da Gravação</li>
+        </ul>
+        <img src="img/dados_texto.png" style="width: 100%;">
+      </section>
+
+      <section>
+        <h2>Persistência de Dados Com Arquivos - Arquivos de Texto</h2>
+        <ul>
+          <li>Lendo Arquivos de Texto</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="2|5-6|13-16">
+int main() {
+    FILE *arquivo;
+
+    // abre o arquivo em modo leitura ("r" = read)
+    arquivo = fopen("dados.txt", "r");
+
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        return 1;
+    }
+    
+    printf(" ----- Dados Gravados  ----- \n");
+    char linha[100];
+    while (fgets(linha, sizeof(linha), arquivo) != NULL) {
+        printf("%s", linha);  // imprime cada linha lida
+    }
+    printf(" ----- Dados Gravados  ----- \n");
+    fclose(arquivo);
+    return 0;
+}        
+      </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Persistência de Dados Com Arquivos - Arquivos Binários</h2>
+        <ul>
+          <li>Outro modelo simples de persistência de dados, e computacionalmente simples para a manutenção, é o arquivo
+            binário</li>
+        </ul>
+        <div class="imageRow">
+          <div class="imgContainer" style="width:45%">
+            <h5>Vantagens</h5>
+            <ul>
+              <li> Computacionalmente Legível (formatado)</li>
+              <li> Mais seguro, quando comparado ao Arquivo de texto </li>
+              <li> geralmente só podem ser editados pelos programas que os criaram </li>
+            </ul>
+          </div>
+          <div class="imgContainer" style="width:45%">
+            <h5>Desvantagens</h5>
+            <ul>
+              <li> Informações não confiáveis </li>
+              <li> Não podem ser usados para lidar com informações sensíveis </li>
+              <li> Fácilmente corruptíveis </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Persistência de Dados Com Arquivos - Arquivos Binários</h2>
+        <ul>
+          <li>Escrevendo Arquivos Binários</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="2">
+typedef struct _pessoa {
+    long id; // para dos dados indexação
+    char nome[100];
+    int idade;
+    char endereco[100];
+} pessoa;    
+      </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Persistência de Dados Com Arquivos - Arquivos Binários</h2>
+        <ul>
+          <li>Escrevendo Arquivos Binários</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="1-6|13|21">
+typedef struct _pessoa {
+    long id; // para dos dados indexação
+    char nome[100];
+    int idade;
+    char endereco[100];
+} pessoa;    
+
+int main() {
+    pessoa p;
+    FILE *arquivo;
+    //...
+    // abre o arquivo em modo escrita, preservando dados antigos, em modo binário ("ab" = append + binario)
+    arquivo = fopen("dados.dat", "ab");
+
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        return 1;
+    }
+
+    // escreve algumas informações no arquivo
+    fwrite(&p, sizeof(pessoa), 1, arquivo);
+
+    // fecha o arquivo (muito importante!)
+    fflush(arquivo);
+    fclose(arquivo);
+
+    return 0;
+}
+      </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Persistência de Dados Com Arquivos - Arquivos Binários</h2>
+        <ul>
+          <li>Resultado da Gravação</li>
+        </ul>
+        <img src="img/dados_binarios.png">
+      </section>
+
+      <section>
+        <h2>Persistência de Dados Com Arquivos - Arquivos Binários</h2>
+        <ul>
+          <li>Lendo Arquivos binários</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="1-6|13|20-24">
+typedef struct _pessoa {
+    long id; // para dos dados indexação
+    char nome[100];
+    int idade;
+    char endereco[100];
+} pessoa;
+
+int main() {
+    pessoa p;
+    FILE *arquivo;
+
+    // abre o arquivo em modo leitura binária ("rb" = read + binary)
+    arquivo = fopen("dados.dat", "rb");
+
+    if (arquivo == NULL) {
+        printf("Erro ao abrir o arquivo!\n");
+        return 1;
+    }
+    
+    printf(" ----- Dados Gravados  ----- \n");
+    while (fread(&p, sizeof(pessoa), 1, arquivo)) {
+        printf("ID: %ld | Nome: %s | Idade: %d | Endereço: %s\n",
+               p.id, p.nome, p.idade, p.endereco);
+    }
+    printf(" --------------------------- \n");
+    fclose(arquivo);
+    return 0;
+}
+      </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Persistência de Dados Com Arquivos - Arquivos Binários</h2>
+        <ul>
+          <li>Editando Arquivos binários</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="1|3|8-15">
+    pessoa novaPessoa;
+    //...
+    FILE *f = fopen("dados.dat", "rb+"); // leitura+escrita binária
+    if (!f) {
+        printf("Erro ao abrir arquivo!\n");
+        return;
+    }
+
+    pessoa p;
+    while (fread(&p, sizeof(pessoa), 1, f)) {
+        if (p.id == id) {
+            fseek(f, -sizeof(pessoa), SEEK_CUR); // volta 1 registro
+            fwrite(&novaPessoa, sizeof(pessoa), 1, f);
+            printf("Registro atualizado!\n");
+            fclose(f);
+            return;
+        }
+    }
+    printf("ID %ld não encontrado!\n", id);
+    fclose(f);
+      </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Persistência de Dados Com Arquivos - Arquivos Binários</h2>
+        <ul>
+          <li>Excluindo registros de Arquivos binários</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="1|2|3|9-19|21-22|24-27">
+    pessoa pessoaParaExcluir;
+    FILE *f = fopen("dados.dat", "rb");
+    FILE *temp = fopen("temp.dat", "wb");
+    if (!f || !temp) {
+        printf("Erro ao abrir arquivos!\n");
+        return;
+    }
+
+    pessoa p;
+    while (fread(&p, sizeof(pessoa), 1, f)) {
+        if (p.id == id) {
+            continue; // salta para a linha 10
+        } else {
+            fwrite(&p, sizeof(pessoa), 1, temp);
+        }
+    }
+
+    fclose(f);
+    fclose(temp);
+
+    remove("dados.dat");          // remove original
+    rename("temp.dat", "dados.dat"); // renomeia temporário
+
+    if (removido)
+        printf("Registro removido!\n");
+    else
+        printf("ID %ld não encontrado!\n", id);
+      </code>
+        </pre>
+      </section>
+
+      <section>
+        <h1>OBRIGADO!</h1>
+        <p>Podem me encontrar aqui:</p>
+        <ul>
+          <li>gustavo.palma@unisal.edu.br</li>
+          <li>www.gustavopalma.com.br</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="../../../dist/reveal.js"></script>
+
+
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/zoom/zoom.js"></script>
+  <script>
+    const iframe = document.getElementById('terminal');
+    if (iframe != null) {
+      iframe.onload = () => {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        const style = doc.createElement('style');
+        style.innerHTML = `
+      .xterm {
+        font-size: 20px !important;
+        line-height: 1.2 !important;
+      }
+    `;
+        doc.head.appendChild(style);
+      };
+    }
+  </script>
+  <script>
+    Reveal.on('ready', event => {
+      const headerTemplate = document.getElementById('header-template');
+      const footerTemplate = document.getElementById('footer-template');
+
+      document.querySelectorAll('.slide-background').forEach(backgroundDiv => {
+        if (headerTemplate) {
+          backgroundDiv.appendChild(headerTemplate.cloneNode(true));
+        }
+        if (footerTemplate) {
+          backgroundDiv.appendChild(footerTemplate.cloneNode(true));
+        }
+      });
+
+      const nomeDisciplina = "Estrutura de Dados";
+      const assuntoAula = "Arquivos"
+      const aulaNum = '5';
+      const currentDate = new Date();
+
+      // Get the full four-digit year
+      const currentYear = " " + currentDate.getFullYear(); // e.g., 2026
+
+      // Find the HTML element by its ID and set its text content to the current year
+      document.getElementById('year-placeholder').textContent = "\  " + currentYear;
+      var elems = document.getElementsByClassName('lecture_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = nomeDisciplina;
+      }
+      document.title = nomeDisciplina;
+      document.getElementById('aula_num_placeholder').textContent = aulaNum
+      elems = document.getElementsByClassName('lecture_subject_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = assuntoAula;
+      }
+      createWorldMarketShare();
+      createMarketShare();
+    });
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      center: true,
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      controls: true,
+      controlsBackArrows: 'faded',
+      progress: true,
+      plugins: [RevealHighlight, RevealZoom],
+    });
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="950" viewBox="0 0 1600 950">
+<defs>
+<style>
+.title{font:700 40px Arial,sans-serif;fill:#6b21a8}
+.subtitle{font:500 23px Arial,sans-serif;fill:#374151}
+.section{font:700 30px Arial,sans-serif}
+.label{font:700 27px Arial,sans-serif}
+.code{font:700 24px Consolas,monospace;fill:#1f2937}
+.addr{font:700 22px Consolas,monospace;fill:#2563eb}
+.value{font:700 29px Consolas,monospace;fill:#1f2937}
+.small{font:500 20px Arial,sans-serif;fill:#374151}
+.note{font:700 22px Arial,sans-serif}
+.cell{stroke:#1f2937;stroke-width:3;rx:14;ry:14}
+.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+<marker id="ao" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#c2410c"/></marker>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ar" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#b91c1c"/></marker>
+</defs>
+<rect width="1600" height="950" fill="#fff"/>
+<text x="60" y="75" class="title">Struct alocada dinamicamente</text>
+
+<text x="60" y="120" class="subtitle">malloc também pode reservar espaço para uma estrutura completa.</text>
+<rect x="100" y="160" width="1400" height="105" class="cell" fill="#f3f4f6"/>
+<text x="800" y="205" class="code" text-anchor="middle">Aluno *aluno = malloc(sizeof(Aluno));</text>
+<text x="800" y="245" class="code" text-anchor="middle">aluno-&gt;idade = 20;</text>
+<text x="170" y="350" class="section purple">Stack</text>
+<rect x="120" y="390" width="320" height="190" class="cell" fill="#eadcf7"/>
+<text x="280" y="450" class="label" text-anchor="middle">aluno</text>
+<text x="280" y="505" class="value" text-anchor="middle">0x3000</text>
+<text x="760" y="350" class="section green">Heap — objeto Aluno</text>
+<rect x="600" y="390" width="500" height="190" class="cell" fill="#d9f5df"/>
+<rect x="1100" y="390" width="170" height="190" class="cell" fill="#fff1b8"/>
+<rect x="1270" y="390" width="170" height="190" class="cell" fill="#dcecff"/>
+<text x="850" y="455" class="label" text-anchor="middle">nome[50]</text>
+<text x="850" y="510" class="small" text-anchor="middle">50 bytes</text>
+<text x="1185" y="455" class="label" text-anchor="middle">idade</text>
+<text x="1185" y="510" class="value" text-anchor="middle">20</text>
+<text x="1355" y="455" class="label" text-anchor="middle">nota</text>
+<text x="1355" y="510" class="value" text-anchor="middle">?</text>
+<path d="M440 485 C500 485 520 485 585 485" fill="none" stroke="#c2410c" stroke-width="5" marker-end="url(#ao)"/>
+<text x="820" y="660" class="note blue" text-anchor="middle">O operador -&gt; acessa um campo através de um ponteiro.</text>
+<rect x="330" y="720" width="940" height="115" class="cell" fill="#ffe0c7"/>
+<text x="800" y="768" class="code" text-anchor="middle">aluno-&gt;idade  ==  (*aluno).idade</text>
+<text x="800" y="810" class="note orange" text-anchor="middle">As duas expressões são equivalentes.</text>
+
+</svg>

@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title><span class="lecture_placeholder"></title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+  <link rel="stylesheet" href="css/mine.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <div id="header-template">
+    <a href="https://unisal.br/">
+      <img src="img/logo_unisal.png" alt="Logo">
+    </a>
+    <h1>Aula &nbsp; <span id="aula_num_placeholder"></span> &nbsp; - &nbsp; <span class="lecture_placeholder"></span>
+      &nbsp; - &nbsp; <span class="lecture_subject_placeholder"></span></h1>
+  </div>
+
+  <!-- Rodapé -->
+  <div id="footer-template">
+    UNISAL - São José, Campinas - &nbsp; <span id="year-placeholder"></span>
+  </div>
+
+  <!-- Slides -->
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <a href="https://unisal.br/">
+          <img src="img/logo_unisal.png" alt="logo unisal"
+            style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+        </a>
+        <h2><span class="lecture_placeholder"></h2>
+        <h3><span class="lecture_subject_placeholder"></span></h3>
+        <p>
+          <small>Prof. Me. Gustavo Ferreira Palma</small>
+        </p>
+      </section>
+      <section>
+        <h2>Pauta</h2>
+
+        <ul>
+          <li>Ponteiros</li>
+        </ul>
+      </section>
+
+      <!-- <section>
+        <h2>Bibliografia Básica</h2>
+        <ul>
+          <li>Conci, Aura. Computação Gráfica: Teoria e Prática - Geração De Imagens - Volume 1. Contribuição de Cristina Nader Vasconcelos e Eduardo Azevedo, Alta Books, 2021.</li>
+          <li>Barelli, Felipe. Introdução à visão computacional: uma abordagem prática com Python e OpenCV. Casa do Código, 2018.</li>
+        </ul>
+      </section> -->
+
+      <section>
+        <h1>Ponteiros</h1>
+      </section>
+
+      <section>
+        <h2>Ponteiros - Conceito</h2>
+        <ul>
+          <li>Toda variável declarada em um programa ocupa uma ou mais posições na memória. Essas posições são
+            identificadas por endereços, que funcionam como "coordenadas" utilizadas pelo processador para localizar os
+            dados.</li>
+
+          <li>Um ponteiro é uma variável cujo conteúdo não é um valor comum, mas sim o endereço de memória de outra
+            variável.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ponteiros - Conceito</h2>
+        <ul>
+          <li>Por que utilizar ponteiros?</li>
+          <li>Compartilhar dados entre diferentes funções.</li>
+          <li>Evitar cópias desnecessárias.</li>
+          <li>Criar estruturas de tamanho variável.</li>
+          <li>Manipular memória dinamicamente.</li>
+          <li>Implementar estruturas de dados como listas, filas e árvores.</li>
+          <li>Desenvolver bibliotecas genéricas.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ponteiros - Conceito</h2>
+        <img src="img/memoria_ram_ponteiros.svg" width="65%">
+      </section>
+
+      <section>
+        <h2>Ponteiros - Conceito</h2>
+        <ul>
+          <li>Uma das principais ideias ao utilizar ponteiros é evitar a duplicação de valores;</li>
+          <li>o que evita problemas ao usar recursos escassos, como por exemplo um arquivo, um socket ou uma porta
+            serial por exemplo;</li>
+          <li>Além disso, ainda podemos tornar o programa mais dinâmico e otimizado, através da alocação dinâmica,
+            podemos ter vetores de tamanhos específicos, que podem se expandir ou encolher, conforme a demanda;</li>
+          <li>Além disso, podemos inclusive usar ponteiros para armazenar funções;</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ponteiros - Conceito</h2>
+        <img src="img/08_stack_vs_heap.svg" width="65%">
+      </section>
+
+      <section>
+        <h2>Ponteiros - Declaração</h2>
+        <ul>
+          <li>Antes de falarmos explicitamente sobre a declaração de ponteiros, devemos falar dos operadores
+            principais para o trabalho com ponteiros;</li>
+          <li>O operador <b>*</b> Acessa o valor, o conteúdo apontado pelo endereço do ponteiro</li>
+          <li>O operador <b>&</b> Acessa o endereço de uma variável em memória</li>
+        </ul>
+
+        <pre>
+          <code data-line-numbers="">
+int main() {
+  int *p = NULL;
+}
+          </code>
+        </pre>
+        <ul>
+          <li>Esse é o modo mais 'Seguro' para declaração de um ponteiro, pois garante que ele aponte para um endereço
+            nulo (NULL);</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ponteiros - Declaração</h2>
+        <ul>
+          <li>Também é possível, declarar um ponteiro 'apontando' para uma variável específica, para assim tentar evitar
+            a duplicação de valores</li>
+        </ul>
+        <pre>
+          <code>
+int main() {
+  int x = 10;
+  //dessa forma indicamos que o ponteiro P, aponta para o endereço da variável 'x'  
+  int *p = &x;
+}
+          </code>
+        </pre>
+        <ul>
+          <li>Dessa forma toda operação executada com '*p', irá refletir no valor armazenado na variável 'x', pois ambas
+            referenciam o mesmo endereço de memória</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ponteiros - Inicialização</h2>
+        <ul>
+          <li>Ao utilizarmos a declaração int *p = NULL;, não podemos fazer qualquer operação ou acesso ao ponteiro, sem
+            antes inicializa-lo devidamente.</li>
+          <li>Isso pode causar um comportamento inesperado no programa, ou mesmo 'quebrá-lo', causando um problema na
+            usabilidade e estabilidade do programa.</li>
+          <li>A função 'malloc', deve ser utilizada pra incializar o ponteiro antes do uso;</li>
+        </ul>
+        <pre>
+          <code data-line-numbers="">
+#include &lt;stdlib.h&gt; //Necessário para a função 'malloc'
+
+int main() {
+    int *p = NULL;
+    
+    p = malloc(1 * sizeof(int)); // Aloca o ponteiro p para uma posição do tamanho do inteiro
+
+    if (p == NULL)
+    {
+      printf("Erro de alocação\n");
+      return 1;
+    }
+    return 0;
+}
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Ponteiros - Inicialização</h2>
+        <img src="img/malloc_int_long.svg" width="65%">
+      </section>
+
+      <section>
+        <h2>Ponteiros - Inicialização</h2>
+        <ul>
+          <li>Além da função 'malloc', para incializar ponteiros, podemos utilizar a função 'calloc'.</li>
+          <li>A função 'calloc', essencialmente faz o mesmo que a função 'malloc', contudo, enquanto a função 'malloc',
+            apenas aloca a memória incializando o ponteiro, a funcão 'calloc' aloca a memória e inicializa cada uma das
+            posições com o valor 0 </li>
+        </ul>
+        <pre>
+          <code data-line-numbers="">
+int main(){
+  int *vetor = calloc(10, sizeof(int));
+}
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Ponteiros - Incialização de vetores Dinâmicos</h2>
+        <ul>
+          <li>Assim como anteriormente alocamos um ponteiro para uma posição int, podemos alocar um ponteiro para 'N'
+            posições de um inteiro por exemplo.</li>
+        </ul>
+
+        <pre>
+          <code data-line-numbers="">
+int main() {
+    int *p = NULL;
+    int n = 0;
+    printf("Insira o número de posições desejadas:\n")
+    scanf("%d",&n);
+    p = malloc(n * sizeof(int)); // Aloca o ponteiro p para n posições do tamanho do inteiro
+}
+          </code>
+        </pre>
+
+        <ul>
+          <li>Cada posição do ponteiro representa um número diferente.</li>
+        </ul>
+      </section>
+
+
+
+      <section>
+        <h2>Ponteiros - Incialização de vetores Dinâmicos</h2>
+        <img src="img/03_vetor_dinamico.svg" width="65%">
+      </section>
+
+      <section>
+        <h2>Ponteiros - Deinicialização</h2>
+        <ul>
+          <li>Diferente das outras variáveis, quando alocamos um vetor com 'malloc', somos obrigados a liberar a
+            memória, do contrário isso vai gerar o que chamamos de <i>memory-leak</i></li>
+          <li>Na prática, o <i>memory-leak</i>,é de fato um 'vazamento' de memória, é um endereço ou uma faixa de
+            endereços, que fica
+            "perdida" na memória RAM, e que pode ser a causa de diversos tipos de erros, como uma "tela azul da morte",
+            ouainda um <i>kernel-panic</i></li>
+          <li>Como consequências mais comuns aos <i>memory-leaks</i> temos: aumento gradual do consumo de memória,
+            degradação de desempenho, encerramento do processo pelo sistema operacional ou ainda falha por falta de
+            memória </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ponteiros - Deinicialização</h2>
+        <pre>
+          <code data-line-numbers="">
+int main() {
+  int *p = NULL;
+  int n = 0;
+  printf("Ïnsira o número de posições desejadas:\n")
+  scanf("%d",&n);
+  p = malloc(n * sizeof(int)); // Aloca o ponteiro p para n posições do tamanho do inteiro
+  //...
+  free(p); // libera a memória alocada para o ponteiro 'p'
+}
+          </code>
+        </pre>
+        <ul>
+          <li>Após o 'free', pode ser que o ponteiro ainda contenha um endereço salvo, contudo esse endereço não está
+            mais em uso pelo programa, acessa-lo pode causar um comportamento inesperado</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ponteiros - Deinicialização</h2>
+        <img src="img/05_free.svg" width="70%">
+      </section>
+
+
+      <section>
+        <h2>Ponteiros - Reinicialização</h2>
+        <ul>
+          <li>Em alguns casos pode ser necessário alocar mais posições para um ponteiro, já inicializado com o malloc,
+            nesse caso podemos usar a função 'realloc'</li>
+        </ul>
+        <pre>
+          <code data-line-numbers="">
+int main() {
+  int *p = NULL;
+  int n = 0;
+  printf("Ïnsira o número de posições desejadas:\n")
+  scanf("%d",&n);
+  p = malloc(n * sizeof(int)); // Aloca o ponteiro p para n posições do tamanho do inteiro
+  //...
+  int *temp = malloc(p,(n+x) * sizeof(int)); // Realoca o ponteiro p para n+x posições do tamanho do inteiro
+  if (temp != NULL)
+  {
+    p = temp;
+  }
+  //...
+  free(p); // libera a memória alocada para o ponteiro 'p'
+}
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Ponteiros - Reinicialização</h2>
+        <img src="img/09_realloc.svg" width="70%">
+      </section>
+
+      <section>
+        <h2>Ponteiros - Genéricos</h2>
+        <ul>
+          <li>Além dos ponteiros definidos como, int, long, float, podemos ter ainda a necessidade de criarmos ponteiros
+            genéricos, para dados customizados do usuário</li>
+          <li>Um ponteiro genérico (void *) é um ponteiro capaz de armazenar o endereço de qualquer tipo de dado.
+            Diferentemente dos demais ponteiros, ele não está associado a um tipo específico, sendo amplamente utilizado
+            em funções genéricas, bibliotecas da linguagem C e em mecanismos de alocação dinâmica de memória, como
+            malloc(), calloc() e realloc().</li>
+          <li>Como um void * não conhece o tipo do dado armazenado, não é possível acessar diretamente seu conteúdo.
+            Antes de utilizar o valor apontado, é necessário realizar uma conversão de tipo (cast) para o tipo correto.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ponteiros - Genéricos</h2>
+        <pre>
+          <code data-line-numbers="3-6|9-12|13|14-16">
+#include &lt;stdio.h&gt; 
+typedef struct { 
+  char nome[30]; 
+  int idade; 
+} Pessoa; 
+
+int main() { 
+  Pessoa aluno = { 
+    "Maria", 
+    20 
+  }; 
+  void *ptr = &aluno; 
+  Pessoa *pessoa = (Pessoa *) ptr; 
+  printf("Nome : %s\n", pessoa->nome); 
+  printf("Idade: %d\n", pessoa->idade); 
+  return 0; 
+}
+        </code>
+      </pre>
+      </section>
+
+      <section>
+        <h2>Ponteiros para Funções</h2>
+        <ul>
+          <li>Assim como é possível armazenar o endereço de uma variável em um ponteiro, também é possível armazenar o
+            endereço de uma função. Os ponteiros para funções permitem selecionar dinamicamente qual função será
+            executada durante a execução do programa, sendo amplamente utilizados na implementação de menus, máquinas de
+            estados, tabelas de despacho (dispatch tables), bibliotecas e algoritmos genéricos.</li>
+          <li>A declaração de um ponteiro para função deve especificar o tipo de retorno e os tipos dos parâmetros da
+            função que ele poderá armazenar.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Ponteiros para Funções</h2>
+        <pre>
+          <code data-line-numbers="4-6|8-10|14|15|16|17|18|">
+#include &lt;stdio.h&gt;
+
+int soma(int a, int b) { 
+  return a + b; 
+} 
+
+int subtracao(int a, int b) { 
+  return a - b; 
+} 
+
+int main() { 
+  /* Ponteiro para função */ 
+  int (*operacao)(int, int); 
+  operacao = soma; 
+  printf("Soma: %d\n", operacao(10, 5)); 
+  operacao = subtracao; 
+  printf("Subtração: %d\n", operacao(10, 5)); 
+  return 0; 
+}                        
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Ponteiros para Funcões</h2>
+        <ul>
+          <li>Nesse exemplo, o ponteiro operacao pode armazenar o endereço de qualquer função que receba dois parâmetros
+            do tipo int e retorne um int. Alterando o endereço armazenado no ponteiro, o programa passa a executar uma
+            função diferente sem modificar sua lógica principal.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>OBRIGADO!</h1>
+        <p>Podem me encontrar aqui:</p>
+        <ul>
+          <li>gustavo.palma@unisal.edu.br</li>
+          <li>www.gustavopalma.com.br</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="../../../dist/reveal.js"></script>
+
+
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/zoom/zoom.js"></script>
+  <script>
+    const iframe = document.getElementById('terminal');
+    if (iframe != null) {
+      iframe.onload = () => {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        const style = doc.createElement('style');
+        style.innerHTML = `
+      .xterm {
+        font-size: 20px !important;
+        line-height: 1.2 !important;
+      }
+    `;
+        doc.head.appendChild(style);
+      };
+    }
+  </script>
+  <script>
+    Reveal.on('ready', event => {
+      const headerTemplate = document.getElementById('header-template');
+      const footerTemplate = document.getElementById('footer-template');
+
+      document.querySelectorAll('.slide-background').forEach(backgroundDiv => {
+        if (headerTemplate) {
+          backgroundDiv.appendChild(headerTemplate.cloneNode(true));
+        }
+        if (footerTemplate) {
+          backgroundDiv.appendChild(footerTemplate.cloneNode(true));
+        }
+      });
+
+      const nomeDisciplina = "Estrutura de Dados";
+      const assuntoAula = "Ponteiros"
+      const aulaNum = '4';
+      const currentDate = new Date();
+
+      // Get the full four-digit year
+      const currentYear = " " + currentDate.getFullYear(); // e.g., 2026
+
+      // Find the HTML element by its ID and set its text content to the current year
+      document.getElementById('year-placeholder').textContent = "\  " + currentYear;
+      var elems = document.getElementsByClassName('lecture_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = nomeDisciplina;
+      }
+      document.title = nomeDisciplina;
+      document.getElementById('aula_num_placeholder').textContent = aulaNum
+      elems = document.getElementsByClassName('lecture_subject_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = assuntoAula;
+      }
+      createWorldMarketShare();
+      createMarketShare();
+    });
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      center: true,
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      controls: true,
+      controlsBackArrows: 'faded',
+      progress: true,
+      plugins: [RevealHighlight, RevealZoom],
+    });
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>

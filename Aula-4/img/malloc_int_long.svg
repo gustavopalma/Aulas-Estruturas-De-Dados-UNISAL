@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1100" viewBox="0 0 1800 1100">
+<defs>
+<style>
+.title{font:700 42px Arial,sans-serif;fill:#6b21a8}.subtitle{font:500 24px Arial,sans-serif;fill:#374151}
+.section{font:700 31px Arial,sans-serif}.label{font:700 27px Arial,sans-serif}.code{font:700 25px Consolas,monospace;fill:#1f2937}
+.addr{font:700 23px Consolas,monospace;fill:#2563eb}.value{font:700 28px Consolas,monospace;fill:#1f2937}
+.small{font:500 21px Arial,sans-serif;fill:#374151}.note{font:700 22px Arial,sans-serif}.cell{stroke:#1f2937;stroke-width:3;rx:14;ry:14}
+.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}
+</style>
+<marker id="ao" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#c2410c"/></marker>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+</defs>
+<rect width="1800" height="1100" fill="#fff"/>
+<text x="70" y="80" class="title">Alocação dinâmica com malloc</text>
+<text x="70" y="125" class="subtitle">O ponteiro fica na Stack e armazena o endereço de um bloco reservado na Heap.</text>
+<line x1="900" y1="170" x2="900" y2="1010" stroke="#d1d5db" stroke-width="4"/>
+
+<text x="450" y="200" class="section green" text-anchor="middle">Alocação para int</text>
+<rect x="110" y="235" width="680" height="105" class="cell" fill="#f3f4f6"/>
+<text x="450" y="285" class="code" text-anchor="middle">int *p;</text>
+<text x="450" y="320" class="code" text-anchor="middle">p = malloc(1 * sizeof(int));</text>
+<text x="135" y="405" class="label purple">Stack</text>
+<rect x="120" y="430" width="360" height="190" class="cell" fill="#eadcf7"/>
+<text x="300" y="485" class="label" text-anchor="middle">ponteiro p</text>
+<text x="300" y="535" class="value" text-anchor="middle">0x2000</text>
+<text x="300" y="580" class="small" text-anchor="middle">tamanho típico: 8 bytes</text>
+<text x="590" y="405" class="label green">Heap</text>
+<rect x="560" y="430" width="250" height="190" class="cell" fill="#d9f5df"/>
+<text x="685" y="485" class="label" text-anchor="middle">bloco alocado</text>
+<text x="685" y="535" class="value" text-anchor="middle">4 bytes</text>
+<text x="685" y="575" class="small" text-anchor="middle">sizeof(int)</text>
+<path d="M480 525 C520 525 520 525 545 525" fill="none" stroke="#c2410c" stroke-width="5" marker-end="url(#ao)"/>
+<text x="300" y="665" class="addr" text-anchor="middle">endereço de p: 0x1000</text>
+<text x="685" y="665" class="addr" text-anchor="middle">endereço do bloco: 0x2000</text>
+<line x1="685" y1="690" x2="685" y2="755" stroke="#15803d" stroke-width="4" marker-end="url(#ag)"/>
+<text x="685" y="795" class="note green" text-anchor="middle">Espaço suficiente para 1 inteiro</text>
+<rect x="175" y="835" width="550" height="115" class="cell" fill="#fff1b8"/>
+<text x="450" y="880" class="note orange" text-anchor="middle">O bloco contém lixo de memória até receber um valor</text>
+<text x="450" y="920" class="code" text-anchor="middle">*p = 42;</text>
+
+<text x="1350" y="200" class="section blue" text-anchor="middle">Alocação para long</text>
+<rect x="1010" y="235" width="680" height="105" class="cell" fill="#f3f4f6"/>
+<text x="1350" y="285" class="code" text-anchor="middle">long *q;</text>
+<text x="1350" y="320" class="code" text-anchor="middle">q = malloc(1 * sizeof(long));</text>
+<text x="1035" y="405" class="label purple">Stack</text>
+<rect x="1020" y="430" width="360" height="190" class="cell" fill="#eadcf7"/>
+<text x="1200" y="485" class="label" text-anchor="middle">ponteiro q</text>
+<text x="1200" y="535" class="value" text-anchor="middle">0x3000</text>
+<text x="1200" y="580" class="small" text-anchor="middle">tamanho típico: 8 bytes</text>
+<text x="1490" y="405" class="label blue">Heap</text>
+<rect x="1460" y="430" width="250" height="190" class="cell" fill="#dcecff"/>
+<text x="1585" y="485" class="label" text-anchor="middle">bloco alocado</text>
+<text x="1585" y="535" class="value" text-anchor="middle">8 bytes</text>
+<text x="1585" y="575" class="small" text-anchor="middle">sizeof(long)</text>
+<path d="M1380 525 C1420 525 1420 525 1445 525" fill="none" stroke="#c2410c" stroke-width="5" marker-end="url(#ao)"/>
+<text x="1200" y="665" class="addr" text-anchor="middle">endereço de q: 0x1010</text>
+<text x="1585" y="665" class="addr" text-anchor="middle">endereço do bloco: 0x3000</text>
+<line x1="1585" y1="690" x2="1585" y2="755" stroke="#2563eb" stroke-width="4" marker-end="url(#ab)"/>
+<text x="1585" y="795" class="note blue" text-anchor="middle">Espaço suficiente para 1 long</text>
+<rect x="1075" y="835" width="550" height="115" class="cell" fill="#ffe0c7"/>
+<text x="1350" y="880" class="note orange" text-anchor="middle">Em Linux 64 bits, long costuma ocupar 8 bytes</text>
+<text x="1350" y="920" class="code" text-anchor="middle">*q = 9000000L;</text>
+
+<rect x="260" y="995" width="1280" height="70" class="cell" fill="#f3f4f6"/>
+<text x="900" y="1038" class="note blue" text-anchor="middle">O tamanho do ponteiro não determina o tamanho do bloco: malloc reserva exatamente a quantidade de bytes solicitada.</text>
+</svg>

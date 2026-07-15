@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="950" viewBox="0 0 1600 950">
+<defs>
+<style>
+.title{font:700 40px Arial,sans-serif;fill:#6b21a8}
+.subtitle{font:500 23px Arial,sans-serif;fill:#374151}
+.section{font:700 30px Arial,sans-serif}
+.label{font:700 27px Arial,sans-serif}
+.code{font:700 24px Consolas,monospace;fill:#1f2937}
+.addr{font:700 22px Consolas,monospace;fill:#2563eb}
+.value{font:700 29px Consolas,monospace;fill:#1f2937}
+.small{font:500 20px Arial,sans-serif;fill:#374151}
+.note{font:700 22px Arial,sans-serif}
+.cell{stroke:#1f2937;stroke-width:3;rx:14;ry:14}
+.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+<marker id="ao" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#c2410c"/></marker>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ar" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#b91c1c"/></marker>
+</defs>
+<rect width="1600" height="950" fill="#fff"/>
+<text x="60" y="75" class="title">Liberação de memória com free</text>
+
+<text x="60" y="120" class="subtitle">free devolve à Heap o bloco reservado anteriormente.</text>
+<rect x="220" y="165" width="1160" height="90" class="cell" fill="#f3f4f6"/>
+<text x="800" y="220" class="code" text-anchor="middle">free(p);</text>
+<text x="180" y="345" class="section purple">Stack</text>
+<rect x="120" y="390" width="340" height="190" class="cell" fill="#eadcf7"/>
+<text x="290" y="450" class="label" text-anchor="middle">p</text>
+<text x="290" y="505" class="value" text-anchor="middle">0x2000</text>
+<text x="900" y="345" class="section green">Heap</text>
+<rect x="720" y="390" width="500" height="190" class="cell" fill="#f3f4f6" stroke-dasharray="10 8"/>
+<text x="970" y="460" class="label" text-anchor="middle">bloco liberado</text>
+<text x="970" y="510" class="small" text-anchor="middle">a memória pode ser reutilizada</text>
+<line x1="460" y1="485" x2="700" y2="485" stroke="#b91c1c" stroke-width="5" stroke-dasharray="10 10"/>
+<text x="580" y="450" class="note red" text-anchor="middle">endereço não é mais válido</text>
+<rect x="310" y="690" width="980" height="125" class="cell" fill="#dcecff"/>
+<text x="800" y="740" class="code" text-anchor="middle">free(p);</text>
+<text x="800" y="785" class="code" text-anchor="middle">p = NULL;</text>
+
+</svg>

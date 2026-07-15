@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="950" viewBox="0 0 1600 950">
+<defs>
+<style>
+.title{font:700 40px Arial,sans-serif;fill:#6b21a8}
+.subtitle{font:500 23px Arial,sans-serif;fill:#374151}
+.section{font:700 30px Arial,sans-serif}
+.label{font:700 27px Arial,sans-serif}
+.code{font:700 24px Consolas,monospace;fill:#1f2937}
+.addr{font:700 22px Consolas,monospace;fill:#2563eb}
+.value{font:700 29px Consolas,monospace;fill:#1f2937}
+.small{font:500 20px Arial,sans-serif;fill:#374151}
+.note{font:700 22px Arial,sans-serif}
+.cell{stroke:#1f2937;stroke-width:3;rx:14;ry:14}
+.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+<marker id="ao" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#c2410c"/></marker>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ar" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#b91c1c"/></marker>
+</defs>
+<rect width="1600" height="950" fill="#fff"/>
+<text x="60" y="75" class="title">Stack e Heap</text>
+
+<text x="60" y="120" class="subtitle">As duas regiões armazenam dados, mas possuem ciclos de vida e formas de gerenciamento diferentes.</text>
+<line x1="800" y1="165" x2="800" y2="850" stroke="#d1d5db" stroke-width="4"/>
+<text x="390" y="205" class="section purple" text-anchor="middle">Stack</text>
+<text x="1210" y="205" class="section green" text-anchor="middle">Heap</text>
+<rect x="120" y="245" width="540" height="130" class="cell" fill="#eadcf7"/>
+<text x="390" y="300" class="label" text-anchor="middle">variáveis locais</text>
+<text x="390" y="345" class="small" text-anchor="middle">int idade = 20;</text>
+<rect x="120" y="400" width="540" height="130" class="cell" fill="#fff1b8"/>
+<text x="390" y="455" class="label" text-anchor="middle">alocação automática</text>
+<text x="390" y="500" class="small" text-anchor="middle">liberada ao sair do escopo</text>
+<rect x="120" y="555" width="540" height="130" class="cell" fill="#dcecff"/>
+<text x="390" y="610" class="label" text-anchor="middle">acesso rápido</text>
+<text x="390" y="655" class="small" text-anchor="middle">tamanho normalmente limitado</text>
+
+<rect x="940" y="245" width="540" height="130" class="cell" fill="#d9f5df"/>
+<text x="1210" y="300" class="label" text-anchor="middle">blocos dinâmicos</text>
+<text x="1210" y="345" class="small" text-anchor="middle">malloc / calloc / realloc</text>
+<rect x="940" y="400" width="540" height="130" class="cell" fill="#ffe0c7"/>
+<text x="1210" y="455" class="label" text-anchor="middle">gerenciamento manual</text>
+<text x="1210" y="500" class="small" text-anchor="middle">o programador deve usar free</text>
+<rect x="940" y="555" width="540" height="130" class="cell" fill="#eadcf7"/>
+<text x="1210" y="610" class="label" text-anchor="middle">tamanho flexível</text>
+<text x="1210" y="655" class="small" text-anchor="middle">pode crescer durante a execução</text>
+
+<rect x="270" y="755" width="1060" height="105" class="cell" fill="#f3f4f6"/>
+<text x="800" y="800" class="note blue" text-anchor="middle">O ponteiro costuma ficar na Stack, enquanto o bloco apontado fica na Heap.</text>
+
+</svg>

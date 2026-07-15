@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1800"
+   height="1100"
+   viewBox="0 0 1800 1100"
+   version="1.1"
+   id="svg49"
+   sodipodi:docname="09_realloc.svg"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview49"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.74181818"
+     inkscape:cx="900.4902"
+     inkscape:cy="550"
+     inkscape:window-width="2560"
+     inkscape:window-height="1024"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg49" />
+  <defs
+     id="defs4">
+    <style
+       id="style1">
+      .title { font: 700 42px Arial, sans-serif; fill: #6b21a8; }
+      .subtitle { font: 500 24px Arial, sans-serif; fill: #374151; }
+      .section { font: 700 31px Arial, sans-serif; }
+      .label { font: 700 27px Arial, sans-serif; }
+      .code { font: 700 24px Consolas, monospace; fill: #1f2937; }
+      .addr { font: 700 22px Consolas, monospace; fill: #2563eb; }
+      .value { font: 700 27px Consolas, monospace; fill: #1f2937; }
+      .small { font: 500 20px Arial, sans-serif; fill: #374151; }
+      .note { font: 700 22px Arial, sans-serif; }
+      .cell { stroke: #1f2937; stroke-width: 3; rx: 14; ry: 14; }
+      .green { fill: #15803d; }
+      .blue { fill: #2563eb; }
+      .orange { fill: #c2410c; }
+      .purple { fill: #6b21a8; }
+      .red { fill: #b91c1c; }
+    </style>
+    <marker
+       id="arrowBlue"
+       markerWidth="14"
+       markerHeight="14"
+       refX="11"
+       refY="7"
+       orient="auto">
+      <path
+         d="M0,0 L14,7 L0,14 z"
+         fill="#2563eb"
+         id="path1" />
+    </marker>
+    <marker
+       id="arrowOrange"
+       markerWidth="14"
+       markerHeight="14"
+       refX="11"
+       refY="7"
+       orient="auto">
+      <path
+         d="M0,0 L14,7 L0,14 z"
+         fill="#c2410c"
+         id="path2" />
+    </marker>
+    <marker
+       id="arrowGreen"
+       markerWidth="14"
+       markerHeight="14"
+       refX="11"
+       refY="7"
+       orient="auto">
+      <path
+         d="M0,0 L14,7 L0,14 z"
+         fill="#15803d"
+         id="path3" />
+    </marker>
+    <marker
+       id="arrowRed"
+       markerWidth="14"
+       markerHeight="14"
+       refX="11"
+       refY="7"
+       orient="auto">
+      <path
+         d="M0,0 L14,7 L0,14 z"
+         fill="#b91c1c"
+         id="path4" />
+    </marker>
+  </defs>
+  <rect
+     width="1800"
+     height="1100"
+     fill="#ffffff"
+     id="rect4" />
+  <text
+     x="70"
+     y="80"
+     class="title"
+     id="text4">Redimensionamento de memória com realloc</text>
+  <text
+     x="70"
+     y="125"
+     class="subtitle"
+     id="text5">
+    realloc tenta alterar o tamanho do bloco já existente e preserva os dados anteriores.
+  </text>
+  <rect
+     x="180"
+     y="160"
+     width="1440"
+     height="95"
+     class="cell"
+     fill="#f3f4f6"
+     id="rect5" />
+  <text
+     x="900"
+     y="218"
+     class="code"
+     text-anchor="middle"
+     id="text6">
+    int *temporario = realloc(p, 5 * sizeof(int));
+  </text>
+  <!-- Antes -->
+  <text
+     x="180"
+     y="330"
+     class="section purple"
+     id="text7">Antes do realloc</text>
+  <rect
+     x="120"
+     y="370"
+     width="300"
+     height="170"
+     class="cell"
+     fill="#eadcf7"
+     id="rect7" />
+  <text
+     x="270"
+     y="430"
+     class="label"
+     text-anchor="middle"
+     id="text8">ponteiro p</text>
+  <text
+     x="270"
+     y="485"
+     class="value"
+     text-anchor="middle"
+     id="text9">0x2000</text>
+  <rect
+     x="520"
+     y="370"
+     width="150"
+     height="150"
+     class="cell"
+     fill="#d9f5df"
+     id="rect9" />
+  <rect
+     x="670"
+     y="370"
+     width="150"
+     height="150"
+     class="cell"
+     fill="#fff1b8"
+     id="rect10" />
+  <rect
+     x="820"
+     y="370"
+     width="150"
+     height="150"
+     class="cell"
+     fill="#dcecff"
+     id="rect11" />
+  <text
+     x="595"
+     y="430"
+     class="value"
+     text-anchor="middle"
+     id="text11">10</text>
+  <text
+     x="745"
+     y="430"
+     class="value"
+     text-anchor="middle"
+     id="text12">20</text>
+  <text
+     x="895"
+     y="430"
+     class="value"
+     text-anchor="middle"
+     id="text13">30</text>
+  <text
+     x="595"
+     y="475"
+     class="small"
+     text-anchor="middle"
+     id="text14">p[0]</text>
+  <text
+     x="745"
+     y="475"
+     class="small"
+     text-anchor="middle"
+     id="text15">p[1]</text>
+  <text
+     x="895"
+     y="475"
+     class="small"
+     text-anchor="middle"
+     id="text16">p[2]</text>
+  <path
+     d="M420 455 C455 455 470 455 505 455"
+     fill="none"
+     stroke="#c2410c"
+     stroke-width="5"
+     marker-end="url(#arrowOrange)"
+     id="path16" />
+  <text
+     x="745"
+     y="565"
+     class="note blue"
+     text-anchor="middle"
+     id="text17">3 inteiros = 12 bytes</text>
+  <!-- Resultado A -->
+  <text
+     x="230"
+     y="665"
+     class="section green"
+     id="text18">Possibilidade A: cresce no mesmo endereço</text>
+  <rect
+     x="120"
+     y="705"
+     width="300"
+     height="170"
+     class="cell"
+     fill="#eadcf7"
+     id="rect18" />
+  <text
+     x="270"
+     y="765"
+     class="label"
+     text-anchor="middle"
+     id="text19">p</text>
+  <text
+     x="270"
+     y="820"
+     class="value"
+     text-anchor="middle"
+     id="text20">0x2000</text>
+  <g
+     id="g33">
+    <rect
+       x="520"
+       y="705"
+       width="130"
+       height="150"
+       class="cell"
+       fill="#d9f5df"
+       id="rect20" />
+    <rect
+       x="650"
+       y="705"
+       width="130"
+       height="150"
+       class="cell"
+       fill="#fff1b8"
+       id="rect21" />
+    <rect
+       x="780"
+       y="705"
+       width="130"
+       height="150"
+       class="cell"
+       fill="#dcecff"
+       id="rect22" />
+    <rect
+       x="910"
+       y="705"
+       width="130"
+       height="150"
+       class="cell"
+       fill="#ffe0c7"
+       id="rect23" />
+    <rect
+       x="1040"
+       y="705"
+       width="130"
+       height="150"
+       class="cell"
+       fill="#eadcf7"
+       id="rect24" />
+    <text
+       x="585"
+       y="765"
+       class="value"
+       text-anchor="middle"
+       id="text24">10</text>
+    <text
+       x="715"
+       y="765"
+       class="value"
+       text-anchor="middle"
+       id="text25">20</text>
+    <text
+       x="845"
+       y="765"
+       class="value"
+       text-anchor="middle"
+       id="text26">30</text>
+    <text
+       x="975"
+       y="765"
+       class="value"
+       text-anchor="middle"
+       id="text27">?</text>
+    <text
+       x="1105"
+       y="765"
+       class="value"
+       text-anchor="middle"
+       id="text28">?</text>
+    <text
+       x="585"
+       y="815"
+       class="small"
+       text-anchor="middle"
+       id="text29">p[0]</text>
+    <text
+       x="715"
+       y="815"
+       class="small"
+       text-anchor="middle"
+       id="text30">p[1]</text>
+    <text
+       x="845"
+       y="815"
+       class="small"
+       text-anchor="middle"
+       id="text31">p[2]</text>
+    <text
+       x="975"
+       y="815"
+       class="small"
+       text-anchor="middle"
+       id="text32">p[3]</text>
+    <text
+       x="1105"
+       y="815"
+       class="small"
+       text-anchor="middle"
+       id="text33">p[4]</text>
+  </g>
+  <path
+     d="M420 790 C460 790 470 790 505 790"
+     fill="none"
+     stroke="#15803d"
+     stroke-width="5"
+     marker-end="url(#arrowGreen)"
+     id="path33" />
+  <text
+     x="845"
+     y="900"
+     class="note green"
+     text-anchor="middle"
+     id="text34">
+    O endereço permanece 0x2000 e os dados antigos são preservados
+  </text>
+  <!-- Resultado B -->
+  <text
+     x="1230"
+     y="330"
+     class="section blue"
+     id="text35">Possibilidade B: muda de endereço</text>
+  <rect
+     x="1260"
+     y="380"
+     width="380"
+     height="155"
+     class="cell"
+     fill="#eadcf7"
+     id="rect35" />
+  <text
+     x="1450"
+     y="435"
+     class="label"
+     text-anchor="middle"
+     id="text36">temporario</text>
+  <text
+     x="1450"
+     y="490"
+     class="value"
+     text-anchor="middle"
+     id="text37">0x3000</text>
+  <path
+     d="M1250 550 C1160 575 1130 600 1090 680"
+     fill="none"
+     stroke="#2563eb"
+     stroke-width="5"
+     marker-end="url(#arrowBlue)"
+     id="path37" />
+  <rect
+     x="1250"
+     y="610"
+     width="110"
+     height="130"
+     class="cell"
+     fill="#d9f5df"
+     id="rect37" />
+  <rect
+     x="1360"
+     y="610"
+     width="110"
+     height="130"
+     class="cell"
+     fill="#fff1b8"
+     id="rect38" />
+  <rect
+     x="1470"
+     y="610"
+     width="110"
+     height="130"
+     class="cell"
+     fill="#dcecff"
+     id="rect39" />
+  <rect
+     x="1580"
+     y="610"
+     width="110"
+     height="130"
+     class="cell"
+     fill="#ffe0c7"
+     id="rect40" />
+  <rect
+     x="1690"
+     y="610"
+     width="90"
+     height="130"
+     class="cell"
+     fill="#eadcf7"
+     id="rect41" />
+  <text
+     x="1305"
+     y="665"
+     class="value"
+     text-anchor="middle"
+     id="text41">10</text>
+  <text
+     x="1415"
+     y="665"
+     class="value"
+     text-anchor="middle"
+     id="text42">20</text>
+  <text
+     x="1525"
+     y="665"
+     class="value"
+     text-anchor="middle"
+     id="text43">30</text>
+  <text
+     x="1635"
+     y="665"
+     class="value"
+     text-anchor="middle"
+     id="text44">?</text>
+  <text
+     x="1735"
+     y="665"
+     class="value"
+     text-anchor="middle"
+     id="text45">?</text>
+  <text
+     x="1461.0785"
+     y="793.08826"
+     class="note blue"
+     text-anchor="middle"
+     id="text46"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:22px;line-height:normal;font-family:Arial, sans-serif"><tspan
+       sodipodi:role="line"
+       id="tspan49"
+       x="1461.0785"
+       y="793.08826">Os dados são copiados para um novo bloco e o antigo</tspan><tspan
+       sodipodi:role="line"
+       id="tspan50"
+       x="1461.0785"
+       y="820.58826">é liberado</tspan></text>
+  <rect
+     x="1215.2889"
+     y="854.45569"
+     width="574.78955"
+     height="134.96109"
+     class="cell"
+     fill="#ffe0c7"
+     id="rect46" />
+  <text
+     x="1503.3578"
+     y="901.43628"
+     class="note orange"
+     text-anchor="middle"
+     id="text47"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:22px;line-height:normal;font-family:Arial, sans-serif">Não atribua realloc diretamente a p</text>
+  <text
+     x="1503.3578"
+     y="944.43628"
+     class="code"
+     text-anchor="middle"
+     id="text48"
+     style="font-style:normal;font-variant:normal;font-weight:700;font-stretch:normal;font-size:24px;line-height:normal;font-family:Consolas, monospace">if (temporario != NULL) p = temporario;</text>
+  <rect
+     x="310"
+     y="1005"
+     width="1180"
+     height="65"
+     class="cell"
+     fill="#f3f4f6"
+     id="rect48" />
+  <text
+     x="900"
+     y="1046"
+     class="note blue"
+     text-anchor="middle"
+     id="text49">
+    As novas posições não são inicializadas; elas contêm valores indeterminados.
+  </text>
+</svg>

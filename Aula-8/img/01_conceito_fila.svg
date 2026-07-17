@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1050" viewBox="0 0 1800 1050">
+
+<defs>
+<style>
+.title{font:700 42px Arial,sans-serif;fill:#6b21a8}
+.subtitle{font:500 24px Arial,sans-serif;fill:#374151}
+.label{font:700 28px Arial,sans-serif;fill:#1f2937}
+.value{font:700 32px Consolas,monospace;fill:#1f2937}
+.code{font:700 23px Consolas,monospace;fill:#1f2937}
+.note{font:700 22px Arial,sans-serif}
+.small{font:500 20px Arial,sans-serif;fill:#374151}
+.cell{stroke:#1f2937;stroke-width:3;rx:16;ry:16}
+.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ar" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#b91c1c"/></marker>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+<marker id="ao" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#c2410c"/></marker>
+</defs>
+
+<rect width="1800" height="1050" fill="#fff"/>
+<text x="70" y="80" class="title">Fila — estrutura FIFO</text>
+<text x="70" y="125" class="subtitle">O primeiro elemento inserido é o primeiro a ser removido.</text>
+
+<text x="900" y="210" class="label" text-anchor="middle">FIFO — First In, First Out</text>
+<text x="150" y="430" class="label green" text-anchor="middle">Saída</text>
+<line x1="340" y1="450" x2="190" y2="450" stroke="#15803d" stroke-width="7" marker-end="url(#ag)"/>
+<text x="1650" y="430" class="label blue" text-anchor="middle">Entrada</text>
+<line x1="1460" y1="450" x2="1610" y2="450" stroke="#2563eb" stroke-width="7" marker-end="url(#ab)"/>
+
+<rect x="370" y="370" width="260" height="160" class="cell" fill="#d9f5df"/>
+<rect x="630" y="370" width="260" height="160" class="cell" fill="#fff1b8"/>
+<rect x="890" y="370" width="260" height="160" class="cell" fill="#dcecff"/>
+<rect x="1150" y="370" width="260" height="160" class="cell" fill="#ffe0c7"/>
+<text x="500" y="465" class="value" text-anchor="middle">10</text>
+<text x="760" y="465" class="value" text-anchor="middle">20</text>
+<text x="1020" y="465" class="value" text-anchor="middle">30</text>
+<text x="1280" y="465" class="value" text-anchor="middle">40</text>
+<text x="500" y="585" class="note green" text-anchor="middle">início</text>
+<text x="1280" y="585" class="note blue" text-anchor="middle">fim</text>
+
+<rect x="300" y="720" width="1200" height="150" class="cell" fill="#f3f4f6"/>
+<text x="900" y="775" class="note green" text-anchor="middle">O valor 10 entrou primeiro e será removido primeiro.</text>
+<text x="900" y="825" class="note blue" text-anchor="middle">Novos elementos entram sempre pelo fim da fila.</text>
+
+</svg>

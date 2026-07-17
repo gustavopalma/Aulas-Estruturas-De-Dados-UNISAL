@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8">
+    <title>Estrutura de Dados - Filas</title>
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+    <link rel="stylesheet" href="css/mine.css">
+    <link rel="stylesheet" href="https://unpkg.com/reveal.js/plugin/highlight/monokai.css">
+</head>
+
+<body>
+    <div id="header-template">
+        <a href="https://unisal.br/">
+            <img src="img/logo_unisal.png" alt="Logo">
+        </a>
+        <h1>Aula <span class="aula_num_placeholder"></span> - <span class="lecture_placeholder"></span> - <span
+                class="lecture_subject_placeholder"></span></h1>
+    </div>
+    <div id="footer-template">UNISAL - São José, Campinas - <span class="year-placeholder"></span></div>
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <a href="https://unisal.br/">
+                    <img src="img/logo_unisal.png" alt="logo unisal"
+                        style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+                </a>
+                <h2><span class="lecture_placeholder"></span></h2>
+                <h3><span class="lecture_subject_placeholder"></span></h3>
+                <p><small>Prof. Me. Gustavo Ferreira Palma</small></p>
+            </section>
+            <section>
+                <h2>Pauta</h2>
+                <ul>
+                    <li>Filas;</li>
+                </ul>
+            </section>
+            <section>
+                <h1>Filas</h1>
+            </section>
+            <section>
+                <h2>Filas - Conceito</h2>
+                <ul>
+                    <li>Em diversas situações, os elementos devem ser processados na mesma ordem em que chegaram.</li>
+                    <li>Esse comportamento aparece em filas de atendimento, impressão, mensagens, processos e
+                        requisições de rede.</li>
+                    <li>Uma fila preserva a ordem de chegada.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Filas - Conceito</h2>
+                <ul>
+                    <li>Uma fila é uma estrutura linear em que a inserção ocorre no final e a remoção no início.</li>
+                    <li>Seu comportamento é conhecido como <b>FIFO — First In, First Out</b>.</li>
+                    <li>O primeiro elemento inserido será o primeiro removido.</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Filas - Conceito</h2><img src="img/01_conceito_fila.svg" style="width:72%">
+            </section>
+            <section>
+                <h2>Filas - Estrutura</h2>
+                <ul>
+                    <li>A implementação reutiliza a mesma estrutura de nó usada em listas e pilhas.</li>
+                </ul>
+                <pre><code data-line-numbers="" class="language-c" data-trim>typedef struct No
+{
+    int dado;
+    struct No *proximo;
+} No;</code></pre>
+            </section>
+            <section>
+                <h2>Filas - Início e Fim</h2>
+                <ul>
+                    <li><code>inicio</code>: primeiro elemento, que será removido;</li>
+                    <li><code>fim</code>: último elemento, após o qual ocorrerá a inserção.</li>
+                </ul><img src="img/04_ponteiros_fila.svg" style="width:58%">
+            </section>
+            <section>
+                <h2>Filas - Representação</h2>
+                <pre><code data-line-numbers="" class="language-c" data-trim>typedef struct
+{
+    No *inicio;
+    No *fim;
+} Fila;
+
+Fila fila = { .inicio = NULL, .fim = NULL };</code></pre>
+                <p>Quando a fila está vazia, os dois ponteiros são <code>NULL</code>.</p>
+            </section>
+            <section>
+                <h2>Filas - Enqueue</h2>
+                <ul>
+                    <li>Adiciona um elemento no final.</li>
+                    <li>O novo nó aponta para <code>NULL</code>.</li>
+                </ul><img src="img/02_enqueue.svg" style="width:60%">
+            </section>
+            <section>
+                <h2>Filas - Enqueue</h2>
+                <pre><code data-line-numbers="" class="language-c" data-trim data-line-numbers>void enqueue(Fila *fila, int valor)
+{
+    No *novo = malloc(sizeof(No));
+    if (novo == NULL) return;
+
+    novo->dado = valor;
+    novo->proximo = NULL;
+
+    if (fila->inicio == NULL)
+        fila->inicio = fila->fim = novo;
+    else
+    {
+        fila->fim->proximo = novo;
+        fila->fim = novo;
+    }
+}</code></pre>
+            </section>
+            <section>
+                <h2>Filas - Dequeue</h2>
+                <ul>
+                    <li>Remove o elemento localizado no início.</li>
+                    <li>Se o último elemento for removido, início e fim voltam para <code>NULL</code>.</li>
+                </ul><img src="img/03_dequeue.svg" style="width:60%">
+            </section>
+            <section>
+                <h2>Filas - Dequeue</h2>
+                <pre><code data-line-numbers="" class="language-c" data-trim data-line-numbers>int dequeue(Fila *fila, int *valor)
+{
+    if (fila->inicio == NULL) return 0;
+
+    No *removido = fila->inicio;
+    if (valor != NULL) *valor = removido->dado;
+
+    fila->inicio = removido->proximo;
+    if (fila->inicio == NULL) fila->fim = NULL;
+
+    free(removido);
+    return 1;
+}</code></pre>
+            </section>
+            <section>
+                <h2>Filas - Front / Peek</h2>
+                <ul>
+                    <li>Consulta o primeiro elemento sem removê-lo.</li>
+                </ul><img src="img/04_ponteiros_fila.svg" style="width:68%">
+            </section>
+            <section>
+                <h2>Filas - Front / Peek</h2>
+                <pre><code data-line-numbers="" class="language-c" data-trim>int front(const Fila *fila, int *valor)
+{
+    if (fila->inicio == NULL) return 0;
+    if (valor != NULL) *valor = fila->inicio->dado;
+    return 1;
+}</code></pre>
+            </section>
+            <section>
+                <h2>Filas - Verificação</h2>
+                <pre><code data-line-numbers="" class="language-c" data-trim>int filaVazia(const Fila *fila)
+{
+    return fila->inicio == NULL;
+}</code></pre>
+            </section>
+            <section>
+                <h2>Filas - Percurso</h2>
+                <pre><code data-line-numbers="" class="language-c" data-trim>const No *atual = fila->inicio;
+while (atual != NULL)
+{
+    printf("%d ", atual->dado);
+    atual = atual->proximo;
+}</code></pre>
+            </section>
+            <section>
+                <h2>Filas - Aplicações</h2>
+                <ul>
+                    <li>Atendimento;</li>
+                    <li>Spooler de impressão;</li>
+                    <li>Escalonamento de processos;</li>
+                    <li>Mensageria;</li>
+                    <li>Buffers de rede;</li>
+                    <li>Busca em largura — BFS.</li>
+                </ul>
+            </section>
+
+
+            <section>
+                <h2>Filas - Liberação</h2><img src="img/05_liberar_fila.svg" style="width:64%">
+            </section>
+            <section>
+                <h2>Filas - Liberação</h2>
+                <pre><code data-line-numbers="" class="language-c" data-trim>void liberarFila(Fila *fila)
+{
+    while (fila->inicio != NULL)
+    {
+        No *temp = fila->inicio;
+        fila->inicio = fila->inicio->proximo;
+        free(temp);
+    }
+    fila->fim = NULL;
+}</code></pre>
+            </section>
+
+            <section>
+                <h1>OBRIGADO!</h1>
+                <p>Podem me encontrar aqui:</p>
+                <ul>
+                    <li>gustavo.palma@unisal.edu.br</li>
+                    <li>www.gustavopalma.com.br</li>
+                </ul>
+            </section>
+        </div>
+    </div>
+    <!-- Scripts -->
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="../../../dist/reveal.js"></script>
+    <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script src="plugin/zoom/zoom.js"></script>
+    <script>
+        const nomeDisciplina = 'Estrutura de Dados', assuntoAula = 'Filas', aulaNum = '8';
+        Reveal.on('ready', () => { const h = document.getElementById('header-template'), f = document.getElementById('footer-template'); document.querySelectorAll('.slide-background').forEach(b => { b.appendChild(h.cloneNode(true)); b.appendChild(f.cloneNode(true)); }); document.querySelectorAll('.lecture_placeholder').forEach(e => e.textContent = nomeDisciplina); document.querySelectorAll('.lecture_subject_placeholder').forEach(e => e.textContent = assuntoAula); document.querySelectorAll('.aula_num_placeholder').forEach(e => e.textContent = aulaNum); document.querySelectorAll('.year-placeholder').forEach(e => e.textContent = new Date().getFullYear()); });
+        Reveal.initialize({ hash: true, slideNumber: true, transition: 'slide', center: true, width: '100%', height: '100%', margin: 0, controls: true, controlsBackArrows: 'faded', progress: true, plugins: [RevealHighlight, RevealZoom] });
+    </script>
+</body>
+
+</html>

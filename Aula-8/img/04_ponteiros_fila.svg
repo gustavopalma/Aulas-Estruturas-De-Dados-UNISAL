@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1050" viewBox="0 0 1800 1050">
+
+<defs>
+<style>
+.title{font:700 42px Arial,sans-serif;fill:#6b21a8}
+.subtitle{font:500 24px Arial,sans-serif;fill:#374151}
+.label{font:700 28px Arial,sans-serif;fill:#1f2937}
+.value{font:700 32px Consolas,monospace;fill:#1f2937}
+.code{font:700 23px Consolas,monospace;fill:#1f2937}
+.note{font:700 22px Arial,sans-serif}
+.small{font:500 20px Arial,sans-serif;fill:#374151}
+.cell{stroke:#1f2937;stroke-width:3;rx:16;ry:16}
+.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ar" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#b91c1c"/></marker>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+<marker id="ao" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#c2410c"/></marker>
+</defs>
+
+<rect width="1800" height="1050" fill="#fff"/>
+<text x="70" y="80" class="title">Ponteiros de uma fila</text>
+<text x="70" y="125" class="subtitle">A estrutura mantém referências para o primeiro e o último nó.</text>
+
+<rect x="130" y="280" width="300" height="150" class="cell" fill="#eadcf7"/>
+<text x="280" y="340" class="label" text-anchor="middle">início</text>
+<text x="280" y="390" class="value" text-anchor="middle">0x2000</text>
+
+<rect x="1370" y="280" width="300" height="150" class="cell" fill="#eadcf7"/>
+<text x="1520" y="340" class="label" text-anchor="middle">fim</text>
+<text x="1520" y="390" class="value" text-anchor="middle">0x4000</text>
+
+<rect x="520" y="360" width="240" height="160" class="cell" fill="#d9f5df"/>
+<rect x="780" y="360" width="240" height="160" class="cell" fill="#fff1b8"/>
+<rect x="1040" y="360" width="240" height="160" class="cell" fill="#dcecff"/>
+<text x="640" y="455" class="value" text-anchor="middle">10</text>
+<text x="900" y="455" class="value" text-anchor="middle">20</text>
+<text x="1160" y="455" class="value" text-anchor="middle">30</text>
+
+<path d="M430 355 C470 355 480 400 505 430" fill="none" stroke="#15803d" stroke-width="6" marker-end="url(#ag)"/>
+<path d="M1370 355 C1330 355 1320 400 1295 430" fill="none" stroke="#2563eb" stroke-width="6" marker-end="url(#ab)"/>
+
+<text x="640" y="585" class="note green" text-anchor="middle">primeiro nó</text>
+<text x="1160" y="585" class="note blue" text-anchor="middle">último nó</text>
+
+<rect x="300" y="730" width="1200" height="150" class="cell" fill="#f3f4f6"/>
+<text x="900" y="785" class="note green" text-anchor="middle">início permite remover em O(1).</text>
+<text x="900" y="835" class="note blue" text-anchor="middle">fim permite inserir em O(1).</text>
+
+</svg>

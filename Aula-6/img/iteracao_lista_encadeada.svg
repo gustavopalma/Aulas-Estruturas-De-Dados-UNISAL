@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1050" viewBox="0 0 1900 1050">
+<defs>
+<style>
+.title{font:700 42px Arial,sans-serif;fill:#6b21a8}.subtitle{font:500 24px Arial,sans-serif;fill:#374151}
+.label{font:700 27px Arial,sans-serif;fill:#1f2937}.field{font:700 23px Arial,sans-serif;fill:#1f2937}
+.value{font:700 30px Consolas,monospace;fill:#1f2937}.addr{font:700 21px Consolas,monospace;fill:#2563eb}
+.small{font:500 20px Arial,sans-serif;fill:#374151}.note{font:700 22px Arial,sans-serif}
+.code{font:700 22px Consolas,monospace;fill:#1f2937}.step{font:700 22px Arial,sans-serif;fill:#6b21a8}
+.cell{stroke:#1f2937;stroke-width:3;rx:16;ry:16}.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ao" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#c2410c"/></marker>
+</defs>
+<rect width="1900" height="1050" fill="#fff"/>
+
+<text x="70" y="80" class="title">Iteração em uma lista encadeada</text>
+<text x="70" y="125" class="subtitle">O ponteiro atual começa no início e avança pelos campos próximo até alcançar NULL.</text>
+
+<!-- início -->
+<rect x="70" y="360" width="220" height="150" class="cell" fill="#eadcf7"/>
+<text x="180" y="415" class="label" text-anchor="middle">início</text>
+<text x="180" y="465" class="value" text-anchor="middle">0x2000</text>
+
+<!-- nós -->
+<rect x="360" y="315" width="300" height="245" class="cell" fill="#d9f5df"/>
+<line x1="360" y1="425" x2="660" y2="425" stroke="#1f2937" stroke-width="3"/>
+<text x="510" y="370" class="field" text-anchor="middle">dado</text>
+<text x="510" y="415" class="value" text-anchor="middle">10</text>
+<text x="510" y="480" class="field" text-anchor="middle">próximo</text>
+<text x="510" y="525" class="value" text-anchor="middle">0x3000</text>
+<text x="510" y="605" class="addr" text-anchor="middle">nó em 0x2000</text>
+
+<rect x="790" y="315" width="300" height="245" class="cell" fill="#dcecff"/>
+<line x1="790" y1="425" x2="1090" y2="425" stroke="#1f2937" stroke-width="3"/>
+<text x="940" y="370" class="field" text-anchor="middle">dado</text>
+<text x="940" y="415" class="value" text-anchor="middle">20</text>
+<text x="940" y="480" class="field" text-anchor="middle">próximo</text>
+<text x="940" y="525" class="value" text-anchor="middle">0x4000</text>
+<text x="940" y="605" class="addr" text-anchor="middle">nó em 0x3000</text>
+
+<rect x="1220" y="315" width="300" height="245" class="cell" fill="#ffe0c7"/>
+<line x1="1220" y1="425" x2="1520" y2="425" stroke="#1f2937" stroke-width="3"/>
+<text x="1370" y="370" class="field" text-anchor="middle">dado</text>
+<text x="1370" y="415" class="value" text-anchor="middle">30</text>
+<text x="1370" y="480" class="field" text-anchor="middle">próximo</text>
+<text x="1370" y="525" class="value" text-anchor="middle">NULL</text>
+<text x="1370" y="605" class="addr" text-anchor="middle">nó em 0x4000</text>
+
+<!-- conexões -->
+<path d="M290 435 C315 435 325 435 345 435" fill="none" stroke="#15803d" stroke-width="6" marker-end="url(#ag)"/>
+<path d="M660 495 C710 495 730 495 775 495" fill="none" stroke="#2563eb" stroke-width="6" marker-end="url(#ab)"/>
+<path d="M1090 495 C1140 495 1160 495 1205 495" fill="none" stroke="#2563eb" stroke-width="6" marker-end="url(#ab)"/>
+<path d="M1520 495 C1580 495 1600 495 1655 495" fill="none" stroke="#2563eb" stroke-width="6" marker-end="url(#ab)"/>
+
+<!-- NULL -->
+<rect x="1670" y="400" width="170" height="120" class="cell" fill="#f3f4f6"/>
+<text x="1755" y="472" class="value red" text-anchor="middle">NULL</text>
+
+<!-- ponteiro atual e passos -->
+<rect x="330" y="690" width="360" height="155" class="cell" fill="#f3f4f6"/>
+<text x="510" y="735" class="step" text-anchor="middle">1ª iteração</text>
+<text x="510" y="780" class="code" text-anchor="middle">atual = 0x2000</text>
+<text x="510" y="820" class="note green" text-anchor="middle">visita o valor 10</text>
+
+<rect x="760" y="690" width="360" height="155" class="cell" fill="#f3f4f6"/>
+<text x="940" y="735" class="step" text-anchor="middle">2ª iteração</text>
+<text x="940" y="780" class="code" text-anchor="middle">atual = 0x3000</text>
+<text x="940" y="820" class="note blue" text-anchor="middle">visita o valor 20</text>
+
+<rect x="1190" y="690" width="360" height="155" class="cell" fill="#f3f4f6"/>
+<text x="1370" y="735" class="step" text-anchor="middle">3ª iteração</text>
+<text x="1370" y="780" class="code" text-anchor="middle">atual = 0x4000</text>
+<text x="1370" y="820" class="note orange" text-anchor="middle">visita o valor 30</text>
+
+<path d="M510 650 V675" fill="none" stroke="#15803d" stroke-width="5" marker-end="url(#ag)"/>
+<path d="M940 650 V675" fill="none" stroke="#2563eb" stroke-width="5" marker-end="url(#ab)"/>
+<path d="M1370 650 V675" fill="none" stroke="#c2410c" stroke-width="5" marker-end="url(#ao)"/>
+
+<!-- fluxo do atual -->
+<path d="M510 285 C510 210 940 210 940 285" fill="none" stroke="#6b21a8" stroke-width="5" stroke-dasharray="12 8" marker-end="url(#ab)"/>
+<path d="M940 285 C940 210 1370 210 1370 285" fill="none" stroke="#6b21a8" stroke-width="5" stroke-dasharray="12 8" marker-end="url(#ab)"/>
+<path d="M1370 285 C1370 210 1755 210 1755 385" fill="none" stroke="#6b21a8" stroke-width="5" stroke-dasharray="12 8" marker-end="url(#ab)"/>
+<text x="940" y="190" class="note purple" text-anchor="middle">atual = atual-&gt;próximo</text>
+
+<!-- rodapé -->
+<rect x="245" y="900" width="1410" height="100" class="cell" fill="#f3f4f6"/>
+<text x="950" y="940" class="code" text-anchor="middle">for (No *atual = inicio; atual != NULL; atual = atual-&gt;proximo)</text>
+<text x="950" y="978" class="small" text-anchor="middle">A iteração visita cada nó uma vez; para n nós, a complexidade é O(n).</text>
+</svg>

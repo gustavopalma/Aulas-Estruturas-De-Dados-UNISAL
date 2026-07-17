@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1050" viewBox="0 0 1900 1050">
+
+<defs>
+<style>
+.title{font:700 42px Arial,sans-serif;fill:#6b21a8}.subtitle{font:500 24px Arial,sans-serif;fill:#374151}
+.label{font:700 27px Arial,sans-serif;fill:#1f2937}.field{font:700 23px Arial,sans-serif;fill:#1f2937}
+.value{font:700 30px Consolas,monospace;fill:#1f2937}.addr{font:700 21px Consolas,monospace;fill:#2563eb}
+.small{font:500 20px Arial,sans-serif;fill:#374151}.note{font:700 22px Arial,sans-serif}
+.code{font:700 22px Consolas,monospace;fill:#1f2937}.cell{stroke:#1f2937;stroke-width:3;rx:16;ry:16}
+.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ar" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#b91c1c"/></marker>
+<marker id="ao" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#c2410c"/></marker>
+</defs>
+
+<rect width="1900" height="1050" fill="#fff"/><text x="70" y="80" class="title">Remoção no início da lista</text><text x="70" y="125" class="subtitle">O ponteiro início passa a apontar para o segundo nó e o primeiro nó é liberado.</text>
+<rect x="80" y="365" width="230" height="150" class="cell" fill="#eadcf7"/>
+<text x="195" y="420" class="label" text-anchor="middle">início</text>
+<text x="195" y="470" class="value" text-anchor="middle">0x2000</text>
+
+<rect x="390" y="320" width="300" height="245" class="cell" fill="#f8d7da" stroke="#b91c1c" stroke-width="6"/>
+<line x1="390" y1="430" x2="690" y2="430" stroke="#1f2937" stroke-width="3"/>
+<text x="540" y="375" class="field" text-anchor="middle">dado</text>
+<text x="540" y="420" class="value" text-anchor="middle">10</text>
+<text x="540" y="485" class="field" text-anchor="middle">próximo</text>
+<text x="540" y="530" class="value" text-anchor="middle">0x3000</text>
+<text x="540" y="610" class="addr" text-anchor="middle">nó em 0x2000</text>
+
+
+<rect x="820" y="320" width="300" height="245" class="cell" fill="#dcecff" stroke="#1f2937" stroke-width="3"/>
+<line x1="820" y1="430" x2="1120" y2="430" stroke="#1f2937" stroke-width="3"/>
+<text x="970" y="375" class="field" text-anchor="middle">dado</text>
+<text x="970" y="420" class="value" text-anchor="middle">20</text>
+<text x="970" y="485" class="field" text-anchor="middle">próximo</text>
+<text x="970" y="530" class="value" text-anchor="middle">0x4000</text>
+<text x="970" y="610" class="addr" text-anchor="middle">nó em 0x3000</text>
+
+
+<rect x="1250" y="320" width="300" height="245" class="cell" fill="#ffe0c7" stroke="#1f2937" stroke-width="3"/>
+<line x1="1250" y1="430" x2="1550" y2="430" stroke="#1f2937" stroke-width="3"/>
+<text x="1400" y="375" class="field" text-anchor="middle">dado</text>
+<text x="1400" y="420" class="value" text-anchor="middle">30</text>
+<text x="1400" y="485" class="field" text-anchor="middle">próximo</text>
+<text x="1400" y="530" class="value" text-anchor="middle">NULL</text>
+<text x="1400" y="610" class="addr" text-anchor="middle">nó em 0x4000</text>
+
+<path d="M310 440 C340 440 350 440 375 440" fill="none" stroke="#b91c1c" stroke-width="6" marker-end="url(#ar)"/>
+<path d="M690 500 C735 500 760 500 805 500" fill="none" stroke="#2563eb" stroke-width="6" marker-end="url(#ab)"/>
+<path d="M1120 500 C1165 500 1190 500 1235 500" fill="none" stroke="#2563eb" stroke-width="6" marker-end="url(#ab)"/>
+<path d="M195 365 C195 250 970 250 970 305" fill="none" stroke="#15803d" stroke-width="6" stroke-dasharray="12 8" marker-end="url(#ag)"/>
+<text x="600" y="235" class="note green" text-anchor="middle">início = início-&gt;próximo</text>
+<rect x="350" y="720" width="1200" height="160" class="cell" fill="#f3f4f6"/>
+<text x="950" y="765" class="code" text-anchor="middle">No *removido = inicio;</text>
+<text x="950" y="805" class="code" text-anchor="middle">inicio = inicio-&gt;proximo;</text>
+<text x="950" y="845" class="code" text-anchor="middle">free(removido);</text>
+<text x="540" y="665" class="note red" text-anchor="middle">Nó removido</text>
+<text x="970" y="665" class="note green" text-anchor="middle">Novo primeiro nó</text>
+</svg>

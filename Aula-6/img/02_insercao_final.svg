@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1000" viewBox="0 0 1800 1000">
+<defs><style>
+.title{font:700 42px Arial,sans-serif;fill:#6b21a8}.subtitle{font:500 24px Arial,sans-serif;fill:#374151}
+.section{font:700 29px Arial,sans-serif}.label{font:700 25px Arial,sans-serif;fill:#1f2937}
+.field{font:700 22px Arial,sans-serif;fill:#1f2937}.value{font:700 28px Consolas,monospace;fill:#1f2937}
+.addr{font:700 21px Consolas,monospace;fill:#2563eb}.code{font:700 22px Consolas,monospace;fill:#1f2937}
+.note{font:700 21px Arial,sans-serif}.small{font:500 19px Arial,sans-serif;fill:#374151}
+.cell{stroke:#1f2937;stroke-width:3;rx:15;ry:15}.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ao" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#c2410c"/></marker>
+</defs><rect width="1800" height="1000" fill="#fff"/>
+<text x="65" y="80" class="title">Inserção no final da lista</text><text x="65" y="125" class="subtitle">Localize o último nó e faça seu campo próximo apontar para o novo nó.</text>
+<text x="90" y="200" class="section purple">Antes</text>
+<rect x="70" y="270" width="210" height="125" class="cell" fill="#eadcf7"/><text x="175" y="315" class="label" text-anchor="middle">início</text><text x="175" y="360" class="value" text-anchor="middle">0x2000</text>
+<text x="500.0" y="220" class="section" text-anchor="middle">Nó 1</text>
+<rect x="360" y="245" width="280" height="210" class="cell" fill="#d9f5df"/>
+<line x1="360" y1="340" x2="640" y2="340" stroke="#1f2937" stroke-width="3"/>
+<text x="500.0" y="283" class="field" text-anchor="middle">dado</text><text x="500.0" y="323" class="value" text-anchor="middle">10</text>
+<text x="500.0" y="380" class="field" text-anchor="middle">próximo</text><text x="500.0" y="423" class="value" text-anchor="middle">0x3000</text>
+<text x="500.0" y="493" class="addr" text-anchor="middle">endereço: 0x2000</text>
+<text x="900.0" y="220" class="section" text-anchor="middle">Último nó</text>
+<rect x="760" y="245" width="280" height="210" class="cell" fill="#dcecff"/>
+<line x1="760" y1="340" x2="1040" y2="340" stroke="#1f2937" stroke-width="3"/>
+<text x="900.0" y="283" class="field" text-anchor="middle">dado</text><text x="900.0" y="323" class="value" text-anchor="middle">20</text>
+<text x="900.0" y="380" class="field" text-anchor="middle">próximo</text><text x="900.0" y="423" class="value" text-anchor="middle">NULL</text>
+<text x="900.0" y="493" class="addr" text-anchor="middle">endereço: 0x3000</text>
+<path d="M280 332 C315 332 325 332 345 332" fill="none" stroke="#15803d" stroke-width="6" marker-end="url(#ag)"/>
+<path d="M640 345 C690 345 705 345 745 345" fill="none" stroke="#2563eb" stroke-width="6" marker-end="url(#ab)"/>
+<text x="1400.0" y="220" class="section" text-anchor="middle">Novo nó</text>
+<rect x="1260" y="245" width="280" height="210" class="cell" fill="#ffe0c7"/>
+<line x1="1260" y1="340" x2="1540" y2="340" stroke="#1f2937" stroke-width="3"/>
+<text x="1400.0" y="283" class="field" text-anchor="middle">dado</text><text x="1400.0" y="323" class="value" text-anchor="middle">30</text>
+<text x="1400.0" y="380" class="field" text-anchor="middle">próximo</text><text x="1400.0" y="423" class="value" text-anchor="middle">NULL</text>
+<text x="1400.0" y="493" class="addr" text-anchor="middle">novo nó: 0x4000</text>
+<line x1="900" y1="540" x2="900" y2="625" stroke="#c2410c" stroke-width="6" marker-end="url(#ao)"/><text x="940" y="590" class="note orange">Percorrer até o último nó</text>
+<text x="90" y="700" class="section purple">Depois</text>
+<text x="465.0" y="665" class="section" text-anchor="middle">Nó 1</text>
+<rect x="340" y="690" width="250" height="180" class="cell" fill="#d9f5df"/>
+<line x1="340" y1="785" x2="590" y2="785" stroke="#1f2937" stroke-width="3"/>
+<text x="465.0" y="728" class="field" text-anchor="middle">dado</text><text x="465.0" y="768" class="value" text-anchor="middle">10</text>
+<text x="465.0" y="825" class="field" text-anchor="middle">próximo</text><text x="465.0" y="868" class="value" text-anchor="middle">0x3000</text>
+<text x="465.0" y="908" class="addr" text-anchor="middle">0x2000</text>
+<text x="825.0" y="665" class="section" text-anchor="middle">Nó 2</text>
+<rect x="700" y="690" width="250" height="180" class="cell" fill="#dcecff"/>
+<line x1="700" y1="785" x2="950" y2="785" stroke="#1f2937" stroke-width="3"/>
+<text x="825.0" y="728" class="field" text-anchor="middle">dado</text><text x="825.0" y="768" class="value" text-anchor="middle">20</text>
+<text x="825.0" y="825" class="field" text-anchor="middle">próximo</text><text x="825.0" y="868" class="value" text-anchor="middle">0x4000</text>
+<text x="825.0" y="908" class="addr" text-anchor="middle">0x3000</text>
+<text x="1185.0" y="665" class="section" text-anchor="middle">Novo último</text>
+<rect x="1060" y="690" width="250" height="180" class="cell" fill="#ffe0c7"/>
+<line x1="1060" y1="785" x2="1310" y2="785" stroke="#1f2937" stroke-width="3"/>
+<text x="1185.0" y="728" class="field" text-anchor="middle">dado</text><text x="1185.0" y="768" class="value" text-anchor="middle">30</text>
+<text x="1185.0" y="825" class="field" text-anchor="middle">próximo</text><text x="1185.0" y="868" class="value" text-anchor="middle">NULL</text>
+<text x="1185.0" y="908" class="addr" text-anchor="middle">0x4000</text>
+<path d="M590 790 C635 790 645 790 685 790" fill="none" stroke="#2563eb" stroke-width="6" marker-end="url(#ab)"/>
+<path d="M950 790 C995 790 1005 790 1045 790" fill="none" stroke="#2563eb" stroke-width="6" marker-end="url(#ab)"/>
+<rect x="1390" y="700" width="330" height="180" class="cell" fill="#f3f4f6"/><text x="1555" y="750" class="code" text-anchor="middle">ultimo-&gt;proximo = novo;</text><text x="1555" y="805" class="code" text-anchor="middle">novo-&gt;proximo = NULL;</text><text x="1555" y="850" class="small" text-anchor="middle">O novo nó torna-se o último.</text>
+</svg>

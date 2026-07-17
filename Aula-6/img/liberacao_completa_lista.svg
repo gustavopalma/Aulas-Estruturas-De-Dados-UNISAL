@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1900" height="1100" viewBox="0 0 1900 1100">
+<defs>
+<style>
+.title{font:700 42px Arial;fill:#6b21a8}
+.subtitle{font:24px Arial;fill:#374151}
+.code{font:700 22px Consolas}
+.label{font:700 26px Arial}
+.note{font:700 22px Arial}
+.small{font:20px Arial;fill:#374151}
+.value{font:700 28px Consolas}
+.cell{stroke:#1f2937;stroke-width:3;rx:16;ry:16}
+</style>
+<marker id="a" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto">
+<path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+</defs>
+<rect width="100%" height="100%" fill="white"/>
+<text x="60" y="70" class="title">Liberação completa de uma lista encadeada</text>
+<text x="60" y="110" class="subtitle">Cada iteração remove apenas o primeiro nó da lista.</text>
+
+<rect x="80" y="150" width="1740" height="130" class="cell" fill="#f3f4f6"/>
+<text x="950" y="200" text-anchor="middle" class="code">while (inicio != NULL)</text>
+<text x="950" y="235" text-anchor="middle" class="code">{ temp = inicio; inicio = inicio-&gt;proximo; free(temp); }</text>
+
+<!-- etapas -->
+
+<text x="180" y="340" text-anchor="middle" class="label">Iteração 1</text>
+<rect x="60" y="370" width="240" height="120" class="cell" fill="#eadcf7"/>
+<text x="180" y="415" text-anchor="middle" class="label">inicio</text>
+<text x="180" y="455" text-anchor="middle" class="value">0x2000</text>
+<rect x="370" y="340" width="250" height="180" class="cell" fill="#f8d7da"/>
+<line x1="370" y1="420" x2="620" y2="420" stroke="#1f2937" stroke-width="3"/>
+<text x="495" y="390" text-anchor="middle">dado</text>
+<text x="495" y="445" text-anchor="middle" class="value">10</text>
+<text x="495" y="480" text-anchor="middle">próximo</text>
+<text x="495" y="510" text-anchor="middle" class="value">0x3000</text>
+
+<text x="790" y="340" text-anchor="middle" class="label">Iteração 2</text>
+<rect x="670" y="370" width="240" height="120" class="cell" fill="#eadcf7"/>
+<text x="790" y="415" text-anchor="middle" class="label">inicio</text>
+<text x="790" y="455" text-anchor="middle" class="value">0x3000</text>
+<rect x="980" y="340" width="250" height="180" class="cell" fill="#f8d7da"/>
+<line x1="980" y1="420" x2="1230" y2="420" stroke="#1f2937" stroke-width="3"/>
+<text x="1105" y="390" text-anchor="middle">dado</text>
+<text x="1105" y="445" text-anchor="middle" class="value">20</text>
+<text x="1105" y="480" text-anchor="middle">próximo</text>
+<text x="1105" y="510" text-anchor="middle" class="value">0x4000</text>
+
+<text x="1400" y="340" text-anchor="middle" class="label">Iteração 3</text>
+<rect x="1280" y="370" width="240" height="120" class="cell" fill="#eadcf7"/>
+<text x="1400" y="415" text-anchor="middle" class="label">inicio</text>
+<text x="1400" y="455" text-anchor="middle" class="value">0x4000</text>
+<rect x="1590" y="340" width="250" height="180" class="cell" fill="#f8d7da"/>
+<line x1="1590" y1="420" x2="1840" y2="420" stroke="#1f2937" stroke-width="3"/>
+<text x="1715" y="390" text-anchor="middle">dado</text>
+<text x="1715" y="445" text-anchor="middle" class="value">30</text>
+<text x="1715" y="480" text-anchor="middle">próximo</text>
+<text x="1715" y="510" text-anchor="middle" class="value">NULL</text>
+
+<line x1="620" y1="430" x2="650" y2="430" stroke="#2563eb" stroke-width="5" marker-end="url(#a)"/>
+<line x1="1230" y1="430" x2="1260" y2="430" stroke="#2563eb" stroke-width="5" marker-end="url(#a)"/>
+
+<rect x="120" y="620" width="500" height="300" class="cell" fill="#fff8dc"/>
+<text x="370" y="670" text-anchor="middle" class="note">1ª iteração</text>
+<text x="370" y="720" text-anchor="middle" class="code">temp = inicio;</text>
+<text x="370" y="760" text-anchor="middle" class="code">inicio = inicio->proximo;</text>
+<text x="370" y="800" text-anchor="middle" class="code">free(temp);</text>
+<text x="370" y="860" text-anchor="middle" class="small">Nó 10 é removido.</text>
+
+<rect x="700" y="620" width="500" height="300" class="cell" fill="#fff8dc"/>
+<text x="950" y="670" text-anchor="middle" class="note">2ª iteração</text>
+<text x="950" y="720" text-anchor="middle" class="code">temp = inicio;</text>
+<text x="950" y="760" text-anchor="middle" class="code">inicio = inicio->proximo;</text>
+<text x="950" y="800" text-anchor="middle" class="code">free(temp);</text>
+<text x="950" y="860" text-anchor="middle" class="small">Nó 20 é removido.</text>
+
+<rect x="1280" y="620" width="500" height="300" class="cell" fill="#d9f5df"/>
+<text x="1530" y="670" text-anchor="middle" class="note">3ª iteração</text>
+<text x="1530" y="720" text-anchor="middle" class="code">temp = inicio;</text>
+<text x="1530" y="760" text-anchor="middle" class="code">inicio = inicio->proximo;</text>
+<text x="1530" y="800" text-anchor="middle" class="code">free(temp);</text>
+<text x="1530" y="860" text-anchor="middle" class="small">inicio = NULL → laço termina.</text>
+
+<rect x="300" y="970" width="1300" height="80" class="cell" fill="#f3f4f6"/>
+<text x="950" y="1020" text-anchor="middle" class="code">Ao final, todos os nós foram liberados e a lista fica vazia (inicio == NULL).</text>
+</svg>

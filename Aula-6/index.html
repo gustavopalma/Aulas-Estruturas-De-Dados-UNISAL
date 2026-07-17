@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title><span class="lecture_placeholder"></title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+  <link rel="stylesheet" href="css/mine.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <div id="header-template">
+    <a href="https://unisal.br/">
+      <img src="img/logo_unisal.png" alt="Logo">
+    </a>
+    <h1>Aula &nbsp; <span id="aula_num_placeholder"></span> &nbsp; - &nbsp; <span class="lecture_placeholder"></span>
+      &nbsp; - &nbsp; <span class="lecture_subject_placeholder"></span></h1>
+  </div>
+
+  <!-- Rodapé -->
+  <div id="footer-template">
+    UNISAL - São José, Campinas - &nbsp; <span id="year-placeholder"></span>
+  </div>
+
+  <!-- Slides -->
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <a href="https://unisal.br/">
+          <img src="img/logo_unisal.png" alt="logo unisal"
+            style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+        </a>
+        <h2><span class="lecture_placeholder"></h2>
+        <h3><span class="lecture_subject_placeholder"></span></h3>
+        <p>
+          <small>Prof. Me. Gustavo Ferreira Palma</small>
+        </p>
+      </section>
+      <section>
+        <h2>Pauta</h2>
+
+        <ul>
+          <li>Listas Encadeadas</li>
+        </ul>
+      </section>
+
+      <!-- <section>
+        <h2>Bibliografia Básica</h2>
+        <ul>
+          <li>Conci, Aura. Computação Gráfica: Teoria e Prática - Geração De Imagens - Volume 1. Contribuição de Cristina Nader Vasconcelos e Eduardo Azevedo, Alta Books, 2021.</li>
+          <li>Barelli, Felipe. Introdução à visão computacional: uma abordagem prática com Python e OpenCV. Casa do Código, 2018.</li>
+        </ul>
+      </section> -->
+
+      <section>
+        <h1>Listas Encadeadas</h1>
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Conceito</h2>
+        <ul>
+          <li>Vetores possuem tamanho fixo e armazenam seus elementos em posições contíguas da memória. Embora sejam
+            simples e eficientes para acesso direto aos elementos, apresentam limitações quando é necessário inserir ou
+            remover dados durante a execução do programa.</li>
+          <li>Além disso, inserir ou remover elementos em um vetor normalmente exige deslocar diversos elementos,
+            tornando essas operações menos eficientes.</li>
+          <li>Uma lista encadeada é uma estrutura dinâmica composta por elementos chamados nós. Cada nó armazena um dado
+            e o endereço do próximo elemento da lista.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Conceito</h2>
+        <ul>
+          <li>Estrutura de um Nó</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+//...
+typedef struct No
+{
+    int dado; // informação armazenada
+    struct No *proximo;
+} No;
+//...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Conceito</h2>
+        <img src="img/lista_encadeada_simples.svg" style="width: 65%;">
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Inserção de dados no início da lista</li>
+        </ul>
+        <img src="img/01_insercao_inicio.svg" style="width: 65%;">
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Conceito</h2>
+        <ul>
+          <li>Inserção de dados no início da lista</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+//...
+No *novo = malloc(sizeof(No));
+
+novo->proximo = inicio;
+
+inicio = novo;
+//...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Inserção de dados no final da lista</li>
+        </ul>
+        <img src="img/02_insercao_final.svg" style="width: 65%;">
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Inserção de dados no final da lista</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+//...
+while(atual->proximo != NULL)
+{
+    atual = atual->proximo;
+}
+
+atual->proximo = novo;
+//...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Remoção de dados no início da lista</li>
+        </ul>
+        <img src="img/01_remocao_inicio.svg" style="width: 65%;">
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Remoção de dados no início da lista</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+//...
+    if (*inicio == NULL)
+    {
+        return;
+    }
+
+    No *temp = *inicio;
+
+    *inicio = (*inicio)->proximo;
+
+    free(temp);
+//...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Remoção de dados no final da lista</li>
+        </ul>
+        <img src="img/02_remocao_final.svg" style="width: 65%;">
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Remoção de dados no final da lista</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+//...
+if (*inicio == NULL)
+  {
+    return;
+  }
+
+  if ((*inicio)->proximo == NULL)
+  {
+    free(*inicio);
+    *inicio = NULL;
+    return;
+  } 
+
+  No *anterior = NULL;
+  No *atual = *inicio;
+
+  while (atual->proximo != NULL)
+  {
+    anterior = atual;
+    atual = atual->proximo;
+  }
+
+  anterior->proximo = NULL;
+  free(atual);
+//...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Remoção de dados em posições da lista</li>
+        </ul>
+        <img src="img/03_remocao_posicao.svg" style="width: 65%;">
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Remoção de dados em posições da lista</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+//...
+if (*inicio == NULL)
+  {
+    return;
+  }
+
+  if (posicao == 0)
+  {
+    removerInicio(inicio);
+    return;
+  }
+
+  No *anterior = NULL;
+  No *atual = *inicio;
+
+  int indice = 0;
+
+  while (atual != NULL && indice < posicao)
+  {
+    anterior = atual;
+    atual = atual->proximo;
+
+    indice++;
+  }
+
+  if (atual == NULL)
+  {
+    return;
+  }
+
+  anterior->proximo = atual->proximo;
+
+  free(atual);
+//...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Iterando uma Lista</li>
+        </ul>
+        <img src="img/iteracao_lista_encadeada.svg" style="width: 60%;">
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Iterando uma Lista</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+//...
+No *atual = inicio;
+
+while(atual != NULL)
+{
+    printf("%d", atual->dado);
+
+    atual = atual->proximo;
+}
+//...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Buscando valores em listas</li>
+        </ul>
+        <img src="img/busca_sequencial_lista_encadeada.svg" style="width: 60%;">
+      </section>
+
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Buscando valores em listas</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+//...
+int dadoBusca = 0;
+printf("Insira o valor a ser buscado:\n");
+scanf("%d", &dadoBusca);
+
+while(atual != NULL)
+{
+  if (atual->dado == dadoBusca ){
+    printf("Encontrado!\n");
+  }
+  atual = atual->proximo;
+}
+//...
+          </code>
+        </pre>
+      </section>
+
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Liberando a memória Alocada</li>
+        </ul>
+        <img src="img/liberacao_completa_lista.svg" style="width: 60%;">
+      </section>
+
+
+      <section>
+        <h2>Listas Encadeadas - Utilização</h2>
+        <ul>
+          <li>Buscando valores em listas</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+//...
+while(inicio != NULL)
+{
+    No *temp = inicio;
+
+    inicio = inicio->proximo;
+
+    free(temp);
+}
+//...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h1>OBRIGADO!</h1>
+        <p>Podem me encontrar aqui:</p>
+        <ul>
+          <li>gustavo.palma@unisal.edu.br</li>
+          <li>www.gustavopalma.com.br</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="../../../dist/reveal.js"></script>
+
+
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/zoom/zoom.js"></script>
+  <script>
+    const iframe = document.getElementById('terminal');
+    if (iframe != null) {
+      iframe.onload = () => {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        const style = doc.createElement('style');
+        style.innerHTML = `
+      .xterm {
+        font-size: 20px !important;
+        line-height: 1.2 !important;
+      }
+    `;
+        doc.head.appendChild(style);
+      };
+    }
+  </script>
+  <script>
+    Reveal.on('ready', event => {
+      const headerTemplate = document.getElementById('header-template');
+      const footerTemplate = document.getElementById('footer-template');
+
+      document.querySelectorAll('.slide-background').forEach(backgroundDiv => {
+        if (headerTemplate) {
+          backgroundDiv.appendChild(headerTemplate.cloneNode(true));
+        }
+        if (footerTemplate) {
+          backgroundDiv.appendChild(footerTemplate.cloneNode(true));
+        }
+      });
+
+      const nomeDisciplina = "Estrutura de Dados";
+      const assuntoAula = "Listas Encadeadas"
+      const aulaNum = '6';
+      const currentDate = new Date();
+
+      // Get the full four-digit year
+      const currentYear = " " + currentDate.getFullYear(); // e.g., 2026
+
+      // Find the HTML element by its ID and set its text content to the current year
+      document.getElementById('year-placeholder').textContent = "\  " + currentYear;
+      var elems = document.getElementsByClassName('lecture_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = nomeDisciplina;
+      }
+      document.title = nomeDisciplina;
+      document.getElementById('aula_num_placeholder').textContent = aulaNum
+      elems = document.getElementsByClassName('lecture_subject_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = assuntoAula;
+      }
+      createWorldMarketShare();
+      createMarketShare();
+    });
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      center: true,
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      controls: true,
+      controlsBackArrows: 'faded',
+      progress: true,
+      plugins: [RevealHighlight, RevealZoom],
+    });
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>

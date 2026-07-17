@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1000" viewBox="0 0 1700 1000">
+
+<defs>
+<style>
+.title{font:700 42px Arial,sans-serif;fill:#6b21a8}.subtitle{font:500 24px Arial,sans-serif;fill:#374151}
+.label{font:700 28px Arial,sans-serif;fill:#1f2937}.value{font:700 32px Consolas,monospace;fill:#1f2937}
+.code{font:700 23px Consolas,monospace;fill:#1f2937}.note{font:700 22px Arial,sans-serif}
+.small{font:500 20px Arial,sans-serif;fill:#374151}.cell{stroke:#1f2937;stroke-width:3;rx:16;ry:16}
+.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ar" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#b91c1c"/></marker>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+</defs>
+
+<rect width="1700" height="1000" fill="#fff"/>
+<text x="70" y="80" class="title">Operação PEEK</text>
+<text x="70" y="125" class="subtitle">Consulta e retorna o elemento do topo sem removê-lo.</text>
+
+<rect x="560" y="170" width="580" height="90" class="cell" fill="#f3f4f6"/>
+<text x="850" y="225" class="code" text-anchor="middle">valor = peek()</text>
+
+<rect x="590" y="320" width="300" height="115" class="cell" fill="#d9f5df" stroke="#2563eb" stroke-width="6"/>
+<rect x="590" y="435" width="300" height="115" class="cell" fill="#fff1b8"/>
+<rect x="590" y="550" width="300" height="115" class="cell" fill="#dcecff"/>
+<rect x="590" y="665" width="300" height="115" class="cell" fill="#ffe0c7"/>
+<text x="740" y="390" class="value" text-anchor="middle">40</text>
+<text x="740" y="505" class="value" text-anchor="middle">30</text>
+<text x="740" y="620" class="value" text-anchor="middle">20</text>
+<text x="740" y="735" class="value" text-anchor="middle">10</text>
+
+<line x1="350" y1="377" x2="570" y2="377" stroke="#2563eb" stroke-width="7" marker-end="url(#ab)"/>
+<text x="335" y="335" class="note blue" text-anchor="end">consulta o topo</text>
+<text x="980" y="390" class="note blue">retorna 40</text>
+
+<rect x="260" y="820" width="1180" height="120" class="cell" fill="#dcecff"/>
+<text x="850" y="870" class="note blue" text-anchor="middle">Nenhum elemento é removido; a pilha permanece igual.</text>
+<text x="850" y="915" class="code" text-anchor="middle">valor = 40</text>
+
+</svg>

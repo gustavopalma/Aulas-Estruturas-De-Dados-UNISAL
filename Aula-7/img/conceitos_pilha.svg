@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="1050" viewBox="0 0 1800 1050">
+<defs>
+<style>
+.title{font:700 42px Arial,sans-serif;fill:#6b21a8}.subtitle{font:500 24px Arial,sans-serif;fill:#374151}
+.label{font:700 28px Arial,sans-serif;fill:#1f2937}.value{font:700 32px Consolas,monospace;fill:#1f2937}
+.code{font:700 23px Consolas,monospace;fill:#1f2937}.note{font:700 22px Arial,sans-serif}
+.small{font:500 20px Arial,sans-serif;fill:#374151}.cell{stroke:#1f2937;stroke-width:3;rx:16;ry:16}
+.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ar" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#b91c1c"/></marker>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+</defs>
+
+<rect width="1800" height="1050" fill="#fff"/>
+<text x="70" y="80" class="title">Pilha — estrutura LIFO</text>
+<text x="70" y="125" class="subtitle">O último elemento inserido é o primeiro a ser removido.</text>
+
+<!-- pilha -->
+<text x="480" y="210" class="label" text-anchor="middle">Pilha</text>
+<rect x="300" y="260" width="360" height="130" class="cell" fill="#d9f5df"/>
+<rect x="300" y="390" width="360" height="130" class="cell" fill="#fff1b8"/>
+<rect x="300" y="520" width="360" height="130" class="cell" fill="#dcecff"/>
+<rect x="300" y="650" width="360" height="130" class="cell" fill="#ffe0c7"/>
+
+<text x="480" y="338" class="value" text-anchor="middle">40</text>
+<text x="480" y="468" class="value" text-anchor="middle">30</text>
+<text x="480" y="598" class="value" text-anchor="middle">20</text>
+<text x="480" y="728" class="value" text-anchor="middle">10</text>
+
+<text x="220" y="338" class="note green" text-anchor="end">TOPO</text>
+<line x1="235" y1="330" x2="285" y2="330" stroke="#15803d" stroke-width="5" marker-end="url(#ag)"/>
+
+<text x="480" y="835" class="note blue" text-anchor="middle">BASE</text>
+
+<!-- Push -->
+<rect x="860" y="230" width="380" height="200" class="cell" fill="#d9f5df"/>
+<text x="1050" y="285" class="label" text-anchor="middle">push(50)</text>
+<text x="1050" y="335" class="note green" text-anchor="middle">Insere no topo</text>
+<text x="1050" y="385" class="code" text-anchor="middle">topo = novo elemento</text>
+<path d="M790 315 C825 315 830 315 845 315" fill="none" stroke="#15803d" stroke-width="6" marker-end="url(#ag)"/>
+
+<!-- Pop -->
+<rect x="860" y="490" width="380" height="200" class="cell" fill="#f8d7da"/>
+<text x="1050" y="545" class="label" text-anchor="middle">pop()</text>
+<text x="1050" y="595" class="note red" text-anchor="middle">Remove do topo</text>
+<text x="1050" y="645" class="code" text-anchor="middle">retorna 40</text>
+<path d="M845 570 C810 570 805 570 790 570" fill="none" stroke="#b91c1c" stroke-width="6" marker-end="url(#ar)"/>
+
+<!-- Peek -->
+<rect x="1320" y="360" width="360" height="200" class="cell" fill="#eadcf7"/>
+<text x="1500" y="415" class="label" text-anchor="middle">peek()</text>
+<text x="1500" y="465" class="note purple" text-anchor="middle">Consulta o topo</text>
+<text x="1500" y="515" class="code" text-anchor="middle">retorna 40</text>
+<path d="M1240 455 C1270 455 1280 455 1305 455" fill="none" stroke="#2563eb" stroke-width="6" marker-end="url(#ab)"/>
+
+<!-- LIFO -->
+<rect x="820" y="760" width="760" height="140" class="cell" fill="#f3f4f6"/>
+<text x="1200" y="815" class="label" text-anchor="middle">LIFO — Last In, First Out</text>
+<text x="1200" y="860" class="small" text-anchor="middle">O último valor empilhado é o primeiro valor desempilhado.</text>
+
+<!-- rodapé -->
+<rect x="250" y="940" width="1300" height="70" class="cell" fill="#fff1b8"/>
+<text x="900" y="982" class="note orange" text-anchor="middle">As operações push, pop e peek ocorrem sempre no topo da pilha.</text>
+</svg>

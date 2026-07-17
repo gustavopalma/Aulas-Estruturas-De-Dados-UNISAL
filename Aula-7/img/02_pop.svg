@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1700" height="1000" viewBox="0 0 1700 1000">
+
+<defs>
+<style>
+.title{font:700 42px Arial,sans-serif;fill:#6b21a8}.subtitle{font:500 24px Arial,sans-serif;fill:#374151}
+.label{font:700 28px Arial,sans-serif;fill:#1f2937}.value{font:700 32px Consolas,monospace;fill:#1f2937}
+.code{font:700 23px Consolas,monospace;fill:#1f2937}.note{font:700 22px Arial,sans-serif}
+.small{font:500 20px Arial,sans-serif;fill:#374151}.cell{stroke:#1f2937;stroke-width:3;rx:16;ry:16}
+.green{fill:#15803d}.blue{fill:#2563eb}.orange{fill:#c2410c}.purple{fill:#6b21a8}.red{fill:#b91c1c}
+</style>
+<marker id="ag" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#15803d"/></marker>
+<marker id="ar" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#b91c1c"/></marker>
+<marker id="ab" markerWidth="14" markerHeight="14" refX="11" refY="7" orient="auto"><path d="M0,0 L14,7 L0,14 z" fill="#2563eb"/></marker>
+</defs>
+
+<rect width="1700" height="1000" fill="#fff"/>
+<text x="70" y="80" class="title">Operação POP</text>
+<text x="70" y="125" class="subtitle">Remove e retorna o elemento que está no topo.</text>
+
+<rect x="560" y="170" width="580" height="90" class="cell" fill="#f3f4f6"/>
+<text x="850" y="225" class="code" text-anchor="middle">valor = pop()</text>
+
+<text x="370" y="330" class="label" text-anchor="middle">Antes</text>
+<rect x="240" y="260" width="260" height="110" class="cell" fill="#d9f5df" stroke="#b91c1c" stroke-width="6"/>
+<rect x="240" y="370" width="260" height="110" class="cell" fill="#fff1b8"/>
+<rect x="240" y="480" width="260" height="110" class="cell" fill="#dcecff"/>
+<rect x="240" y="590" width="260" height="110" class="cell" fill="#ffe0c7"/>
+<text x="370" y="328" class="value" text-anchor="middle">40</text>
+<text x="370" y="438" class="value" text-anchor="middle">30</text>
+<text x="370" y="548" class="value" text-anchor="middle">20</text>
+<text x="370" y="658" class="value" text-anchor="middle">10</text>
+<text x="210" y="328" class="note red" text-anchor="end">topo</text>
+
+<line x1="530" y1="480" x2="720" y2="480" stroke="#b91c1c" stroke-width="7" marker-end="url(#ar)"/>
+<text x="625" y="440" class="note red" text-anchor="middle">remove 40</text>
+
+<text x="1030" y="330" class="label" text-anchor="middle">Depois</text>
+<rect x="900" y="370" width="260" height="110" class="cell" fill="#fff1b8"/>
+<rect x="900" y="480" width="260" height="110" class="cell" fill="#dcecff"/>
+<rect x="900" y="590" width="260" height="110" class="cell" fill="#ffe0c7"/>
+<text x="1030" y="438" class="value" text-anchor="middle">30</text>
+<text x="1030" y="548" class="value" text-anchor="middle">20</text>
+<text x="1030" y="658" class="value" text-anchor="middle">10</text>
+<text x="1190" y="438" class="note red">novo topo</text>
+
+<rect x="300" y="800" width="1100" height="120" class="cell" fill="#f8d7da"/>
+<text x="850" y="850" class="note red" text-anchor="middle">O elemento do topo é removido e retornado.</text>
+<text x="850" y="895" class="code" text-anchor="middle">valor = 40</text>
+
+</svg>

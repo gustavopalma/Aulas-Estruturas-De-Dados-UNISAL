@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <title><span class="lecture_placeholder"></title>
+
+  <!-- Reveal.js -->
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/reveal.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js/dist/theme/white.css">
+  <link rel="stylesheet" href="css/mine.css">
+  <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js-mermaid-plugin/plugin/mermaid/mermaid.js"></script>
+
+</head>
+
+<body>
+
+  <!-- Cabeçalho -->
+  <div id="header-template">
+    <a href="https://unisal.br/">
+      <img src="img/logo_unisal.png" alt="Logo">
+    </a>
+    <h1>Aula &nbsp; <span id="aula_num_placeholder"></span> &nbsp; - &nbsp; <span class="lecture_placeholder"></span>
+      &nbsp; - &nbsp; <span class="lecture_subject_placeholder"></span></h1>
+  </div>
+
+  <!-- Rodapé -->
+  <div id="footer-template">
+    UNISAL - São José, Campinas - &nbsp; <span id="year-placeholder"></span>
+  </div>
+
+  <!-- Slides -->
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <a href="https://unisal.br/">
+          <img src="img/logo_unisal.png" alt="logo unisal"
+            style="height: 180px; margin: 0 auto 4rem auto; background: transparent;" class="demo-logo">
+        </a>
+        <h2><span class="lecture_placeholder"></h2>
+        <h3><span class="lecture_subject_placeholder"></span></h3>
+        <p>
+          <small>Prof. Me. Gustavo Ferreira Palma</small>
+        </p>
+      </section>
+      <section>
+        <h2>Pauta</h2>
+
+        <ul>
+          <li>Pilhas</li>
+        </ul>
+      </section>
+
+      <!-- <section>
+        <h2>Bibliografia Básica</h2>
+        <ul>
+          <li>Conci, Aura. Computação Gráfica: Teoria e Prática - Geração De Imagens - Volume 1. Contribuição de Cristina Nader Vasconcelos e Eduardo Azevedo, Alta Books, 2021.</li>
+          <li>Barelli, Felipe. Introdução à visão computacional: uma abordagem prática com Python e OpenCV. Casa do Código, 2018.</li>
+        </ul>
+      </section> -->
+
+      <section>
+        <h1>Pilhas</h1>
+      </section>
+
+      <section>
+        <h2>Pilhas - Conceito</h2>
+        <ul>
+          <li>Em diversas situações do cotidiano é necessário acessar primeiro o elemento inserido mais recentemente.
+          </li>
+          <li>Alguns exemplos são:</li>
+          <ul>
+            <li>histórico de navegação;</li>
+            <li>desfazer ações em editores de texto;</li>
+            <li>chamadas de funções durante a execução de um programa;</li>
+            <li>pilha de pratos;</li>
+            <li>pilha de livros.</li>
+          </ul>
+          <li>Todas essas aplicações seguem exatamente o mesmo princípio de funcionamento.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Pilhas - Conceito</h2>
+        <ul>
+          <li>Uma pilha (Stack) é uma estrutura de dados linear em que as inserções e remoções ocorrem sempre na mesma
+            extremidade da estrutura, denominada Topo (Top).</li>
+          <li>Esse comportamento é conhecido como <b>LIFO (Last In, First Out)</b>, ou seja:</li>
+          <ul>
+            <li>O último elemento inserido será o primeiro a ser removido.</li>
+          </ul>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Pilhas - Conceito</h2>
+        <img src="img/conceitos_pilha.svg" style="width: 65%;">
+      </section>
+
+      <section>
+        <h2>Pilhas - Conceito</h2>
+        <ul>
+          <li>Uma pilha pode ser implementada utilizando exatamente a mesma estrutura da lista encadeada.</li>
+        </ul>
+        <pre>
+          <code data-line-numbers="" data-trim="" data-noescape="">
+//...
+typedef struct No
+{
+    int dado;
+    struct No *proximo;
+} No;
+//...
+          </code>
+        </pre>
+
+        <ul>
+          <li>A diferença está apenas nas operações permitidas.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Pilhas - Criação da Pilha</h2>
+        <ul>
+          <li>Uma pilha vazia é representada por um ponteiro para o topo igual a NULL.</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+//...
+No *topo = NULL;
+//...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Pilhas - Empilhar (Push)</h2>
+        <ul>
+          <li>A operação Push adiciona um novo elemento no topo da pilha.</li>
+          <li>Como o topo corresponde ao início da lista, basta inserir o novo nó na primeira posição.</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+No *novo = malloc(sizeof(No));
+
+if (novo == NULL)
+{
+  printf("Erro ao alocar memória.\n");
+  return;
+}
+
+novo->dado = valor;
+novo->proximo = *topo;
+*topo = novo;
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Pilhas - Empilhar (Push)</h2>
+        <img src="img/01_push.svg" style="width: 65%;">
+      </section>
+
+      <section>
+        <h2>Pilhas - Desempilhar (Pop)</h2>
+        <ul>
+          <li>A operação Pop remove o elemento localizado no topo.</li>
+          <li>Após a remoção, o topo passa a apontar para o próximo elemento.</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+//...
+if (*topo == NULL)
+{
+  printf("Pilha vazia.\n");
+  return -1;
+}
+
+No *temp = *topo;
+
+int valor = temp->dado;
+
+*topo = temp->proximo;
+
+free(temp);
+
+return valor;
+//...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Pilhas - Desempilhar (Pop)</h2>
+        <img src="img/02_pop.svg" style="width: 65%;">
+      </section>
+
+      <section>
+        <h2>Pilhas - Consultar a pilha (Peek)</h2>
+        <ul>
+          <li>A operação Peek permite consultar o elemento localizado no topo da pilha sem removê-lo.</li>
+          <li>Essa operação é muito utilizada quando é necessário conhecer o próximo elemento a ser processado.</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+//...
+if (topo == NULL)
+{
+  printf("Pilha vazia.\n");
+  return -1;
+}
+
+return topo->dado;
+//...
+          </code>
+        </pre>
+      </section>
+
+      <section>
+        <h2>Pilhas - Verificar Pilha Vazia</h2>
+        <ul>
+          <li>Antes de realizar qualquer remoção, é necessário verificar se existem elementos armazenados.</li>
+        </ul>
+        <pre>
+          <code data-trim data-noescape data-line-numbers="">
+//...
+if(topo == NULL) { printf("Pilha vazia."); }
+//...
+          </code>
+        </pre>
+        <ul>
+          <li>Essa verificação evita o acesso a posições inválidas da memória.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>OBRIGADO!</h1>
+        <p>Podem me encontrar aqui:</p>
+        <ul>
+          <li>gustavo.palma@unisal.edu.br</li>
+          <li>www.gustavopalma.com.br</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/reveal.js/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="../../../dist/reveal.js"></script>
+
+
+  <script src="plugin/highlight/highlight.js"></script>
+  <script src="plugin/zoom/zoom.js"></script>
+  <script>
+    const iframe = document.getElementById('terminal');
+    if (iframe != null) {
+      iframe.onload = () => {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        const style = doc.createElement('style');
+        style.innerHTML = `
+      .xterm {
+        font-size: 20px !important;
+        line-height: 1.2 !important;
+      }
+    `;
+        doc.head.appendChild(style);
+      };
+    }
+  </script>
+  <script>
+    Reveal.on('ready', event => {
+      const headerTemplate = document.getElementById('header-template');
+      const footerTemplate = document.getElementById('footer-template');
+
+      document.querySelectorAll('.slide-background').forEach(backgroundDiv => {
+        if (headerTemplate) {
+          backgroundDiv.appendChild(headerTemplate.cloneNode(true));
+        }
+        if (footerTemplate) {
+          backgroundDiv.appendChild(footerTemplate.cloneNode(true));
+        }
+      });
+
+      const nomeDisciplina = "Estrutura de Dados";
+      const assuntoAula = "Pilhas"
+      const aulaNum = '7';
+      const currentDate = new Date();
+
+      // Get the full four-digit year
+      const currentYear = " " + currentDate.getFullYear(); // e.g., 2026
+
+      // Find the HTML element by its ID and set its text content to the current year
+      document.getElementById('year-placeholder').textContent = "\  " + currentYear;
+      var elems = document.getElementsByClassName('lecture_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = nomeDisciplina;
+      }
+      document.title = nomeDisciplina;
+      document.getElementById('aula_num_placeholder').textContent = aulaNum
+      elems = document.getElementsByClassName('lecture_subject_placeholder');
+      for (var i = 0; i < elems.length; i++) {
+        elems[i].textContent = assuntoAula;
+      }
+      createWorldMarketShare();
+      createMarketShare();
+    });
+    Reveal.initialize({
+      hash: true,
+      slideNumber: true,
+      transition: 'slide',
+      center: true,
+      width: "100%",
+      height: "100%",
+      margin: 0,
+      controls: true,
+      controlsBackArrows: 'faded',
+      progress: true,
+      plugins: [RevealHighlight, RevealZoom],
+    });
+  </script>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)'], ['$', '$']] },
+      svg: { fontCache: 'global' }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</body>
+
+</html>

@@ -293,7 +293,7 @@ int main() {
   scanf("%d",&n);
   p = malloc(n * sizeof(int)); // Aloca o ponteiro p para n posições do tamanho do inteiro
   //...
-  int *temp = malloc(p,(n+x) * sizeof(int)); // Realoca o ponteiro p para n+x posições do tamanho do inteiro
+  int *temp = realloc(p,(n+x) * sizeof(int)); // Realoca o ponteiro p para n+x posições do tamanho do inteiro
   if (temp != NULL)
   {
     p = temp;

@@ -1,0 +1,371 @@
+\documentclass[12pt,a4paper]{article}
+
+% ---------------------------------------------------------
+% Codificação e idioma
+% ---------------------------------------------------------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+
+% ---------------------------------------------------------
+% Layout e formatação
+% ---------------------------------------------------------
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{amsmath}
+
+\geometry{
+    top=2.5cm,
+    bottom=2cm,
+    left=2cm,
+    right=2cm,
+    footskip=0.8cm
+}
+
+% ---------------------------------------------------------
+% Imagens
+% ---------------------------------------------------------
+\usepackage{graphicx}
+
+% ---------------------------------------------------------
+% Código-fonte
+% ---------------------------------------------------------
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=C,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\bfseries,
+    commentstyle=\itshape,
+    numbers=left,
+    numberstyle=\tiny,
+    numbersep=8pt,
+    frame=single,
+    breaklines=true,
+    showstringspaces=false,
+    tabsize=4
+}
+
+% ---------------------------------------------------------
+% Cabeçalho e rodapé
+% ---------------------------------------------------------
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+
+\pagestyle{fancy}
+\fancyhf{}
+
+% Cabeçalho esquerdo
+\lhead{
+    \begin{tabular}{l}
+        \textbf{Estruturas de Dados - Avaliação}
+    \end{tabular}
+}
+
+% Logo no canto superior direito
+\rhead{
+    \includegraphics[height=1.3cm]{logo.png}
+}
+
+% Rodapé
+\cfoot{Página \thepage\ de \pageref{LastPage}}
+
+% Altura necessária para acomodar o logo
+\setlength{\headheight}{40pt}
+
+% ---------------------------------------------------------
+% Formatação dos parágrafos
+% ---------------------------------------------------------
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+% ---------------------------------------------------------
+% Documento
+% ---------------------------------------------------------
+
+\begin{document}
+
+% =========================================================
+% Identificação
+% =========================================================
+
+\begin{center}
+    {\Large \textbf{Avaliação -- Estruturas de Dados}}\\[0.2cm]
+    {\large Tecnologia em Análise e Desenvolvimento de Sistemas}
+\end{center}
+
+\vspace{0.5cm}
+
+\noindent
+\textbf{Nome:} \rule{7cm}{0.4pt}
+\hfill
+\textbf{RA:} \rule{3cm}{0.4pt}
+\hfill
+\textbf{Data:} 28/09/2026
+
+\vspace{0.5cm}
+
+\textbf{Orientações:}
+
+\begin{itemize}
+    \item Leia atentamente todas as questões antes de respondê-las.
+    \item Considere a linguagem de programação C em todas as questões.
+    \item Nas questões de programação, serão considerados o raciocínio,
+          a estrutura da solução e o uso correto dos conceitos estudados.
+    \item Respostas dissertativas devem ser justificadas de forma clara.
+    \item Questões deixadas a lápis não poderão ser revistas.
+    \item Questões com má caligrafia, serão desconsideradas.
+\end{itemize}
+\rule{16.5cm}{0.4pt}
+\hfill
+\subsection*{Questão 01}
+
+Considere o código a seguir:
+
+\begin{lstlisting}
+int valores[5] = {10, 20, 30, 40, 50};
+int *p = valores;
+
+p = p + 2;
+
+printf("%d", *p);
+\end{lstlisting}
+
+Assinale a alternativa que apresenta corretamente o valor exibido pelo
+programa.
+
+\begin{enumerate}[label=\Alph*)]
+    \item 10
+    \item 20
+    \item 30
+    \item 40
+    \item 50
+\end{enumerate}
+
+\vspace{0.5cm}
+
+% ---------------------------------------------------------
+
+\subsection*{Questão 02}
+
+Um programa precisa abrir o arquivo \texttt{alunos.txt} para
+adicionar novos registros ao final do arquivo, preservando todo
+o conteúdo que já existe.
+
+Qual das alternativas realiza corretamente essa operação?
+
+\begin{enumerate}[label=\Alph*)]
+    \item \texttt{fopen("alunos.txt", "r");}
+    \item \texttt{fopen("alunos.txt", "w");}
+    \item \texttt{fopen("alunos.txt", "a");}
+    \item \texttt{fopen("alunos.txt", "rw");}
+    \item \texttt{fopen("alunos.txt", "n");}
+\end{enumerate}
+
+\subsection*{Questão 03}
+
+Analise cuidadosamente o programa a seguir:
+
+\begin{lstlisting}
+#include <stdio.h>
+
+void alterar(int *a, int b) {
+    *a = *a + b;
+    b = b * 2;
+}
+
+int main() {
+    int x = 5;
+    int y = 3;
+
+    alterar(&x, y);
+
+    printf("x = %d\n", x);
+    printf("y = %d\n", y);
+
+    return 0;
+}
+\end{lstlisting}
+
+Responda:
+
+\begin{enumerate}[label=\alph*)]
+    \item Qual será o valor apresentado para \texttt{x}?   
+    \item Qual será o valor apresentado para \texttt{y}? 
+    \item Explique por que a função \texttt{alterar()} consegue modificar
+    o valor de \texttt{x}, mas a alteração realizada em \texttt{b} não
+    modifica \texttt{y}.
+\end{enumerate}
+
+% ---------------------------------------------------------
+
+\subsection*{Questão 04}
+
+Analise o programa:
+
+\begin{lstlisting}
+#include <stdio.h>
+
+int main() {
+    FILE *arquivo;
+    char linha[100];
+
+    arquivo = fopen("alunos.txt", "r");
+
+    fgets(linha, sizeof(linha), arquivo);
+    printf("%s", linha);
+
+    fclose(arquivo);
+
+    return 0;
+}
+\end{lstlisting}
+
+O programador deseja ler todos os números existentes no arquivo
+\texttt{numeros.txt}.
+
+Entretanto, o código possui dois problemas importantes
+
+\begin{enumerate}[label=\alph*)]
+    \item Identifique os dois problemas.
+    \item Explique quais consequências eles podem causar durante a execução.
+    \item Apresente uma forma correta de realizar essa leitura.
+\end{enumerate}
+
+\subsection*{Questão 05 -- Ponteiros}
+
+Explique, com suas próprias palavras, o que é um ponteiro na
+linguagem C.
+
+Em sua resposta, diferencie:
+
+\begin{itemize}
+    \item uma variável comum;
+    \item o endereço de uma variável;
+    \item uma variável ponteiro;
+    \item os operadores \texttt{\&} e \texttt{*}.
+\end{itemize}
+
+Utilize um pequeno exemplo para complementar sua explicação.
+
+% ---------------------------------------------------------
+
+\subsection*{Questão 06 -- Alocação Dinâmica}
+
+Durante a execução de um programa, nem sempre é possível conhecer
+antecipadamente a quantidade de dados que será necessário armazenar.
+
+Explique o que é alocação dinâmica de memória e por que ela
+pode ser útil nessa situação.
+
+Em sua resposta, explique também a finalidade das funções:
+
+\begin{itemize}
+    \item \texttt{malloc()};
+    \item \texttt{calloc()};
+    \item \texttt{realloc()};
+    \item \texttt{free()}.
+\end{itemize}
+% ---------------------------------------------------------
+
+\subsection*{Questão 07 -- Structs}
+
+Considere um sistema que precisa armazenar as seguintes informações
+sobre um aluno:
+
+\begin{itemize}
+    \item RA;
+    \item nome;
+    \item nota;
+    \item situação acadêmica.
+\end{itemize}
+
+Explique por que uma \texttt{struct} é adequada para representar um
+aluno nesse sistema.
+
+Em seguida, explique a diferença entre utilizar uma \texttt{struct}
+para representar um aluno e utilizar um vetor de
+structs para armazenar vários alunos.
+
+Não é necessário implementar o programa.
+
+% ---------------------------------------------------------
+
+\subsection*{Questão 08 -- Arquivos}
+
+Explique por que um programa pode utilizar arquivos para
+armazenar informações em vez de manter todos os dados exclusivamente
+em variáveis na memória.
+
+Em sua resposta, explique:
+
+\begin{itemize}
+    \item o que acontece com as variáveis quando o programa é encerrado;
+    \item o significado de persistência de dados;
+    \item para que serve o tipo \texttt{FILE *};
+    \item a função de \texttt{fopen()} e \texttt{fclose()};
+    \item a diferença entre os modos de abertura \texttt{"r"},
+          \texttt{"w"} e \texttt{"a"}.
+\end{itemize}
+
+Utilize como exemplo um sistema que precisa manter informações
+cadastradas mesmo depois que o programa for encerrado.
+
+\subsection*{Questão 09}
+
+Uma escola deseja armazenar temporariamente as notas de uma turma.
+
+Crie um programa em C que:
+
+\begin{enumerate}
+    \item solicite ao usuário a quantidade de alunos;
+    \item crie dinamicamente um vetor de \texttt{float} com espaço
+          suficiente para armazenar as notas;
+    \item leia todas as notas;
+    \item calcule e apresente a média da turma;
+    \item libere corretamente a memória utilizada antes do encerramento
+          do programa.
+\end{enumerate}
+
+% ---------------------------------------------------------
+
+\subsection*{Questão 10}
+
+Considere a seguinte estrutura:
+
+\begin{lstlisting}
+typedef struct _produto{
+    int codigo;
+    char nome[50];
+    float preco;
+} Produto;
+\end{lstlisting}
+
+Escreva um programa ou trecho de código em C que:
+
+\begin{enumerate}
+    \item declare uma variável do tipo \texttt{Produto};
+    \item leia do usuário o código, o nome e o preço do produto;
+    \item abra o arquivo de texto \texttt{produtos.txt};
+    \item acrescente ao final do arquivo os dados do produto;
+    \item feche corretamente o arquivo.
+\end{enumerate}
+
+Os dados devem ser armazenados em uma única linha utilizando o seguinte
+formato:
+
+\begin{verbatim}
+codigo;nome;preco
+\end{verbatim}
+
+Exemplo de conteúdo esperado no arquivo:
+
+\begin{verbatim}
+15;Teclado USB;89.90
+\end{verbatim}
+
+% =========================================================
+
+\end{document}
